@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxSelectSortItems android:title="Icons, 1 defval, max 3" android:key="selectsort_1"
+       grx:arrowColor="?complementary_color3"
+        android:defaultValue="2|"
+        grx:maxChoices="3" grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values"
+        grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color3"/>
+    <GrxSelectSortItems android:icon="@drawable/demo_icon_1" grx:iconTint="?colorAccent"
+        android:title="No icons no defval, no max" android:key="selectsort_2"
+
+        grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values" />
+    <GrxSelectSortItems android:icon="@drawable/demo_icon_4" grx:iconTint="?complementary_color5"
+        android:defaultValue="2|4|" android:title="Icons, defval, no max" android:key="selectsort_3"
+       grx:arrowColor="?complementary_color1"
+        grx:optionsArray="@array/demo_lists_entries"  grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color1"
+        grx:valuesArray="@array/demo_lists_values"/>
+
+</PreferenceScreen>

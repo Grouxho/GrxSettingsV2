@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="Group Keys" />
+    <GrxInfoText android:summary="You can add the same second key to a group of preferences in order to save
+     resources in observers, for example. Your observer will react to the groupkey only,
+     then you can load the related preferences values to update your mods. This feature helps you to build mods in a simpler way." />
+
+    <GrxButtonPreference android:title="Button Changing a Group key" grx:groupKey="gk_buttons" android:key="button_1"  android:summary="This could be used to update the mods only when user click the button, saving resources, avoiding restarting apps or whaterver .." grx:button_Style="big"/>
+    <GrxInfoText android:summary="Or you simply can share a group key among several preferences and just observe this group key for them.."/>
+
+    <GrxCheckBoxPreference grx:iconTint="?complementary_color1" android:icon="@drawable/demo_icon_5"
+        android:title="CheckBox 2" android:key="checkbox_2" android:defaultValue="false" android:summaryOn="Summary On"
+        android:summaryOff="Summary Off"
+        grx:groupKey="check_listpref" grx:checkboxColor="?complementary_color3"
+        />
+
+    <GrxSingleSelection android:icon="@drawable/demo_icon_1" grx:groupKey="check_listpref" android:title="No icons no defval" android:key="singleselection_2"
+        android:widgetLayout="@layout/widget_icon_accent" grx:iconTint="?complementary_color3"
+        grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values" />
+
+    <GrxPreferenceCategory android:title="Send BroadCasts" />
+    <GrxInfoText android:summary="You can define 2 actions to send via broadcasts per preference. You can use this feature to update your mods, reacting to the broadcast in a receiver. "/>
+    <GrxCheckBoxPreference grx:iconTint="?complementary_color3" android:icon="@drawable/demo_icon_3"
+        android:title="Check with 2 broadcasts" android:key="checkbox_222" android:defaultValue="false" android:summaryOn="Summary On"
+        android:summaryOff="Summary Off"  grx:checkboxColor="?complementary_color1"  grx:broadCast1="com.demo.grx.action1" grx:broadCast2="com.demo.grx.action2"
+        />
+
+
+
+</PreferenceScreen>

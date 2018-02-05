@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxSortList" />
+
+    <GrxSortList grx:optionsArray="@array/demo_lists_entries" android:title="Icons and defval" android:key="sortlist_12"
+        android:defaultValue="2|4|1|8|6|3|5|7|9|11|10|12|"  grx:arrowColor="?complementary_color5"
+         grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color1" />
+
+
+
+    <GrxSortList android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color1"  grx:optionsArray="@array/demo_lists_entries" android:title="No icons no defval" android:key="sortlist_14"
+        grx:arrowColor="?complementary_color1" grx:valuesArray="@array/demo_lists_values"  />
+    <GrxSortList grx:showShortIcon="true" android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color5"
+        grx:optionsArray="@array/demo_lists_entries" android:title="No icons, no defval, grabber" android:key="sortlist_15" android:widgetLayout="@layout/widget_icon_accent" grx:valuesArray="@array/demo_lists_values" />
+    <GrxSortList android:title="Icons no defval" android:key="sortlist_16"
+        android:icon="@drawable/demo_icon_4" grx:iconTint="?complementary_color2"  grx:arrowColor="?complementary_color2"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values"
+        grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color2"  />
+    <GrxSortList grx:showShortIcon="true" android:icon="@drawable/demo_icon_4"
+        grx:iconTint="?complementary_color3"  grx:optionsArray="@array/demo_lists_entries" android:title="Icons no defval, grabber" android:key="sortlist_17"  grx:arrowColor="?complementary_color1"
+        grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color5" grx:valuesArray="@array/demo_lists_values" />
+
+</PreferenceScreen>

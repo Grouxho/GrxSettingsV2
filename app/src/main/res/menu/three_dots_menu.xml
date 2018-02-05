@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.grx.settings.GrxSettingsActivity">
+    <item
+        android:id="@+id/menu_backup"
+        android:orderInCategory="100"
+        android:title="@string/grxs_backup"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_restaurar"
+        android:orderInCategory="100"
+        android:title="@string/grxs_restore"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_buildprop"
+        android:orderInCategory="100"
+        android:title="@string/grxs_buildprop_simulator"
+        app:showAsAction="never" />
+</menu>

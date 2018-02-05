@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="On click after value changes" />
+	
+    <GrxInfoText android:summary="when the value of the following seekbar changes to 1, 3 or 7 the checkbox is always clicked . You can easily play with clicks and dependencies to change your screen behaviour. On next releases multirules will be added" />
+	<GrxSeekBar android:title="Seekbar " android:summary="1,3,7#checkbox_2#ALWAYS" android:key="seekbar_pa1" grx:minValue="0" grx:maxValue="15" grx:interval="1"  grx:showPopup="true"  android:defaultValue="1"
+        grx:clickRules="1,3,7#checkbox_2#ALWAYS"/>
+    <GrxCheckBoxPreference android:title="CheckBox 2" android:key="checkbox_2" android:defaultValue="false" android:summaryOn="Summary On" android:summaryOff="Summary Off"  />
+    <GrxInfoText android:summary="when the value of the following seekbar changes to 2, 4 or 6 the switch is is clicked but ONLY if it is unchecked. That switch could have an script associated or a groupkey..." />
+    <GrxSeekBar android:title="Seekbar 2" android:summary="2,4,6#switch_2#FALSE" android:key="seekbar_pa2" grx:minValue="0" grx:maxValue="15" grx:interval="1"  grx:showPopup="true" android:defaultValue="1"
+        grx:clickRules="2,4,6#switch_2#FALSE"/>
+    <GrxSwitchPreference android:title="Switch 2" android:key="switch_2" android:defaultValue="false" android:summaryOn="Summary On" android:summaryOff="Summary Off"
+        grx:groupKey="switches"   />
+
+
+    <GrxInfoText android:summary="In the next example if you select only Airplane or only Brightness or just airplane + Brightness 2 are selected, then the color picker pref is clicked " />
+    <GrxMultipleSelection android:title="No icons no defval, no max" android:key="multipleselection_2"
+        android:summary="1|,3|,(1|12|)#cpicker_2#ALWAYS"
+        android:widgetLayout="@layout/widget_icon_accent"   grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values"
+        grx:clickRules="1|,3|,(1|12|)#cpicker_2#ALWAYS" />
+    <GrxColorPicker android:title="Demo 3 " android:key="cpicker_2" android:summary="flower, no alpha,"
+        android:defaultValue="0xffffffff" grx:colorPickerStyle="flower" grx:saveSettings="false" grx:showAlphaSlider="false" grx:showAutoButton="true"  />
+
+    <GrxInfoText android:summary="In the next example if you select Battery the color picker is enabled. If you select Brightness the image picker is enabled and clicked if no image is selected." />
+
+    <GrxSingleSelection android:title="Select Item" android:key="singleselection_1" android:summary="Click rule 3#pickimage_2#,NULL,"
+
+        android:widgetLayout="@layout/widget_icon_accent" android:defaultValue="2"
+        grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"
+        grx:iconsValueTint="?complementary_color3"
+        grx:clickRules="3#pickimage_2#,NULL,"
+        />
+
+    <GrxColorPicker android:title="Demo 4" android:key="cpicker_3" android:summary="Dep Rule ENABLE#singleselection_1#STRING#2"
+        android:defaultValue="0xff33b5e5"   grx:saveSettings="false" grx:showAlphaSlider="false" grx:showAutoButton="true"
+        grx:depRule="ENABLE#singleselection_1#STRING#2"/>
+
+    <GrxPickImage android:icon="@drawable/demo_icon_2"  grx:iconTint="?colorAccent"
+        android:summary="Dep rule ENABLE#singleselection_1#STRING#3" android:title="Another Simple Image Picker" android:key="pickimage_2"
+        android:widgetLayout="@layout/widget_icon_accent"
+        grx:depRule="ENABLE#singleselection_1#STRING#3"/>
+
+
+
+</PreferenceScreen>

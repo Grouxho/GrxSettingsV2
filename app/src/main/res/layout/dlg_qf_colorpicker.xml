@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="24dp" android:paddingTop="20dp" android:paddingEnd="24dp" android:paddingBottom="24dp"
+    >
+
+
+
+       <com.qfcolorpicker.ColorPickerView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:id="@+id/colorpickerview"
+                    android:layout_weight="1"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textSize="12sp"
+                    android:text="Hex"/>
+                <EditText
+                    style="@style/PickerEditText"
+                    android:hint="Color.."
+                    android:gravity="start"
+                    android:id="@+id/edit_text"
+                    android:inputType="textNoSuggestions"
+                    />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_preview_height"
+                    android:gravity="center|end"
+                    android:layout_gravity="center"
+                    android:id="@+id/color_preview_container">
+                    <ImageView
+                        android:layout_width="@dimen/default_preview_image_height"
+                        android:layout_height="@dimen/default_preview_image_height"
+                        android:src="@android:color/transparent"
+                        android:id="@+id/color_preview"/>
+                </LinearLayout>
+        </LinearLayout>
+</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/grxs_lightness"/>
+    <com.qfcolorpicker.slider.LightnessSlider
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:id="@+id/lightness_slider"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:id="@+id/v_txt_alfa"
+        android:text="@string/grxs_alpha"/>
+    <com.qfcolorpicker.slider.AlphaSlider
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:visibility="gone"
+        android:id="@+id/alpha_slider"/>
+
+
+</LinearLayout>

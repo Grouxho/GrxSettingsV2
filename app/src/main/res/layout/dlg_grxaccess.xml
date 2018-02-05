@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:LinearLayoutandroid="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#06cccccc">
+        <LinearLayout android:id="@+id/gid_aux_info_container"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="8dip"
+            android:paddingEnd="8dip"
+            android:layout_width="match_parent"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:layout_height="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/gid_spinner_container"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:background="#06cccccc"
+
+        android:layout_height="40dp">
+        <Spinner
+                android:id="@+id/gid_spinner"
+                android:dropDownWidth="fill_parent"
+                android:layout_marginEnd="8dp"
+                android:spinnerMode="dropdown"
+                android:backgroundTint="?colorAccent"
+                android:layout_gravity="center"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/gid_buttons_container"
+        android:layout_width="@dimen/ancho_panel"
+        android:layout_height="@dimen/grx_altura_contenedor_botones_grupo"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:background="#06cccccc"
+        >
+        <LinearLayout
+            android:clickable="true"
+            android:id="@+id/gid_button_close"
+            android:background="?android:selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/grx_tam_botones_grupo"
+                android:layout_height="@dimen/grx_tam_botones_grupo"
+                android:layout_gravity="center"
+                android:tint="?colorAccent"
+                android:src="@drawable/ico_cerrar_grupos"/>
+        </LinearLayout>
+        <LinearLayout
+            android:clickable="true"
+            android:id="@+id/gid_button_expand"
+            android:background="?android:selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/grx_tam_botones_grupo"
+                android:layout_height="@dimen/grx_tam_botones_grupo"
+                android:layout_gravity="center"
+                android:tint="?colorAccent"
+                android:src="@drawable/ico_abrir_grupos"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/gid_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="?android:listDivider"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+
+        android:listSelector="?android:selectableItemBackground"
+        android:paddingStart="8dip"
+        android:paddingEnd="8dip">
+    </ListView>
+
+    <ListView
+        android:id="@+id/gid_apps_listview"
+        android:paddingStart="8dip"
+        android:paddingEnd="8dip"
+        android:divider="?android:listDivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+       <ExpandableListView
+        android:id="@+id/gid_expandable_listview"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="?android:listDivider"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+
+        android:listSelector="?android:selectableItemBackground"
+        android:paddingStart="8dip"
+        android:paddingEnd="8dip">
+    </ExpandableListView>
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:id="@+id/gid_progressbar_txt"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+    <ProgressBar  android:id="@+id/gid_progressbar" android:layout_gravity="center" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_marginBottom="16dp" android:layout_marginTop="16dp" android:indeterminate="true"
+        android:indeterminateTint="?attr/colorAccent" android:indeterminateTintMode="src_in"  android:progressTint="?attr/colorAccent" />
+
+
+
+
+</LinearLayout>

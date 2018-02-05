@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fab.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:include="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/observableview">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:textColor="?colorAccent" android:textSize="18sp" android:text="@string/grxs_app_help"/>
+
+        <com.grx.settings.views.ArrayTextList
+            android:layout_marginStart="18dp" android:layout_marginEnd="18dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content" grxA_entries="@array/grxa_app_help"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"></LinearLayout>
+    </LinearLayout>
+
+</com.fab.ObservableScrollView>

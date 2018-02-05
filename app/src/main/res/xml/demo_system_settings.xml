@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxInfoText android:summary="If this demo fails, put the app in system / priv-app and it will work, assuming your device has got these keys. This keys are automatically updated when resuming the app."
+        grx:rightIcon="@drawable/demo_icon_3" grx:rightIconTint="?complementary_color3" android:key="it_1"/>
+
+    <GrxPreferenceCategory android:title="Settings System, Secure and global\nSupport" grx:textColor="?colorAccent" grx:centerHorizontal="true" />
+    <GrxSwitchPreference android:title="Global Settings" android:key="charging_sounds_enabled" android:defaultValue="true"
+        android:summary="Charging sounds -> charging_sounds_enabled"
+        grx:systemType="global"
+        />
+    <GrxCheckBoxPreference android:title="Setting System Key" android:key="screen_off_pocket" android:defaultValue="false"
+        android:summary="Keep screen turned off -> screen_off_pocket"
+        grx:systemType="system"
+        />
+    <GrxSwitchPreference android:title="Secure Settings" android:key="install_non_market_apps" android:defaultValue="false"
+        android:summary="Unknown Sources -> install_non_market_apps"
+        grx:systemType="secure"
+        />
+
+    <GrxSingleSelection android:title="Screen Off TimeOut" android:key="screen_off_timeout" android:summary="This is a settings system key"
+        android:defaultValue="30000" grx:systemType="system"
+        grx:optionsArray="@array/demo_screen_timeout_options"  grx:valuesArray="@array/demo_screen_timeout_values"
+
+        />
+
+</PreferenceScreen>

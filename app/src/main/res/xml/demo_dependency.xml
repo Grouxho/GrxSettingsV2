@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxInfoText android:summary="The following preference depends on the value of the switch 1 placed in the GrxCheckbox - GrxSwitch screen. If that switch is true, the preference is disabled " />
+
+    <GrxSortList grx:depRule="DISABLE#switch_1#BOOLEAN#true"
+        android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color3" grx:iconsValueTint="?complementary_color1"
+        grx:optionsArray="@array/demo_lists_entries" android:title="GrxSortList" android:key="sortlist_2"
+         grx:valuesArray="@array/demo_lists_values" />
+
+    <GrxInfoText android:summary="If the following GrxSingleSelection value is 1 (Airplane), 3 (Brightness) or 6 (Airplane 1) the seekbar is disabled. " />
+    <GrxSingleSelection android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color4" grx:iconsValueTint="?complementary_color1"
+        grx:optionsArray="@array/demo_lists_entries" android:title="GrxSingleSelection" android:key="singleselection_dep_1"
+        grx:valuesArray="@array/demo_lists_values" />
+    <GrxSeekBar grx:depRule="DISABLE#singleselection_dep_1#STRING#1,3,6" android:title="Seekbar dep 1" android:key="seekbar_dep_1"
+        android:summary="interval 50" android:defaultValue="600" grx:minValue="400" grx:maxValue="1200" 
+        grx:units=" mS" grx:interval="50" grx:showPopup="true"  />
+
+    <GrxInfoText android:summary="If the value of the following GrxSeekbar is 600, 950 or 1150 a hidden category wrapping the next preference screen is disable." />
+    <GrxSeekBar android:title="Seekbar dep 2" android:key="seekbar_dep_2" android:summary="interval 50"
+        android:defaultValue="600" grx:minValue="400" grx:maxValue="1200" grx:units=" mS" grx:interval="50" grx:showPopup="true" />
+
+    <GrxPreferenceCategory grx:depRule="DISABLE#seekbar_dep_2#INT#600,950,1150"
+                android:key="cat_dep_1" android:title="Hidden Category" grx:hiddenCategory="true">
+        <PreferenceScreen android:title="Nested dep 1">
+            <GrxInfoText android:summary="If the selected package name contains com.grx.settings or com.android.settings, the checkbox should be enabled" />
+            <GrxAppSelection android:title="GrxSelectApp dep 1" android:key="selectapp_dep_1" android:summary="Grx" 
+                android:defaultValue="com.grx.settings" />
+            <GrxCheckBoxPreference android:title="CheckBox dep 1" android:key="checkbox_dep_1" android:defaultValue="true"
+                grx:depRule="ENABLE#selectapp_dep_1#STRING#(com.grx.settings),(com.android.settings)" android:summaryOn="Summary On" android:summaryOff="Summary Off"  />
+
+        </PreferenceScreen>
+
+    </GrxPreferenceCategory>
+
+</PreferenceScreen>

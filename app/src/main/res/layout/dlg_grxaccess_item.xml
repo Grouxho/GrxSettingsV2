@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/gid_item_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:orientation="horizontal"
+    android:background="?android:attr/selectableItemBackground">
+
+
+
+
+        <ImageView
+            android:id="@+id/gid_access_item_img"
+            android:layout_gravity="center"
+            android:padding="3dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    <TextView
+        android:layout_weight="3"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textSize="15sp"
+        android:id="@+id/gid_access_item_text"
+        android:layout_width="wrap_content"
+        android:singleLine="true"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <ImageView
+
+
+            android:gravity="center"
+            android:tint="?colorAccent"
+            android:id="@+id/gid_arrow_icon"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:src="@drawable/access_arrow"
+            android:scaleType="fitXY"
+            android:layout_width="15dp"
+            android:layout_height="15dp"/>
+    </LinearLayout>
+
+</LinearLayout>

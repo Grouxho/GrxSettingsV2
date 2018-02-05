@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="GrxAppLedPulse" />
+
+    <GrxLedPulse android:title="Only Color Selection" android:summary="A string #color is saved, you can test led color. White is the default color assumed"
+        android:key="pulse_7" grx:showPulseOptions="false" />
+    <GrxLedPulse android:title="Only Color Selection + def val" android:defaultValue="#ff33b5e5" android:summary="A string #color is saved, you can test led color"
+        android:key="pulse_8" grx:showPulseOptions="false" />
+
+    <GrxLedPulse android:title="Color and Pulse no defval" android:summary="A string #color;pulseon;pulseof is saved,"
+        android:key="pulse_9"  />
+
+    <GrxLedPulse android:title="Color and Pulse and defval" android:summary="A string #color;pulseon;pulseof is saved,"
+        android:key="pulse_11" android:defaultValue="#ffff0000;1;1000"  />
+
+
+    <GrxPreferenceCategory android:title="GrxPerAppLedPulse" />
+
+    <GrxPerAppLedPulse android:title="No defval, no limit, all apps " android:key="perapppulse_1" />
+    <GrxPerAppLedPulse android:title="No defval, 3 max user apps " android:key="perapppulse_2"
+        grx:maxChoices="3"  android:icon="@drawable/demo_icon_5" grx:iconTint="?complementary_color3" grx:showSystemapps="true"/>
+
+    <GrxPerAppLedPulse android:title="Defval, no limit, user apps " android:key="perapppulse_3" grx:arrowColor="?complementary_color1"
+        android:defaultValue="com.grx.settings;#ff33b5e5;1;100|com.android.settings;#ffff0000;100;500"
+        android:icon="@drawable/demo_icon_5" grx:iconTint="?complementary_color2" grx:showSystemapps="true"/>
+</PreferenceScreen>

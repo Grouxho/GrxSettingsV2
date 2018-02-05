@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPerAppColor android:title="demo 1" android:key="multiappcolor_1" android:summary="link apps and colors"/>
+    
+    <GrxPerAppColor android:icon="@drawable/demo_icon_3"  grx:iconTint="?colorAccent" android:title="With system apps and defcolor"
+        grx:defaultColor="0xff08ff00" android:key="multiappcolor_2" grx:arrowColor="?complementary_color3" grx:showSystemapps="true" android:summary="link apps and colors"/>
+
+    <GrxPerAppColor android:title="User Apps 5 max" showSystemapps="false" grx:maxChoices="5" grx:arrowColor="?complementary_color4" android:key="multiappcolor_3" android:summary="link apps and colors"/>
+
+    <GrxPerAppColor android:title="All apps, 7 max" grx:showSystemapps="true" grx:maxChoices="7" android:key="multiappcolor_4" grx:arrowColor="?complementary_color1" android:summary="link apps and colors"/>
+
+
+
+
+</PreferenceScreen>

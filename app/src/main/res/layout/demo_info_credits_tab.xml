@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fab.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/observableview">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+
+
+
+            <LinearLayout android:layout_width="match_parent"  android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_marginTop="10dp" android:layout_marginBottom="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Credits" android:textSize="16dp" android:gravity="center" android:textColor="?complemnt_accent_color"/>
+                <TextView android:layout_marginTop="10dp" android:layout_marginBottom="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="This app uses the following libraries" android:textSize="14dp" android:gravity="center" />
+                <com.grx.settings.views.CardViewWithLink
+                    grxURL="https://github.com/makovkastar/FloatingActionButton"  android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:layout_marginStart="15dp" android:layout_marginEnd="15dp" android:padding="15dp"  app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="?main_bg_color" app:cardElevation="8dp" app:cardPreventCornerOverlap="false" android:clickable="true" android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="8dp" android:layout_gravity="center_vertical"  android:src="@drawable/demo_github_logo"/>
+                        <TextView android:layout_width="wrap_content"  android:layout_height="match_parent"  android:gravity="center_vertical" android:layout_marginStart="15dp"
+                            android:text="Floating Action Button, by makovkastar (MIT License)"/>
+                    </LinearLayout>
+                </com.grx.settings.views.CardViewWithLink>
+
+                <com.grx.settings.views.CardViewWithLink
+                    grxURL="https://github.com/vikramkakkar/SublimeNavigationView"  android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:layout_marginStart="15dp" android:layout_marginEnd="15dp" android:padding="15dp"  app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="?main_bg_color" app:cardElevation="8dp" app:cardPreventCornerOverlap="true" android:clickable="true" android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="8dp" android:layout_gravity="center_vertical"  android:src="@drawable/demo_github_logo"/>
+                        <TextView android:layout_width="wrap_content"  android:layout_height="match_parent"  android:gravity="center_vertical" android:layout_marginStart="15dp"
+                            android:text="SublimeNavigationView, by vikramkakkar ((Apache License 2.0)"/>
+                    </LinearLayout>
+                </com.grx.settings.views.CardViewWithLink>
+
+                <com.grx.settings.views.CardViewWithLink
+                    grxURL="https://github.com/QuadFlask/colorpicker"  android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:layout_marginStart="15dp" android:layout_marginEnd="15dp" android:padding="15dp"  app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="?main_bg_color" app:cardElevation="8dp" app:cardPreventCornerOverlap="true" android:clickable="true" android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="8dp" android:layout_gravity="center_vertical"  android:src="@drawable/demo_github_logo"/>
+                        <TextView android:layout_width="wrap_content"  android:layout_height="match_parent"  android:gravity="center_vertical" android:layout_marginStart="15dp"
+                            android:text="QuadFlask ColorPicker, by QuadFlask ((Apache License 2.0))"/>
+                    </LinearLayout>
+                </com.grx.settings.views.CardViewWithLink>
+
+                <com.grx.settings.views.CardViewWithLink
+                    grxURL="https://github.com/attenzione/android-ColorPickerPreference"  android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:layout_marginStart="15dp" android:layout_marginEnd="15dp" android:padding="15dp"  app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="?main_bg_color" app:cardElevation="8dp" app:cardPreventCornerOverlap="true" android:clickable="true" android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="8dp" android:layout_gravity="center_vertical"  android:src="@drawable/demo_github_logo"/>
+                        <TextView android:layout_width="wrap_content"  android:layout_height="match_parent"  android:gravity="center_vertical" android:layout_marginStart="15dp"
+                            android:text="Square ColorPicker by Sergey Margaritov (Apache License 2.0)"/>
+                    </LinearLayout>
+                </com.grx.settings.views.CardViewWithLink>
+                <com.grx.settings.views.CardViewWithLink
+                    grxURL="https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root"  android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:layout_marginStart="15dp" android:layout_marginEnd="15dp" android:padding="15dp"  app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="?main_bg_color" app:cardElevation="8dp" app:cardPreventCornerOverlap="true" android:clickable="true" android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="8dp" android:layout_gravity="center_vertical"  android:src="@drawable/demo_github_logo"/>
+                        <TextView android:layout_width="wrap_content"  android:layout_height="match_parent"  android:gravity="center_vertical" android:layout_marginStart="15dp"
+                            android:text="RootTools from kernelAdiutor (GPL 3.0 License)"/>
+                    </LinearLayout>
+                </com.grx.settings.views.CardViewWithLink>
+
+                <TextView android:layout_marginTop="10dp" android:layout_marginBottom="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Thanks" android:textSize="16dp" android:gravity="center" android:textColor="?complemnt_accent_color"/>
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:padding="15dp"
+                    android:layout_gravity="center" app:cardBackgroundColor="?colorAccent" android:foregroundGravity="center" app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:cardPreventCornerOverlap="true" android:layout_marginStart="12dp" android:layout_marginEnd="12dp">
+                    <com.grx.settings.views.TextViewWithLink
+                        android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                        grxAnimateText="true" android:text="Thanks to Thomas Shimko and Thereassad for their help in adding RTL support. Also thanks to josete1976 for providing me with his ideas. Thanks to the guys from espdroids.com and to all those sharing code and libraries in Github."
+                        android:textSize="16dp" android:gravity="center"  android:textColor="?contrast_text_color"/>
+                </android.support.v7.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"></LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+</com.fab.ObservableScrollView>

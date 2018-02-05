@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/gid_app_container"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/gid_app_icon"
+            android:layout_gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <RelativeLayout
+            android:id="@+id/aux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:layout_marginBottom="6dip"
+            android:layout_weight="1.0"
+            android:layout_marginStart="15.0dip"
+            android:layout_marginEnd="6.0dip">
+            <TextView
+                android:id="@+id/gid_app_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:singleLine="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                android:id="@+id/gid_package_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:alpha="0.85"
+                android:layout_below="@+id/gid_app_label"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                />
+        </RelativeLayout>
+        <TextView
+            android:layout_marginEnd="6dp"
+            android:text=">>"
+
+            android:gravity="center"
+            android:textColor="?colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <com.smcolorpicker.ColorPickerView
+            android:layout_weight="0.5"
+            android:layout_marginStart="4dp"
+            android:id="@+id/color_picker_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:layerType="software"
+            android:tag="portrait" />
+
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:id="@+id/gid_pulses_container"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+                        <TextView android:textAppearance="?android:textAppearanceSmall" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                            android:layout_marginTop="4.0dip" android:text="@string/grxs_pulse_speed_title" android:textColor="?colorAccent" />
+                        <LinearLayout android:orientation="horizontal" android:layout_marginTop="6dp" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <Spinner android:id="@+id/gid_on_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                            <View android:layout_width="8.0dip" android:layout_height="fill_parent" />
+                            <Spinner android:id="@+id/gid_off_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/gid_color_container"
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+                        <TextView android:textAppearance="?android:textAppearanceSmall" android:visibility="gone" android:layout_width="fill_parent" android:textColor="?colorAccent"
+                            android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:layout_marginStart="8dp"
+                            android:layout_marginTop="4.0dip" android:layout_marginBottom="4dp" android:text="" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+                            <com.smcolorpicker.ColorPickerPanelView
+                                android:layout_weight="1"
+                                android:id="@+id/old_color_panel"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                />
+                            <LinearLayout
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="2dp"
+                                android:layout_height="match_parent"
+                                />
+                            <com.smcolorpicker.ColorPickerPanelView
+                                android:layout_weight="1"
+                                android:id="@+id/new_color_panel"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp" />
+                        </LinearLayout>
+                        <EditText
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:id="@+id/hex_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:hint="HEX"
+                            android:imeOptions="actionDone"
+                            android:maxLength="7"
+                            android:singleLine="true"
+                            android:inputType="textCapCharacters"/>
+
+                    </LinearLayout>
+               </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

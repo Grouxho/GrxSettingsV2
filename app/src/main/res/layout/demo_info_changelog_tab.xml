@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fab.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/observableview">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent"  android:layout_gravity="top|center_horizontal"
+                android:gravity="top" android:layout_marginTop="30dp" android:src="@drawable/grxavatar3" android:tint="?colorAccent"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"  android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView android:layout_width="wrap_content"  android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+                    android:textSize="14sp" android:textStyle="bold" android:layout_margin="8dp"
+                    android:text="Main Features" android:textColor="?complemnt_accent_color"/>
+
+                <com.grx.settings.views.ArrayTextList
+                    android:layout_marginStart="18dp" android:layout_marginEnd="18dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" grxA_entries="@array/demo_changelog"/>
+                <TextView android:layout_width="wrap_content"  android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+                    android:textSize="14sp" android:textStyle="bold" android:layout_margin="8dp"
+                    android:text="Type of Preferences" android:textColor="?complemnt_accent_color"/>
+                <com.grx.settings.views.ArrayTextList
+                    android:layout_marginStart="18dp" android:layout_marginEnd="18dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" grxA_entries="@array/demo_preferences"/>
+                <TextView android:layout_width="wrap_content"  android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+                    android:textSize="14sp" android:textStyle="bold" android:layout_margin="8dp"
+                    android:text="User Options" android:textColor="?complemnt_accent_color"/>
+                <com.grx.settings.views.ArrayTextList
+                    android:layout_marginStart="18dp" android:layout_marginEnd="18dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" grxA_entries="@array/demo_useroptions"/>
+                <!--some space for fab button if you want to-->
+                <View android:layout_width="match_parent" android:layout_height="30dp"/>
+
+                <!--scrool views (observablescrollview) just can have one main container. So We will use a linear layout since is the easiest way.. -->
+
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</com.fab.ObservableScrollView>

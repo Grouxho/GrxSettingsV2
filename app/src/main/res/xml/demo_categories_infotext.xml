@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxPreferenceCategory and GrxInfoText" />
+    <GrxInfoText android:summary="This is a GrxInfoText. The above category is a normal category. You can add an icon on the right side and to tint it"
+        grx:rightIcon="@drawable/demo_icon_3" grx:rightIconTint="?complementary_color3" android:key="it_1"/>
+    <GrxPreferenceCategory android:title="GrxPreferenceCategory - Backgroound and text color"
+        grx:textColor="?contrast_text_color" grx:backgroundColor="?colorAccent" android:key="cat_1"/>
+
+
+    <GrxPreferenceCategory android:title="Centered Category\n\It is possible to add\nup to 5 lines\nin category title\nYou can also use empty lines" grx:centerHorizontal="true" />
+    <GrxInfoText grx:iconTint="0xff00ff00" android:icon="@drawable/demo_icon_2" android:summary="You also can tint the android icon (left side) The following one is a hidden category wrapping a GrxInfoText. The hidden category has got a standard dependency rule, beeing dependent on the status of the next checkbox." />
+    <GrxSwitchPreference android:title="Switch 2" android:key="switch_2" android:defaultValue="false" android:summaryOn="Summary On" android:summaryOff="Summary Off" />
+    <GrxPreferenceCategory android:title="Hidden Category" android:dependency="switch_2" grx:hiddenCategory="true">
+        <GrxInfoText android:icon="@drawable/demo_github_logo" android:summary="GrxInfotext wrapped in a invisible category. For example, you could use GrxInfoText to show information to your users.. "
+            grx:rightIcon="@drawable/demo_icon_4" grx:rightIconTint="?complementary_color2" android:key="it_2"/>
+    </GrxPreferenceCategory>
+
+
+
+</PreferenceScreen>

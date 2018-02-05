@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="Scripts in String Arrays" />
+
+    <GrxInfoText android:summary="By default the script is the first action (in case the preference has got more) to be run. The default order of actions executions is set in a string but it can be overriden on the preferences.\n
+    \nThe following preference runs a script after a change on its value. In this case, the script is defined by a string array.\n
+    In this case the wifi keys are backed up in the folder defined in the array (/data/misc/wifi).\n
+     After the script execution, the rest of actions are run in the default order.\n
+     In this case no confirmation dialog is shown when the script is runed, just a toast. However we show a confirmation dialog for the kill app action\n
+     When you run a script you can show or not a confirmation dialog and/or a toast or nothing"/>
+
+
+    <GrxSwitchPreference grx:iconTint="?complementary_color3" android:icon="@drawable/demo_icon_1"
+        android:title="Groupkey, bc and array script" android:key="switch_1" android:defaultValue="true"
+        android:summary="The Script makes a backup of wifi keys"
+        grx:groupKey="switches"
+        grx:bpRule="DISABLE#grx.demo.prop#TEST,TEST2"
+        grx:broadCast2="com.demo.grx.action"
+        grx:script="@array/backup_wifi_key" grx:scriptToast="Wifi conf. backed up"
+        grx:killpackage="com.android.systemui" grx:confirmKillpackage="true"/>
+
+    <GrxButtonPreference android:title="Restore wifi backup" android:summary="Script array to restore the wifi backup with confirmation"
+        grx:button_Style="small"
+        grx:button_Text="Restore"  grx:script="@array/restore_wifi_key" grx:scriptConfirm="true" grx:scriptToast="Wifi conf. restored"/>
+
+    <GrxCheckBoxPreference android:title="Delete wifi backup"  android:key="checkbox_1" android:defaultValue="true" android:summaryOn="Summary On" android:summaryOff="Summary Off"
+        grx:script="@array/delete_wifi_backup" grx:scriptToast="Wifi back up deleted!!!!!!"/>
+
+    <GrxPreferenceCategory android:title="File Scripts" />
+
+    <GrxButtonPreference android:title="Run wifi backup file script" android:key="but1" android:summary="Run file script without confirmation Saved in /sdcard/backups/filewifibackup with the date and time appended"
+        grx:button_Style="big" grx:button_backgroundColor="?complementary_color1"
+        grx:button_Text="Backup wifi config"  grx:script="wifibackup.sh" grx:scriptConfirm="false" grx:scriptToast="Wifi conf. script executed"/>
+
+    <GrxPreferenceCategory android:title="File Scripts with arguments" />
+    <!-- android key is needed for preserving colors on screen rotations -->
+    <GrxButtonPreference android:title="Wifi backup file script with arguments" android:summary="First argument is destination folder (/sdcard/backups/fileargwifibackup). The second argument is the destination file name (mywififackup.conf). Arguments separated by white space. In the script a log file is also created in the folder"
+        grx:button_Style="big" grx:button_backgroundColor="?complementary_color4" android:key="but2"
+        grx:button_Text="Backup wifi config"  grx:script="wifibackup_arg.sh" grx:scriptArguments="sdcard/backups/fileargwifibackup mywififackup.conf" grx:scriptConfirm="true" grx:scriptToast="Wifi conf. backup script executed"/>
+
+
+
+</PreferenceScreen>

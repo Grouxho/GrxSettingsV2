@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="svn_nav_header_height">160dp</dimen>
+    <dimen name="icon_size_in_prefs">36dip</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="ancho_panel">304dp</dimen>
+	<dimen name="default_slider_height">36dp</dimen>
+	<dimen name="default_slider_margin">24dp</dimen>
+	<dimen name="default_slider_bar_height">4dp</dimen>
+	<dimen name="default_slider_handler_radius">10dp</dimen>
+    <dimen name="default_preview_height">40dp</dimen>
+	<dimen name="default_preview_image_height">36dp</dimen>
+	<dimen name="default_slider_margin_btw_title">20dp</dimen>
+    <dimen name="fab_size_normal">56dp</dimen>
+    <dimen name="fab_size_mini">40dp</dimen>
+    <dimen name="fab_shadow_size">12dp</dimen>
+
+    <dimen name="fab_scroll_threshold">4dp</dimen>
+    <dimen name="fab_elevation_lollipop">8dp</dimen>
+    <dimen name="fab_press_translation_z">6dp</dimen>
+    <dimen name="slv_item_bg_btn_width">36dip</dimen>
+    <dimen name="widget_pref">36dip</dimen>
+    <dimen name="textsize_listas_opciones">18.0sp</dimen>
+    <dimen name="view_minheight_listas_opciones">48.0dip</dimen>
+    <dimen name="grx_altura_contenedor_botones_grupo">50dp</dimen>
+    <dimen name="grx_tam_botones_grupo">30dp</dimen>
+    <dimen name="grx_altura_item_accesos">42dp</dimen>
+    <dimen name="grx_padding_lista_preferencias">60dp</dimen>
+    <dimen name="dialog_aux_buttons_size">28dp</dimen>
+</resources>

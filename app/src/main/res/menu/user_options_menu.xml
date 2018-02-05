@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Separator/>
+    <CenteredText android:title="@string/grxs_title_rom_app_info_options" android:checked="true"/>
+    <Separator/>
+
+    <TextWithBadge
+        android:id="@+id/grx_mid_rom_info"
+        android:title="@string/grxs_rom_info"
+        android:checkable="false"
+        app:badgeText=">"
+        />
+    <Separator/>
+    <TextWithBadge
+        android:id="@+id/grx_mid_app_help"
+        android:title="@string/grxs_app_help"
+        android:checkable="false"
+        app:badgeText=">"
+        />
+    <Separator/>
+    <CenteredText android:title="@string/grxs_title_theming_options" android:checked="true"/>
+    <Separator/>
+
+    <TextWithBadge
+        android:id="@+id/grx_mid_theme"
+        android:title="@string/grxs_select_theme"
+        android:checkable="true" />
+
+    <TextWithBadge
+        android:id="@+id/grx_mid_header_svn_back"
+        android:title="@string/grxs_nav_header_bg"
+        android:checkable="false" />
+
+    <TextWithBadge
+        android:id="@+id/grx_mid_divider_height"
+        android:title="@string/grxs_divider_height"
+        android:checkable="false" />
+
+    <TextWithBadge
+        android:id="@+id/grx_mid_color_picker_style"
+        android:title="@string/grxs_color_picker_style"
+        android:checkable="false" />
+    <Separator/>
+    <CenteredText android:title="@string/grxs_title_fab_options" android:checked="true"/>
+    <Separator/>
+
+    <Checkbox
+        android:id="@+id/grx_mid_show_fab"
+        android:title="@string/grxs_show_fab"
+        android:checked="false"
+        android:checkable="true" />
+    <TextWithBadge
+        android:id="@+id/grx_mid_fab_position"
+        android:title="@string/grxs_fab_position"
+        android:checkable="false" />
+    <Separator/>
+    <CenteredText android:title="@string/grxs_title_recents_screens_options" android:checked="true"/>
+    <Separator/>
+    <Switch
+        android:id="@+id/grx_mid_fw_show"
+        android:hint="@string/grxs_show_recents_fw_hint"
+        android:title="@string/grxs_show_recents_fw"
+        android:checked="false"
+        android:checkable="true"/>
+
+    <Checkbox
+        android:id="@+id/grx_mid_fw_dismiss_back"
+        android:title="@string/grxs_hide_recents_fw_back"
+        android:checked="false"
+        android:checkable="true" />
+
+    <Checkbox
+        android:id="@+id/grx_mid_fw_dismiss_outside"
+        android:title="@string/grxs_hide_recents_fw_outside"
+        android:hint="@string/grxs_hide_recents_fw_outside_hint"
+        android:checked="false"
+        android:checkable="true" />
+
+    <Separator/>
+    <CenteredText android:title="@string/grxs_title_navview_options" android:checked="true"/>
+    <Separator/>
+    <Switch
+        android:id="@+id/grx_mid_drawer_right"
+        android:title="@string/grxs_drawer_right"
+        android:checked="false"
+        android:checkable="true"/>
+
+    <Checkbox
+        android:id="@+id/grx_mid_groups_open"
+        android:title="@string/grxs_groups_open"
+        android:checked="false"
+        android:checkable="true" />
+    <Checkbox
+        android:id="@+id/grx_mid_groups_buttons"
+        android:title="@string/grxs_show_groups_buttons"
+        android:checked="false"
+        android:checkable="true" />
+    <Separator/>
+    <CenteredText android:title="@string/grxs_title_other_options" android:checked="true"/>
+    <Separator/>
+
+    <Checkbox
+        android:id="@+id/grx_mid_remember_screen"
+        android:title="@string/grxs_remember_screen"
+        android:checked="false"
+        android:checkable="true" />
+
+    <Checkbox
+        android:id="@+id/grx_mid_exit_confirmation"
+        android:title="@string/grxs_exit_confirmation"
+        android:checked="false"
+        android:checkable="true" />
+
+</menu>

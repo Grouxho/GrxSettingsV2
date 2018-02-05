@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/gid_help_sort_button"  android:layout_centerVertical="true" android:textSize="14.0dip" android:textColor="?colorAccent" android:layout_width="match_parent" android:layout_height="32.0dip" android:gravity="center" android:layout_gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gid_lists_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <com.sldv.SlideAndDragListView
+            android:id="@+id/gid_slv_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="true"
+            android:divider="?android:listDivider"
+            android:listSelector="?android:selectableItemBackground"
+            android:paddingStart="8dip"
+            android:paddingEnd="8dip">
+        </com.sldv.SlideAndDragListView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

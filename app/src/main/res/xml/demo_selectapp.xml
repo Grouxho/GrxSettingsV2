@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxAppSelection - App single selection" />
+
+    <GrxAppSelection android:title="Default app - save activity" android:key="selectapp_4"
+        android:summary="Default is GrxSettings"
+        android:defaultValue="com.grx.settings/com.grx.settings.GrxSettingsActivity" grx:saveActivityname="true" />
+
+
+    <GrxAppSelection android:title="Select App - save activity name" android:key="selectapp_0" android:summary="Select an app"
+        grx:saveActivityname="true"  grx:arrowColor="?complementary_color3"  />
+
+    <GrxAppSelection android:title="All apps - No activity" android:key="selectapp_1" android:summary="Select an app"
+        android:icon="@drawable/demo_icon_5"  grx:iconTint="?complementary_color2"
+        grx:showSystemapps="true" grx:saveActivityname="false"/>
+
+    <GrxPreferenceCategory android:title="GrxMultipleAppSelection - apps mult. selection" />
+    <GrxMultipleAppSelection android:title="Including system apps" android:key="mulselectapp_0" android:summary="system apps, no limit, save act. name"
+        grx:showSystemapps="true" grx:saveActivityname="true"
+        android:icon="@drawable/demo_icon_5" grx:iconTint="?complementary_color2"   grx:arrowColor="?colorAccent"
+         />
+
+    <GrxMultipleAppSelection android:title="All Apps, max 3" android:key="mulselectapp_00a" android:summary="system apps, 3 max, no act. name"
+        grx:showSystemapps="true" grx:maxChoices="3" grx:saveActivityname="false" />
+
+    <GrxMultipleAppSelection android:title="User apps, max 5, no save act" android:key="mulselectapp_1" android:summary="user apps, max 5, save act name"
+        android:icon="@drawable/demo_icon_2"  grx:iconTint="?complementary_color2"
+        grx:showSystemapps="false" grx:maxChoices="5" grx:saveActivityname="false"/>
+
+    <GrxMultipleAppSelection android:title="User apps, no limit, no act" android:key="mulselectapp_11a" android:summary="user apps, no limit, no act name"
+        grx:arrowColor="?complementary_color1"
+        grx:showSystemapps="false" grx:saveActivityname="false"/>
+
+    <GrxMultipleAppSelection android:title="User apps, 1 defval, Act,  max 5" android:key="mulselectapp_11b" android:summary="user apps, max 5, default value, save act name"
+        android:icon="@drawable/demo_icon_1" grx:iconTint="?colorAccent"
+        grx:showSystemapps="false" grx:maxChoices="5"
+        grx:saveActivityname="true" android:defaultValue="com.grx.settings/com.grx.settings.GrxSettingsActivity|"/>
+</PreferenceScreen>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxDatePicker" />
+    <GrxDatePicker android:title="GrxDatePicker 1" android:key="datepicker_1" android:defaultValue="14/05/2017" />
+    <GrxDatePicker android:summary="Summary....." android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color5"
+        android:title="GrxDatePicker 1" android:key="datepicker_2" grx:arrowColor="?complementary_color1" />
+    <GrxPreferenceCategory android:title="GrxTimePicker" />
+    <GrxTimePicker android:title="Default value" android:key="timepicker_1" android:defaultValue="630"
+        grxBc1="true" />
+    <GrxTimePicker android:summary="no def value means 0:00....." android:icon="@drawable/demo_icon_1"  grx:iconTint="?colorAccent"
+        android:title="No default value" android:key="timepicker_2"  />
+</PreferenceScreen>

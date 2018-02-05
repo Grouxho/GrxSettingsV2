@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxInfoText android:summary="Build prop rules allows you tho hide or show groups of screens, individual sceens and individual preferences based on build prop properties values.\n.
+     For now only one property rule can be checked on each group, screen or preference. Of course you can use different properties in different elements. You can play with different values on the properties to autoconfigure the application.\n
+     The rule checking the value allows to you to check if the property value &quot;is&quot; exactly one of the given values in the rule or to check if the property value &quot;contains&quot; one or more values\n.
+     The logic behind these rules is the same than the rules for custom dependencies or onClick actions after preference changes" />
+
+    <GrxInfoText android:summary="You can test this feature through the three dots menu (option only available in this demo mode). In this demo we are going to use only one property\n
+     A simple demo to see how you can hide a group if you select in the tool containing REMOVE_GROUP.\n
+    Start testing selecting the Hello option and then play with the values. If you select exactly the option REMOVE_SCREEN,  one of the two screen inside the group will be removed from the navigation panel.\n
+    Finally in the other screen inside the group there are 3 preferences. One of them will be removed if you select an option containing the value REMOVE_PREFERENCE. The other one will be showed if the option selected is REMOVE_SCREEN" />
+
+</PreferenceScreen>

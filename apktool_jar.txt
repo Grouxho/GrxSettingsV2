@@ -1,0 +1,12 @@
+To make it compatible with apktool.jar
+
+    buildToolsVersion "22.0.1"  // this is the main thing to do. New build tools makes lastes apktools (let´s see further on) to change namespaces to n1 , n2 ...
+
+classpath 'com.android.tools.build:gradle:2.2.1'
+
+and download gradle wrapper to 3.5
+
+Sign v1 better.
+
+
+

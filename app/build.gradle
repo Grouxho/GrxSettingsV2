@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 22
+	//buildToolsVersion "22.0.1"
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId 'com.grx.settings'
+        minSdkVersion 22
+        targetSdkVersion 22
+        versionCode 2
+        versionName "2.0"
+    }
+
+    repositories {
+        mavenCentral()
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+
+    lintOptions {
+        disable 'MissingTranslation'
+        //checkReleaseBuilds false
+    }
+    productFlavors {
+    }
+/*
+    dexOptions {
+        javaMaxHeapSize "3g"
+    }
+
+    dexOptions {
+        preDexLibraries true
+    } */
+}
+
+dependencies {
+
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+
+
+    compile 'com.android.support:recyclerview-v7:22+'
+    compile 'com.android.support:support-annotations:22+'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.android.support:appcompat-v7:22+'
+    compile 'com.android.support:cardview-v7:22+'
+    compile 'com.android.support:design:22+'
+    compile 'com.android.support:palette-v7:22+'
+}

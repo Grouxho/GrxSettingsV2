@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="GrxAccess" />
+    <GrxAccess android:title="All options" android:key="access_1" android:summary="Select a shortcut, app, activity or customized action"
+        grx:groupKey="gkey_access"
+        grx:arrowColor="?complementary_color3"
+        grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"  grx:iconsValueTint="?complementary_color3"
+        />
+
+
+</PreferenceScreen>

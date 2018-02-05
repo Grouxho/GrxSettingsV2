@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxItemsColors" />
+    <GrxPerItemColor
+        android:title="Icons and Def Colors Array" android:key="itemscolors_1" grx:arrowColor="?complementary_color3"
+        android:summary="This is the summary"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"
+        grx:iconsValueTint="?complementary_color2" grx:colorsArray="@array/demo_lists_colors"
+         />
+
+    <GrxPerItemColor
+        android:title="No icons, no def colors array" android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color1" android:key="itemscolors_2"
+        grx:arrowColor="?colorAccent"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values"
+        grx:defaultColor="0xff33b5e5"
+
+        />
+
+
+
+</PreferenceScreen>

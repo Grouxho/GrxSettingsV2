@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="GrxAccess" />
+    <GrxAccess android:title="All options" android:key="access_1" android:summary="Select a shortcut, app, activity or customized action"
+        grx:groupKey="gkey_access"
+
+        grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"  grx:iconsValueTint="?complementary_color1"
+        />
+    <GrxAccess android:title="All options - No custom icons" android:key="access_2" android:summary="Select a shortcut, app, activity or customized action"
+        grx:arrowColor="?complementary_color3"
+        grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" />
+
+    <GrxPreferenceCategory android:title="GrxAccess - Just ShortCuts" />
+    <GrxAccess android:icon="@drawable/demo_icon_1"  grx:iconTint="?colorAccent"  android:title="Select ShortCut" android:key="access_3" android:summary="Select a shortcut"
+
+        grx:showShortcuts="true" grx:showApplications="false" grx:showActivities="false" />
+    <GrxPreferenceCategory android:title="GrxAccess - Just Apps" />
+    <GrxAccess android:icon="@drawable/demo_icon_2"  grx:iconTint="?colorAccent"  android:title="Select App" android:key="access_4" android:summary="Select a shortcut"
+        grx:showShortcuts="false" grx:showApplications="true" grx:showActivities="false" />
+
+    <GrxPreferenceCategory android:title="GrxAccess - Just Activities" />
+    <GrxAccess android:icon="@drawable/demo_icon_3"  grx:iconTint="?colorAccent"  android:title="Select Activity" android:key="access_5"
+        grx:showShortcuts="false" grx:showApplications="false" grx:showActivities="true" />
+
+    <GrxPreferenceCategory android:title="GrxAccess - Just Cust. Options" />
+    <GrxAccess android:icon="@drawable/demo_icon_4"  grx:iconTint="?colorAccent"  android:title="Select Option" android:key="access_6"
+        grx:arrowColor="?complemnt_accent_color"
+        grx:showShortcuts="false" grx:showApplications="false" grx:showActivities="false"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"  grx:iconsValueTint="?complementary_color3"
+        />
+
+    <GrxPreferenceCategory android:title="GrxAccess - Apps + Activities" />
+    <GrxAccess android:icon="@drawable/demo_icon_5"  grx:iconTint="?colorAccent"  android:title="Select App or Activ." android:key="access_7" android:summary=""
+        grx:arrowColor="?complementary_color1"
+        grx:showShortcuts="false" grx:showApplications="true" grx:showActivities="true" />
+
+
+</PreferenceScreen>

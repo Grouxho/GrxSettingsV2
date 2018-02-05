@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPickImage android:title="Simple Image Picker" android:key="pickimage_1"
+        grx:arrowColor="?complementary_color1"/>
+    <GrxPickImage android:icon="@drawable/demo_icon_2"  grx:iconTint="?colorAccent"
+        android:summary="Pref with android icon.." android:title="Another Simple Image Picker" android:key="pickimage_2"
+        grx:arrowColor="?colorAccent"/>
+    <GrxPickImage android:title="200 x 300 " android:key="pickimage_4"
+        grx:sizeX="200" grx:sizeY="300" grx:arrowColor="?complementary_color4"/>
+    <GrxPickImage android:icon="@drawable/demo_marley" android:title="500 x 890" android:key="pickimage_6"
+        grx:sizeX="500" grx:sizeY="890" grx:arrowColor="?complementary_color3"/>
+    <GrxPickImage android:title="200 x 200 circular " android:key="pickimage_5" grx:sizeX="200"
+        grx:sizeY="200" grx:circularImage="true" grx:arrowColor="?complementary_color2"/>
+    <GrxPickImage android:title="200 x 300 circular " android:key="pickimage_8"
+        grx:sizeX="200" grx:sizeY="300" grx:circularImage="true" grx:arrowColor="?complementary_color2"/>
+
+
+</PreferenceScreen>

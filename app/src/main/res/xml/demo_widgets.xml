@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="GrxMultipleWidgets - Multiple Widgets selection" />
+    <GrxSingleWidget android:title="Single Widget Selection" android:summary="with samsung weather widgets added in an array" android:key="widgets_s1"
+        android:icon="@drawable/demo_icon_5" grx:iconTint="?complementary_color2" grx:arrowColor="?complementary_color3"
+         grx:widgetsArray="@array/samsung_widgets"/>
+
+    <GrxSingleWidget android:title="Single Widget Selection" android:summary="without extras widgets" android:key="widgets_s2" />
+
+    <GrxPreferenceCategory android:title="GrxMultipleWidgets - Multiple Widgets selection" />
+<GrxMultipleWidgets android:title="Widgets Selection" android:summary="with samsung weather widgets added in an array" android:key="widgets_1"
+    android:icon="@drawable/demo_icon_5" grx:iconTint="?complementary_color4"
+    grx:arrowColor="?colorAccent" grx:widgetsArray="@array/samsung_widgets"/>
+
+    <GrxMultipleWidgets android:title="Max. 5 widgets" android:summary="without extras widgets" android:key="widgets_2" grx:maxChoices="5"        />
+</PreferenceScreen>

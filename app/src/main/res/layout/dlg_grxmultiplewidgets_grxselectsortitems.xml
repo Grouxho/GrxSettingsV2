@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:LinearLayoutandroid="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <LinearLayout android:id="@+id/gid_buttons_container"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#00000000"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/gid_delete_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="@dimen/dialog_aux_buttons_size"
+                android:tint="?complemnt_accent_color"
+                android:src="@drawable/ico_borrar"
+                android:layout_height="@dimen/dialog_aux_buttons_size" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/gid_help_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="@dimen/dialog_aux_buttons_size"
+                android:tint="?complemnt_accent_color"
+                android:src="@drawable/ico_ayuda"
+                android:layout_height="@dimen/dialog_aux_buttons_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gid_item"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="@dimen/dialog_aux_buttons_size"
+                android:src="@drawable/ico_add_delete"
+                android:tint="?complemnt_accent_color"
+                android:layout_height="@dimen/dialog_aux_buttons_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gid_button_back"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="@dimen/dialog_aux_buttons_size"
+                android:tint="?complemnt_accent_color"
+                android:src="@drawable/ico_atras"
+                android:layout_height="@dimen/dialog_aux_buttons_size" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/gid_list_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:id="@+id/gid_items_selected" android:layout_centerVertical="true" android:textSize="14.0dip" android:textColor="?colorAccent" android:layout_width="match_parent" android:layout_height="28.0dip" android:gravity="center" android:layout_gravity="center" />
+        <LinearLayout android:layout_width="match_parent" android:background="#06cccccc" android:layout_height="6dip"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gid_lists_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+
+     <com.sldv.SlideAndDragListView
+        android:id="@+id/gid_slv_listview"
+        android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+		android:divider="?android:listDivider"
+        android:dividerHeight="0.5dip"
+        android:listSelector="?android:selectableItemBackground"
+        android:paddingStart="8dip"
+        android:paddingEnd="8dip">
+    </com.sldv.SlideAndDragListView>
+
+    <ListView
+        android:id="@+id/gid_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+        android:visibility="gone"
+		android:divider="?android:listDivider"
+        android:dividerHeight="0.5dip"
+        android:listSelector="?android:selectableItemBackground"
+        android:paddingStart="8dip"
+        android:paddingEnd="8dip">
+    </ListView>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="16dp"
+        android:id="@+id/gid_progressbar_txt"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+    <ProgressBar  android:visibility="gone" android:id="@+id/gid_progressbar" android:layout_gravity="center" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_marginBottom="16dp" android:layout_marginTop="16dp" android:indeterminate="true"
+        android:indeterminateTint="?attr/colorAccent" android:indeterminateTintMode="src_in"  android:progressTint="?attr/colorAccent" />
+
+    <LinearLayout android:orientation="horizontal"  android:id="@+id/gid_separator" android:layout_width="match_parent" android:background="#06cccccc" android:layout_height="3dip"/>
+
+
+
+
+</LinearLayout>

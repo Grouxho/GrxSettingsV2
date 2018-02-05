@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+
+
+    <GrxInfoText android:summary="GrxButton is a preference to run any of the 6 actions that could be run on any preference change. This preference does not store any value. You can use it for example to send broadcast or to change a group key to update your mods. You can also use it to run scripts or to restart an app or reboot the device.You have seveal styling options to build nice screens!"
+        grx:rightIcon="@drawable/demo_icon_info" grx:rightIconTint="?complementary_color3" android:key="it_1"/>
+
+    <GrxPreferenceCategory android:title="GrxButton  small layout" />
+
+    <GrxButtonPreference android:title="Small Button" android:summary="This is the summary" grx:button_Style="small"
+        grx:button_Text="button text"  grx:killpackage="com.android.systemui" grx:confirmKillpackage="true"/>
+
+    <GrxButtonPreference android:title="Small Button with icon " android:summary="This is the summary" grx:button_Style="small"
+        android:icon="@drawable/demo_icon_1" grx:iconTint="?complementary_color1" android:key="button_7"
+        grx:button_backgroundColor="0xff5a9864" grx:button_textColor="0xfffffc00" grx:button_Text="button text"/>
+
+    <GrxPreferenceCategory android:title="GrxButton  big layout" />
+
+    <GrxButtonPreference android:title="Big Button without button text" android:key="button_1"  android:summary="This is the summary"
+        grx:button_Style="big"/>
+
+    <GrxButtonPreference android:title="Big Button with button text" android:key="button_2" grx:button_backgroundColor="?complementary_color3" android:summary="This is the summary"
+        grx:button_Text="button text" grx:button_Style="big"/>
+
+    <GrxButtonPreference grx:iconTint="?colorAccent" android:icon="@drawable/demo_icon_1" android:key="button_3"
+        android:title="Big with button text and icon" android:summary="This is the summary" grx:button_Text="button text"
+        grx:button_Style="big"/>
+    <GrxPreferenceCategory android:title="GrxButton  without button layout" />
+
+    <GrxButtonPreference android:title="No Button" android:summary="This is the summary" grx:button_Style="none"/>
+
+    <GrxButtonPreference android:title="No button with widget " android:summary="This is the summary" grx:button_Style="none"
+        android:widgetLayout="@layout/widget_icon_accent"/>
+</PreferenceScreen>

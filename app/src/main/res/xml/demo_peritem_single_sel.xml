@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="GrxPerItemSingleSelection" />
+<!--
+    <GrxPerItemSingleSelection android:icon="@drawable/demo_icon_1" android:title="Sb Views Positions"
+        android:summary="Sort out status bar views" android:key="grx_sb_order" grx:groupKey="gk_sb_views"
+        grx:saveSettings="true"
+        android:defaultValue="notifications;0|knox;2|netspeedview;2|statusicons;2|signalclusterview;2|batterytext;2|batterymeterview;2|clock;2|"
+        grx:iconTint="?complementary_color1"
+        grx:optionsArray="@array/test_sb_views_options"  grx:valuesArray="@array/test_sb_views_values"
+        grx:spinnerOptionsArray="@array/demo_spinner_options" grx:spinnerValuesArray="@array/demo_spinner_values"
+        grx:allowSortOut="true"
+        />
+-->
+    <GrxPerItemSingleSelection android:icon="@drawable/demo_icon_1" android:title="Demo 1 - No defval"
+        android:summary="Icons with tint and short out option" android:key="peritemsinglesel_1"
+        grx:iconTint="?complementary_color3"
+        grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color1"
+        grx:spinnerOptionsArray="@array/demo_spinner_options" grx:spinnerValuesArray="@array/demo_spinner_values"
+        grx:allowSortOut="true"
+        />
+
+
+    <GrxPerItemSingleSelection android:icon="@drawable/demo_icon_1" android:title="Demo 2 Defval"
+        android:summary="Icons with tint and short out option" android:key="peritemsinglesel_2"
+        grx:iconTint="?complementary_color3" grx:arrowColor="?complementary_color1"
+        android:defaultValue="0;2|1;1|2;2|3;0|4;2|5;2|6;0|7;0|8;1|9;2|10;0|11;1|12;2|"
+        grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons" grx:iconsValueTint="?complementary_color1"
+        grx:spinnerOptionsArray="@array/demo_spinner_options" grx:spinnerValuesArray="@array/demo_spinner_values"
+        grx:allowSortOut="true"
+        />
+
+    <GrxPerItemSingleSelection android:icon="@drawable/demo_icon_1" android:title="Demo 3 Defval"
+        android:summary="No icons no short out option" android:key="peritemsinglesel_3"
+        grx:iconTint="?complementary_color3" grx:arrowColor="?complementary_color1"
+        android:defaultValue="0;2|1;1|2;2|3;0|4;2|5;2|6;0|7;0|8;1|9;2|10;0|11;1|12;2|"
+        grx:optionsArray="@array/demo_lists_entries"  grx:valuesArray="@array/demo_lists_values"
+        grx:spinnerOptionsArray="@array/demo_spinner_options" grx:spinnerValuesArray="@array/demo_spinner_values"
+        grx:allowSortOut="false"
+        />
+</PreferenceScreen>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/gid_item_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_height="@dimen/grx_altura_item_accesos"
+    android:paddingStart="18dp"
+
+    android:orientation="horizontal"
+    android:background="?android:selectableItemBackground">
+
+
+
+    <ImageView
+        android:id="@+id/gid_access_item_img"
+        android:layout_gravity="center"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center">
+        <TextView
+
+            android:id="@+id/gid_access_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:singleLine="true"
+            />
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

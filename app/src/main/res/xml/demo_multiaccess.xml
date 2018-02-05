@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <CheckBoxPreference android:title="test standard dependency" android:key="check_dependency" android:defaultValue="true" />
+    <GrxPreferenceCategory android:title="GrxMultiAccess" />
+    <GrxMultiAccess android:title="All options" android:key="multiaccess_1" android:summary="No limit" android:dependency="check_dependency"
+        grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"  grx:iconsValueTint="?complementary_color1"/>
+    <GrxMultiAccess android:title="All options" android:key="multiaccess_2" android:summary="No Limit" grx:arrowColor="?complementary_color1" android:dependency="check_dependency"
+        grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true"
+        grx:optionsArray="@array/demo_lists_entries" grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"  grx:iconsValueTint="?complementary_color3"/>
+    <GrxMultiAccess android:icon="@drawable/demo_icon_5"  grx:iconTint="?colorAccent"  android:title="All options" android:key="multiaccess_3"  android:summary="Separator is comma, max 3" grx:arrowColor="?complementary_color4" android:dependency="check_dependency"
+        grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true" 
+        grx:separator="," grx:maxChoices="3" />
+    <GrxMultiAccess android:title="Just Apps and Activities" android:key="multiaccess_4" android:summary="No limit" android:dependency="check_dependency" grx:arrowColor="?colorAccent"
+        grx:showShortcuts="false" grx:showApplications="true" grx:showActivities="true"
+        />
+
+</PreferenceScreen>

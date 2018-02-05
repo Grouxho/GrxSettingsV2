@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:fab="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:background="?main_bg_color"
+                tools:context="com.grx.settings.GrxSettingsActivity">
+
+
+
+                            <android.support.design.widget.AppBarLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:elevation="1dp"
+                                android:theme="@style/AppTheme.AppBarOverlay">
+
+                                <android.support.v7.widget.Toolbar
+                                    android:id="@+id/gid_toolbar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="?attr/actionBarSize"
+                                    android:background="?colorPrimary"
+                                    app:titleTextAppearance="@style/ToolbarTitleAppearance"
+                                    app:subtitleTextAppearance="@style/ToolbarSubtitleAppearance"
+                                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                            </android.support.design.widget.AppBarLayout>
+
+
+            <include layout="@layout/grx_nav_content"/>
+
+
+
+
+                <com.fab.FloatingActionButton
+                    android:id="@+id/gid_main_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="12dip"
+                    android:src="@drawable/menu"
+                    fab:fab_colorNormal="?fab_m_color"
+                    fab:fab_colorPressed="?fab_m_press"
+                    fab:fab_colorRipple="?fab_m_ripple"
+                    fab:fab_type="normal"
+                    app:layout_behavior="com.fab.FABBehavIor"/>
+
+            <ProgressBar
+                android:id="@+id/gid_progressbar"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="70dp"
+                android:visibility="gone"
+                android:layout_height="70dp" />
+
+
+</android.support.design.widget.CoordinatorLayout>
+

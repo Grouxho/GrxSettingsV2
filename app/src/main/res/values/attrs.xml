@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+		<!--- app and styles -->
+
+	<attr name="sublimetheme" format="reference" />
+	<attr name="svn_panel_bg" format="string|integer|color|reference"/>
+	<attr name="tabs_text_color" format="string|integer|color|reference"/>
+	<attr name="tabs_indicator_color" format="string|integer|color|reference"/>
+	<attr name="drawable_selector" format="reference|color" />
+	<attr name="tint_prefs_arrow_widget" format="string|integer|color|reference"/>
+	<attr name="navigationviewstyle" format="reference" />
+	<attr name="listselector" format="reference|color" />
+	<attr name="svn_nav_header_bg" format="string|integer|color|reference"/>
+	<attr name="fab_m_color" format="string|integer|color|reference"/>
+	<attr name="fab_m_press" format="string|integer|color|reference"/>
+	<attr name="fab_m_ripple" format="string|integer|color|reference"/>
+	<attr name="main_bg_color" format="string|integer|color|reference"/>
+	<attr name="tint_arrow_prefs" format="string|integer|color|reference"/>
+	<attr name="pref_category_text_color" format="string|integer|color|reference"/>
+	<attr name="pref_category_bg" format="string|integer|color|reference"/>
+	<attr name="snackbar_bg" format="string|integer|color|reference"/>
+	<attr name="seekbar_popup_bg" format="string|integer|color|reference"/>
+	<attr name="prefscreen_arrow_tint" format="string|integer|color|reference"/>
+	<attr name="svn_fab_tint" format="string|integer|color|reference"/>
+	<attr name="complemnt_accent_color" format="string|integer|color|reference"/>
+	<attr name="contrast_text_color" format="string|integer|color|reference"/>
+	<attr name="button_bg_tint" format="string|integer|color|reference"/>
+	<attr name="button_text_color" format="string|integer|color|reference"/>
+	<attr name="recentscreensbg" format="string|integer|color|reference"/>
+	<attr name="recentscreenstextcolor" format="string|integer|color|reference"/>
+	<attr name="menucenteredtextcolor" format="string|integer|color|reference"/>
+	<attr name="toolbartitlecolor" format="string|integer|color|reference"/>
+	<attr name="toolbarsubtitlecolor" format="string|integer|color|reference"/>
+	<attr name="drawerArrowColor" format="string|integer|color|reference"/>
+	<attr name="threedotscolor" format="string|integer|color|reference"/>
+	<attr name="complementary_color1" format="string|integer|color|reference"/>
+	<attr name="complementary_color2" format="string|integer|color|reference"/>
+	<attr name="complementary_color3" format="string|integer|color|reference"/>
+	<attr name="complementary_color4" format="string|integer|color|reference"/>
+	<attr name="complementary_color5" format="string|integer|color|reference"/>
+	<attr name="iconsValueTint" format="string|integer|color|reference"/>
+
+
+	<!-- preferences   -->
+
+
+
+	<declare-styleable name="grxPreferences">
+		<attr name="iconsValueTint"/>
+		<attr name="iconTint" format="integer|color|reference"/>
+		<attr name="groupKey" format="string"/>
+		<attr name="sendBc1" format="boolean" />
+		<attr name="sendBc2" format="boolean" />
+		<attr name="saveSettings" format="boolean" />
+		<attr name="separator" format="string" />
+		<attr name="maxChoices" format="integer" />
+		<attr name="depRule" format="string" />
+		<attr name="depSeparator" format="string" />
+		<attr name="bpRule" format="string" />
+		<attr name="reboot" format="boolean" />
+		<attr name="confirmReboot" format="boolean"/>
+		<attr name="killpackage" format="string"/>
+		<attr name="confirmKillpackage" format="boolean"/>
+		<attr name="optionsArray" format="reference"/>
+		<attr name="valuesArray" format="reference"/>
+		<attr name="iconsArray" format="reference"/>
+		<attr name="colorsArray" format="reference"/>
+		<attr name="showShortcuts" format= "boolean"/>
+		<attr name="showApplications" format= "boolean"/>
+		<attr name="showSystemapps" format= "boolean"/>
+		<attr name="saveActivityname" format="boolean"/>
+		<attr name="showActivities" format= "boolean"/>
+		<attr name="saveActionsicons" format= "boolean"/>
+		<!-- <attr name="android:defaultValue" format="string|reference|integer"/> -->
+        <attr name="android:defaultValue"/>
+		<attr name="minValue" format="integer"/>
+		<attr name="maxValue" format="integer"/>
+		<attr name="units" format="string|reference"/>
+		<attr name="showPopup" format= "boolean"/>
+		<attr name="interval" format="integer"/>
+		<attr name="showAutoButton" format="boolean"/>
+		<attr name="showAlphaSlider" format="boolean"/>
+		<attr name="colorPickerStyle" format="string"/>
+		<attr name="defaultColor" format="integer"/>
+		<attr name="sizeX" format="integer"/>
+		<attr name="sizeY" format="integer"/>
+		<attr name="circularImage" format="boolean"/>
+		<attr name="broadCast1" format="string|reference"/>
+		<attr name="broadCast2" format="string|reference"/>
+		<attr name="script" format="string|reference"/>
+		<attr name="scriptArguments" format="string|reference"/>
+        <attr name="scriptConfirm" format="boolean"/>
+		<attr name="scriptToast" format="string|reference"/>
+		<attr name="systemType" format="enum">
+			<enum name="shared" value="0"/>
+			<enum name="system" value="1"/>
+			<enum name="secure" value="2"/>
+			<enum name="global" value="3"/>
+		</attr>
+		<attr name="clickRules" format="string"/>
+		<attr name="processActionsOrder" format="string"/>
+		<attr name="seekbarColor" format="string|integer|color|reference"/>
+		<attr name="arrowColor" format="string|integer|color|reference"/>
+	</declare-styleable>
+
+
+
+	<attr name="showPulseOptions" format="boolean"/>
+	<declare-styleable name="grxledpulse">
+		<attr name="showPulseOptions"/>
+	</declare-styleable>
+
+
+	<declare-styleable name="grxsiconsarray">
+		<attr name="iconsValueTint"/>
+	</declare-styleable>
+
+	<attr name="checkboxColor" format="string|integer|color|reference"/>
+    <attr name="switchColor" format="string|integer|color|reference"/>
+	<declare-styleable name="grxCheckBoxPreference">
+		<attr name="checkboxColor"/>
+	</declare-styleable>
+    <declare-styleable name="grxSwitchPreference">
+        <attr name="switchColor"/>
+    </declare-styleable>
+
+	<attr name="button_Style" format="enum">
+		<enum name="none" value="0"/>
+		<enum name="small" value="1"/>
+		<enum name="big" value="2"/>
+	</attr>
+    <attr name="button_Text" format="string|reference"/>
+	<attr name="button_textColor" format="string|integer|color|reference"/>
+	<attr name="button_backgroundColor" format="string|integer|color|reference"/>
+	<declare-styleable name="grxPreferenceButton">
+		<attr name="button_Style"/>
+        <attr name="button_Text"/>
+		<attr name="button_textColor"/>
+		<attr name="button_backgroundColor"/>
+	</declare-styleable>
+
+
+	<attr name="widgetsArray" format="reference"/>
+	<declare-styleable name="grxMultiplewidgets">
+		<attr name="widgetsArray"/>
+	</declare-styleable>
+
+
+	<attr name="showShortIcon" format="boolean"/>
+
+	<declare-styleable name="grxSortlist">
+		<attr name="showShortIcon"/>
+		<attr name="iconsValueTint"/>
+	</declare-styleable>
+	
+	<attr name="textColor" format="string|integer|color|reference"/>
+	<attr name="backgroundColor" format="string|integer|color|reference"/>
+	<attr name="hiddenCategory" format="boolean"/>
+	<attr name="centerHorizontal" format="boolean"/>
+
+	<declare-styleable name="grxPreferencecategory">
+		<attr name="textColor"/>
+		<attr name="backgroundColor"/>
+		<attr name="hiddenCategory"/>
+		<attr name="centerHorizontal"/>
+	</declare-styleable>
+
+	<attr name="rightIcon" format="reference"/>
+	<attr name="rightIconTint" format="string|integer|color|reference"/>
+	<attr name="activity" format="string"/>
+
+	<declare-styleable name="grxInfotext" parent="grxPreferences">
+		<attr name="rightIcon"/>
+		<attr name="rightIconTint"/>
+	</declare-styleable>
+
+	<declare-styleable name="grxOpenactivity">
+		<attr name="activity"/>
+	</declare-styleable>
+
+	<attr name="spinnerOptionsArray" format="reference"/>
+	<attr name="spinnerValuesArray" format="reference"/>
+	<attr name="allowSortOut" format="boolean"/>
+
+	<declare-styleable name="grxperitemsingleselection">
+		<attr name="spinnerOptionsArray"/>
+		<attr name="spinnerValuesArray"/>
+		<attr name="iconsValueTint"/>
+		<attr name="allowSortOut"/>
+	</declare-styleable>
+
+
+	<declare-styleable name="GrxPickerImage">
+		<attr name="grxSizeX" format="integer"/>
+		<attr name="grxSizeY" format="integer"/>
+		<attr name="grxCircular" format="boolean"/>
+	</declare-styleable>
+
+	<declare-styleable name="GrxEditText">
+		<attr name="grxdefaultValue" format="reference|string"/>
+	</declare-styleable>
+
+	<declare-styleable name="ColorPickerPreference">
+		<attr name="alphaSlider" format="boolean"/>
+		<attr name="lightnessSlider" format="boolean"/>
+		<attr name="density" format="integer"/>
+		<attr name="initialColor" format="integer"/>
+		<attr name="wheelType" format="enum">
+			<enum name="FLOWER" value="0"/>
+			<enum name="CIRCLE" value="1"/>
+		</attr>
+		<attr name="lightnessSliderView" format="reference"/>
+		<attr name="alphaSliderView" format="reference"/>
+		<attr name="pickerColorEditTextColor" format="integer"/>
+		<attr name="pickerTitle" format="reference|string"/>
+		<attr name="pickerButtonOk" format="reference|string"/>
+		<attr name="pickerButtonCancel" format="reference|string"/>
+	</declare-styleable>
+    <declare-styleable name="FloatingActionButton">
+        <attr name="fab_colorPressed" format="color|reference" />
+        <attr name="fab_colorNormal" format="color|reference" />
+        <attr name="fab_colorRipple" format="color|reference" />
+        <attr name="fab_colorDisabled" format="color|reference" />
+        <attr name="fab_shadow" format="boolean" />
+        <attr name="fab_type" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="mini" value="1" />
+        </attr>
+    </declare-styleable>	
+	<declare-styleable name="SwipeNumberPicker">
+		<attr name="snp_min" format="integer"/>
+		<attr name="snp_max" format="integer"/>
+		<attr name="snp_value" format="integer"/>
+		<attr name="snp_arrowColor" format="color|reference"/>
+		<attr name="snp_backgroundColor" format="color|reference"/>
+		<attr name="snp_numberColor" format="color|reference"/>
+		<attr name="snp_intermediate" format="boolean"/>
+	</declare-styleable>
+
+
+	<attr name="cr" format="boolean"/>
+
+
+	<attr name="sys" format="boolean"/>
+	<attr name="ord" format="boolean"/>
+	<attr name="mcolor" format="boolean"/>
+	<declare-styleable name="GrxReferencias">
+		<attr name="iconos" format="reference" />
+	</declare-styleable>
+
+	<attr name="defcolor" format="color|reference" />
+	<attr name="gcr" format="string"/>
+
+
+	<declare-styleable name="GrxSelectSortItems">
+		<attr name="grxA_entries" format="reference"/>
+		<attr name="iconsValueTint"/>
+
+	</declare-styleable>
+
+	<!-- ******************************************************************************** -->
+				<!-- SublimeNavigation View -->
+	<!-- ******************************************************************************** -->
+
+	<!-- sublime menu -->
+	<!-- Copyright (C) 2015 Vikram Kakkar
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+
+		<!-- Applies to
+         com.libs.sublimenavigationviewlibrary.StateAwareTextViewView -->
+		<declare-styleable name="StateAwareTextView">
+			<!-- Used to provide a default text-appearance -->
+			<attr format="reference" name="saTextAppearance"/>
+			<attr name="android:textAppearance"/>
+		</declare-styleable>
+
+		<declare-styleable name="SublimeMenuItemState">
+			<!-- Affords similar functionality to @android:attr/state_checked -->
+			<attr name="state_item_checked" format="boolean" />
+		</declare-styleable>
+
+		<!-- Holds user-provided text appearance styles. -->
+		<attr name="snvItemTextAppearance" format="reference"/>
+		<attr name="snvHintTextAppearance" format="reference"/>
+		<attr name="snvSubheaderItemTextAppearance" format="reference"/>
+		<attr name="snvSubheaderHintTextAppearance" format="reference"/>
+		<attr name="snvBadgeTextAppearance" format="reference"/>
+
+		<!-- Used with TextWithBadge menu item to display a
+             ProgressBar when the badge value is provided dynamically. -->
+		<attr name="valueProvidedAsync" format="boolean"/>
+
+		<!-- Indicates whether the menu Group is collapsible.
+             If the menu Group is collapsible, a chevron is shown. -->
+		<attr name="collapsible" format="boolean"/>
+
+		<!-- Sets the initial state of a menu Group. -->
+		<attr name="collapsed" format="boolean"/>
+
+	<attr name="grxBPRule" format="string"/>
+
+		<declare-styleable name="SublimeMenuGroup" parent="grxPreferences">
+			<attr name="android:id"/>
+			<attr name="android:checkableBehavior"/>
+			<attr name="android:visible"/>
+			<attr name="android:enabled"/>
+			<attr name="collapsed" />
+			<attr name="collapsible" />
+			<attr name="grxBPRule"/>
+
+		</declare-styleable>
+
+		<!-- Base attributes that are available to all Item objects. -->
+		<declare-styleable name="SublimeMenuGenericItem" parent="grxPreferences">
+
+			<!-- The ID of the item. -->
+			<attr name="android:id" />
+
+			<!-- The title associated with the item. -->
+			<attr name="android:title"/>
+
+			<!-- The hint associated with the item. -->
+			<attr name="android:hint"/>
+
+			<!-- The icon associated with this item.  This icon will not always be shown, so
+                 the title should be sufficient in describing this item. -->
+			<attr name="android:icon" />
+
+			<!-- Whether the item is capable of displaying a check mark. -->
+			<attr name="android:checkable"/>
+
+			<!-- Whether the item is checked.  Note that you must first have enabled checking with
+                 the checkable attribute or else the check mark will not appear. -->
+			<attr name="android:checked" />
+
+			<!-- Whether the item is shown/visible. -->
+			<attr name="android:visible" />
+
+			<!-- Whether the item is enabled. -->
+			<attr name="android:enabled" />
+
+			<attr name="valueProvidedAsync" />
+
+			<attr name="badgeText" format="string" /> <!--grx -->
+
+			<attr name="showIconSpace" format="boolean" />
+
+			<attr name="grxBPRule"/>
+
+		</declare-styleable>
+
+		<declare-styleable name="SnvScrimInsetsFrameLayout">
+			<attr format="color|reference" name="snvInsetForeground"/>
+		</declare-styleable>
+
+		<!-- Used for providing default style implementations.
+             For eg: itemBackground, itemTextColor etc. -->
+		<attr name="snvDefaultTheme" format="enum">
+			<enum name="light" value="0"/>
+			<enum name="dark" value="1"/>
+		</attr>
+
+		<!-- enum values for typeface style -->
+		<attr name="snvItemTypefaceStyle" format="enum">
+			<enum name="normal" value="0"/>
+			<enum name="bold" value="1"/>
+			<enum name="italic" value="2"/>
+			<enum name="bold_italic" value="3"/>
+		</attr>
+
+		<!-- enum values for typeface style -->
+		<attr name="snvHintTypefaceStyle" format="enum">
+			<enum name="normal" value="0"/>
+			<enum name="bold" value="1"/>
+			<enum name="italic" value="2"/>
+			<enum name="bold_italic" value="3"/>
+		</attr>
+
+		<!-- enum values for typeface style -->
+		<attr name="snvSubheaderItemTypefaceStyle" format="enum">
+			<enum name="normal" value="0"/>
+			<enum name="bold" value="1"/>
+			<enum name="italic" value="2"/>
+			<enum name="bold_italic" value="3"/>
+		</attr>
+
+		<!-- enum values for typeface style -->
+		<attr name="snvSubheaderHintTypefaceStyle" format="enum">
+			<enum name="normal" value="0"/>
+			<enum name="bold" value="1"/>
+			<enum name="italic" value="2"/>
+			<enum name="bold_italic" value="3"/>
+		</attr>
+
+		<!-- enum values for typeface style -->
+		<attr name="snvBadgeTypefaceStyle" format="enum">
+			<enum name="normal" value="0"/>
+			<enum name="bold" value="1"/>
+			<enum name="italic" value="2"/>
+			<enum name="bold_italic" value="3"/>
+		</attr>
+
+		<declare-styleable name="SublimeNavigationView">
+			<!-- Drawer background -->
+			<attr name="android:background"/>
+			<attr name="android:fitsSystemWindows"/>
+
+			<!-- Drawer's max-width -->
+			<attr name="android:maxWidth"/>
+
+			<!-- Drawer's elevation -->
+			<attr name="elevation"/>
+
+			<!-- Menu resource to inflate -->
+			<attr format="reference" name="snvMenu"/>
+
+			<!-- ColorStateList that handles DISABLED, CHECKED & DEFAULT
+                 state colors. Used for tinting MenuItem's icon,
+                 Checkbox, Switch, Chevron(in case of menu Group) -->
+			<attr format="color|reference" name="snvItemIconTint"/>
+
+			<!-- ColorStateList that handles DISABLED, CHECKED & DEFAULT
+                 state colors. -->
+			<attr format="color|reference" name="snvItemTextColor"/>
+			<attr format="color|reference" name="snvHintTextColor"/>
+			<attr format="color|reference" name="snvSubheaderItemTextColor"/>
+			<attr format="color|reference" name="snvSubheaderHintTextColor"/>
+			<attr format="color|reference" name="snvBadgeTextColor"/>
+
+			<!-- Filename of Typeface stored in 'assets' folder -->
+			<attr format="string" name="snvItemTypefaceFilename"/>
+			<attr format="string" name="snvHintTypefaceFilename"/>
+			<attr format="string" name="snvSubheaderItemTypefaceFilename"/>
+			<attr format="string" name="snvSubheaderHintTypefaceFilename"/>
+			<attr format="string" name="snvBadgeTypefaceFilename"/>
+
+			<!-- Typeface style - NORMAL, BOLD, ITALIC, BOLD_ITALIC -->
+			<attr name="snvItemTypefaceStyle"/>
+			<attr name="snvHintTypefaceStyle"/>
+			<attr name="snvSubheaderItemTypefaceStyle"/>
+			<attr name="snvSubheaderHintTypefaceStyle"/>
+			<attr name="snvBadgeTypefaceStyle"/>
+
+			<!-- Background for individual MenuItem layout -->
+			<attr format="reference|color" name="snvItemBackground"/>
+
+			<!-- Layout resource ID for header -->
+			<attr format="reference" name="snvHeaderLayout"/>
+
+			<attr name="snvDefaultTheme"/>
+
+			<!-- Drawable used when a menu Group is (collapsible & currently collapsed). -->
+			<attr format="reference" name="snvGroupExpandDrawable"/>
+
+			<!-- Drawable used when a menu Group is (collapsible & currently expanded). -->
+			<attr format="reference" name="snvGroupCollapseDrawable"/>
+		</declare-styleable>
+
+			<!-- grx added attrs -->
+		<attr name="svn_menuTextColor" format="color|reference"/>
+		<attr name="svn_hintTextColor" format="color|reference"/>
+		<attr name="svn_groupTextColor" format="color|reference"/>
+		<attr name="svn_groupHintColor" format="color|reference"/>
+		<attr name="svn_separatorColor" format="color|reference"/>
+		<attr name="svn_separatorHeight" format="dimension|reference"/>
+
+</resources>

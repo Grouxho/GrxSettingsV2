@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+
+
+
+
+    <!-- Application strings, arrays, etc. -->
+
+    <string name="gs_rom_info_option">Rom Info</string>
+
+    <string name="grxs_recents_screens_title">Recent Screens</string>
+    <string name="grxs_buildprop_simulator">Simulate Build Prop</string>
+    <string name="grxs_navigation_drawer_open">Open navigation drawer</string>
+    <string name="grxs_navigation_drawer_close">Close navigation drawer</string>
+    <string name="grxs_add_new_item">Add new item</string>
+    <string name="grxs_sync_start">Preferences Syncroinizations started.</string>
+    <string name="grxs_sync_end">Preferences Syncroinizations finished.</string>
+    <string name="grxs_synchronizing">Sinchronizing preferences.....</string>
+    <string name="grxs_remove">Remove</string>
+    <string name="grxs_copy_color">Copy color</string>
+    <string name="grxs_nav_header_bg_image_name">nav_header_bg.png</string>
+    <string name="grxs_nav_header_bg_title">Nav. Panel Header Image</string>
+    <string name="grxs_remove_header_img">Remove image</string>
+    <string name="grxs_change_header_img">Select new image</string>
+    <string name="grxs_image">Image</string>
+    <string name="grxs_default">Default</string>
+    <string name="grxs_no_access_selection">Nothing selected</string>
+    <string name="grxs_select_theme">Select App Theme</string>
+    <string name="grxs_theme_default">Blue (Light)</string>
+    <string name="grxs_theme_default_dark">Blue (Dark)</string>
+    <string name="grxs_theme_light_tile">Green (Light)</string>
+    <string name="grxs_theme_black_ics">Black Ics</string>
+    <string name="grxs_theme_black_and_white">Black Dark</string>
+    <string name="grxs_theme_dark_tile">Green (Dark)</string>
+    <string name="grxs_theme_light_red">Red (Light)</string>
+    <string name="grxs_theme_dark_red">Red (Dark)</string>
+    <string name="grxs_theme_light_orange">Orange (Light))</string>
+    <string name="grxs_theme_dark_orange">Orange (Dark)</string>
+    <string name="grxs_theme_light_purple">Purple (Light))</string>
+    <string name="grxs_theme_dark_purple">Purple (Dark)</string>
+    <string name="grxs_theme_light_brown">Brown (Light))</string>
+    <string name="grxs_theme_dark_yellow">Amber (Dark)</string>
+    <string name="grxs_theme_light_green_orange">Gren-Ora. (Light))</string>
+    <string name="grxs_theme_white_bluegrey">Blue Grey Light</string>
+    <string name="grxs_theme_black_white">Black Light</string>
+
+    <string name="grxs_bp_noroot">Root permission is needed to carry out build prop demo!!</string>
+    <string name="grxs_bp_title">Current value = %1$s </string>
+    <string name="grxs_bp_simulator_title">Build Prop Simulator</string>
+    <string name="grxs_bp_simulator_text">blah .....</string>
+    <string name="grxs_bp_restart">Restarting app for the options to get the new build prop property value</string>
+    <string name="grxs_nav_header_bg">Panel Header Bg</string>
+    <string name="grxs_selecc_image_usando">Select Image using..</string>
+    <string name="grxs_error_redondeando">Error processing image</string>
+    <string name="grxs_script_array_error">An error ocurred while running the associated script</string>
+    <string name="grxs_apply">Apply</string>
+    <string name="grxs_backup">Backup</string>
+    <string name="grxs_restore">Restore</string>
+    <string name="grxs_restoring_msg">Restoring and synchronizing %1$s preferences and files....</string>
+    <string name="grxs_multiappcolor_help">You can sort the items by long pressing an item, dragging and dropping it the desired position.\r\nThe delete buttom (X) deletes all the current selected items.\r\nThe add button (+) allows to add a new item.\r\nThe last button you see allows you to sort all items in alphabetic order.\r\nOnce an app is selected, swipping it to the right you can delete the item</string>
+    <string name="grxs_multiappcolor_help_color">To change the color click on the item you want to modify.\r\nYou can sort the items by long pressing an item, dragging and dropping it the desired position.\r\nThe delete buttom (X) deletes all the current selected items.\r\nThe add button (+) allows to add a new item.\r\nThe last button you see allows you to sort all items in alphabetic order.\r\nOnce an app is selected, swipping it to the left will allow you to copy the current color to the clipboard. Swipping it to the right allows you to delete the item. </string>
+    <string name="grxs_select_sort_help">You can quick delete a selection in the main screen by swipping it left in the list and the option to delete the item will appear.\nnTo place an item in other position just long press it and drag it to the desired position.nTo add or delete elements use the + / - button.\nIf you want to delete all your current selection just press the X button.</string>
+    <string name="grxs_perapppulse_help">You can quick delete a selection in the main screen by swipping it left in the list and the option to delete the item will appear.\nClick on the element to edit it.\nClick on + - button to add elements. \nIf you want to delete all your current selection just press the X button.\nYou can sort the list dragging the elements.\nIf you select an existing app it will be updated</string>
+    <string name="grxs_help">Help</string>
+    <string name="grxs_app_help">Application help</string>
+    <string name="grxs_back">Back</string>
+    <string name="grxs_select_app">Select Application</string>
+    <string name="grxs_building_sorting_list">Creaing and sorting list ..</string>
+    <string name="grxs_building_list">Creating applications list...</string>
+    <string name="grxs_is_not_installed">( %1$s is not installed! )</string>
+    <string name="grxs_delete_values">Delete values</string>
+    <string name="grxs_reset_values">Reset values</string>
+    <string name="grxs_delete_message">Delete selected values. Are you sure?</string>
+    <string name="grxs_reset_message">Reset to default values. Are you sure?</string>
+    <string name="grxs_multiapp_selected">%1$d apps selected</string>>
+    <string name="grxs_multiaccess_selected">%1$d items selected</string>>
+    <string name="grxs_num_selected"> (%1$d selected)</string>>
+    <string name="grxs_error_sending_bc">Error sending broadcast: %1$s</string>
+    <string name="grxs_not_installed">Not installed!</string>
+    <string name="grxs_num_items_selected">%1$d items selected!</string>
+    <string name="grxs_items_selected">items selected.</string>
+    <string name="grxs_already_selected">%1$s is already selected!!</string>
+    <string name="grxs_bad_pulse_value">App not sected / not installed!!</string>
+    <string name="grxs_delete_list">Delete List</string>
+    <string name="grxs_help_delete_all_values">It allows to delete all the values.</string>
+    <string name="grxs_help_sort_list">List Ordering</string>
+    <string name="grxs_help_sort_apps_alphabet">Sorts the list of applications alphabetically</string>
+    <string name="grxs_help_app_not_installed">App not installed</string>
+    <string name="grxs_help_app_not_found">This icon indicates that the application is not installed or some kind of error happend. </string>
+    <string name="grxs_copied_clipboard">Value copied to the clipboard</string>
+    <string name="grxs_max_choices_warning">Max number of allowed items has been reached.</string>
+    <string name="grxs_current_max_choices">  ( max = %1$d )</string>
+    <string name="grxs_help_sort_long_press">Long press on items to sort them</string>
+    <string name="grxs_activities">Activities</string>
+    <string name="grxs_actions">Actions</string>
+    <string name="grxs_user_apps">User Applications</string>
+    <string name="grxs_shortcuts">ShortCuts</string>
+    <string name="grxs_shortcut_error">Some problem ocurred while creating the shortcut!!</string>
+    <string name="grxs_shortcut_not_allowed">Error starting the activity. Some type of access/activities/shortcuts just can be executed from system applications. In other cases, it is not possiblie to launch them!</string>
+    <string name="grxs_ok">Ok</string>
+    <string name="grxs_cancel">Cancel</string>
+    <string name="grxs_divider_height">Divider height in lists</string>
+    <string name="grxs_fab_position">FAB Button position</string>
+    <string name="grxs_drawer_right">Force Opposite Position</string>
+    <string name="grxs_show_fab">Show Button (FAB)</string>
+    <string name="grxs_show_groups_buttons">Show Group Buttons</string>
+    <string name="grxs_title_fab_options">Floating Action Button (FAB)</string>
+    <string name="grxs_title_theming_options">Style and Theming</string>
+    <string name="grxs_title_navview_options">Navigation Drawer</string>
+    <string name="grxs_title_other_options">Other Options</string>
+    <string name="grxs_title_rom_app_info_options">Rom and App Help</string>
+    <string name="grxs_title_recents_screens_options">Floating Recents Screens Area</string>
+    <string name="grxs_show_recents_fw">Enable Recents Floating Window</string>
+    <string name="grxs_show_recents_fw_hint">(long press on FAB)</string>
+    <string name="grxs_hide_recents_fw_back">Hide with Back Key</string>
+    <string name="grxs_hide_recents_fw_outside">Hide touching outside</string>
+    <string name="grxs_hide_recents_fw_outside_hint">(it is always hiden with back key)</string>
+    <string name="grxs_remember_screen">Remember Screen</string>
+    <string name="grxs_groups_open">Open Options Groups</string>
+    <string name="grxs_exit_confirmation">Exit confirmation</string>
+    <string name="grxs_exit_title">Finish</string>
+    <string name="grxs_exit_message">Exit. Are you sure?</string>
+    <string name="grxs_titulo_def_color_picker">Select color</string>
+    <string name="grxs_lightness">Lightness</string>
+    <string name="grxs_alpha">Alpha</string>
+    <string name="grxs_auto_color">Auto Color Selection</string>
+    <string name="grxs_auto_color_suggestions">Suggested Colors</string>
+    <string name="grxs_tit_backup">Preferences Backup</string>
+    <string name="grxs_info_backup">Select the new backup name. Do not use extension</string>
+    <string name="grxs_no_valid_name">No valid backup name</string>
+    <string name="grxs_backup_ok">Backup was ok! </string>
+    <string name="grxs_tit_sobreescribir_backup">Backup already exist</string>
+    <string name="grxs_mens_sobreescribir_backup">Bakcup %1$s already exists. Do you want to overwrite it?</string>
+    <string name="grxs_no_backups">Backups dir not found</string>
+    <string name="grxs_restore_unknown_error">Unknown error while restoring..</string>
+    <string name="grxs_restore_title">Backup Restoration</string>
+    <string name="grxs_restore_message">Select the backup to be restored</string>
+    <string name="grxs_restore_confirm_message">Are you sure you want to restore the backup %1$s ?</string>
+    <string name="grxs_restore_result_message">The backup  %1$s was successfully restored. %2$d preferences were found</string>
+    <string name="grxs_help_items_colors">Click: select item color. Double click: Reset item color to its default value. Long click: copy the current item color to the clipboard. You can use it on other item or color preference</string>
+    <string name="grxs_dialog_color_picker">Color Picker</string>
+    <string name="grxs_press_color_to_apply">Press to apply</string>
+    <string name="grxs_color_picker_style">Color Pickers Style</string>
+    <string name="grxs_circle">Circle</string>
+    <string name="grxs_flower">Flower</string>
+    <string name="grxs_square">Square</string>
+    <string name="grxs_reboot_dialog_title">Reboot device?</string>
+    <string name="grxs_reboot_dialog_message">This preference requires the phone to be rebooted to take effect.\nDo you want to reboot your device now?</string>
+    <string name="grxs_reboot_not_possible">Reboot could not be done. Make sure either your app is inside the privileged folder or your phone is rooted. For now, reboot manually the phone for the changes to take effect.</string>
+    <string name="grxs_reboot_problem">Problem trying rebooting!!!</string>
+    <string name="grxs_killpackage_dialog_title">Restart %1$s ?</string>
+    <string name="grxs_killpackage_dialog_message">For the change to take effect, this preference needs the following app to be restarted: %1$s\nPress OK to make it now or later manually reboot your phone</string>
+    <string name="grxs_noroot_granted">No root permission!!</string>
+    <string name="grxs_noroot_action_possible">This action requires root permission for this application!!</string>
+    <string name="grxs_script_dialog_title">Authorize this action</string>
+    <string name="grxs_script_dialog_msg">Are you sure you want to run this action?</string>
+    <string name="grxs_script_file_dialog_msg">Are you sure you want to run this scrip: %1$s ?</string>
+    <string name="grxs_update_item">Update Item</string>
+    <string name="grxs_rom_info">Rom Info</string>
+    <string name="grxs_app">App.</string>
+    <string name="grxs_pulse_speed_title">Pulse Speed (Time On - Time Off)</string>
+    <string name="grxs_pulse_app_null">No App Selected</string>
+    <string name="grxs_pulse_no_screenoff">It was not possible to screen off to test. Please screen off manually to check the led settings.</string>
+
+    <string name="grxs_savesettings_exception">A problem ocurred while saving the value in settings. Try installing the app in priv-app</string>
+    <string name="grxs_draganddroptoshortout">Drag and drop the elements to short out the list</string>
+    <string name="grxs_select_option">Select Option</string>
+
+    <string-array name="grxa_fab_position">
+        <item>Center</item>
+        <item>Left</item>
+        <item>Right</item>
+    </string-array>
+    <string-array name="grxa_divider_height">
+        <item>0 px</item>
+        <item>1 px</item>
+        <item>2 px</item>
+        <item>3 px</item>
+        <item>4 px</item>
+    </string-array>
+
+
+    <string-array name="grxa_theme_list">
+        <item>@string/grxs_theme_white_bluegrey</item>
+        <item>@string/grxs_theme_black_white</item>
+        <item>@string/grxs_theme_light_tile</item>
+        <item>@string/grxs_theme_light_red</item>
+        <item>@string/grxs_theme_default_dark</item>
+        <item>@string/grxs_theme_black_and_white</item>
+        <item>@string/grxs_theme_black_ics</item>
+
+    </string-array>
+
+    <string-array name="grxa_theme_values">
+        <item>Theme.White.BlueGrey</item>
+        <item>Theme.Black.Light</item>
+        <item>Theme.Green.Light</item>
+        <item>Theme.Red.Light</item>
+        <item>Theme.Dark.Blue</item>
+        <item>Theme.Black.White</item>
+        <item>Theme.Black.Ics</item>
+
+    </string-array>
+
+    <string-array name="grxa_panel_header_options">
+        <item>@string/grxs_remove_header_img</item>
+        <item>@string/grxs_change_header_img</item>
+    </string-array>
+
+
+
+    <string-array name="grxa_colorpickerstyles">
+        <item>@string/grxs_flower</item>
+        <item>@string/grxs_circle</item>
+        <item>@string/grxs_square</item>
+    </string-array>
+
+
+    <string name="grxs_pulse_always_on">Always On</string>
+    <string name="grxs_pulse_100ms">100 mSec.</string>
+    <string name="grxs_pulse_300ms">300 mSec.</string>
+    <string name="grxs_pulse_500ms">0.5 Sec</string>
+    <string name="grxs_pulse_750ms">0.75 Sec</string>
+    <string name="grxs_pulse_1s">1 Sec</string>
+    <string name="grxs_pulse_1_75s">1,75 Sec</string>
+    <string name="grxs_pulse_2_5s">2.5 Sec</string>
+    <string name="grxs_pulse_5s">5 Sec</string>
+    <string name="grxs_pulse_7s">7 Sec.</string>
+    <string name="grxs_pulse_10s">10 Sec</string>
+    <string name="grxs_pulse_15s">15 Sec</string>
+
+
+    <string-array name="grxa_ledpulse_ton_options">
+        <item>@string/grxs_pulse_always_on</item>
+        <item>@string/grxs_pulse_100ms</item>
+        <item>@string/grxs_pulse_300ms</item>
+        <item>@string/grxs_pulse_500ms</item>
+        <item>@string/grxs_pulse_750ms</item>
+        <item>@string/grxs_pulse_1s</item>
+        <item>@string/grxs_pulse_1_75s</item>
+        <item>@string/grxs_pulse_2_5s</item>
+        <item>@string/grxs_pulse_5s</item>
+        <item>@string/grxs_pulse_7s</item>
+        <item>@string/grxs_pulse_10s</item>
+    </string-array>
+
+    <string-array name="grxa_ledpulse_ton_values">
+        <item>1</item>
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>1750</item>
+        <item>2500</item>
+        <item>5000</item>
+        <item>7000</item>
+        <item>10000</item>
+    </string-array>
+    <string-array name="grxa_ledpulse_toff_options">
+        <item>@string/grxs_pulse_100ms</item>
+        <item>@string/grxs_pulse_300ms</item>
+        <item>@string/grxs_pulse_500ms</item>
+        <item>@string/grxs_pulse_750ms</item>
+        <item>@string/grxs_pulse_1s</item>
+        <item>@string/grxs_pulse_1_75s</item>
+        <item>@string/grxs_pulse_2_5s</item>
+        <item>@string/grxs_pulse_5s</item>
+        <item>@string/grxs_pulse_7s</item>
+        <item>@string/grxs_pulse_10s</item>
+        <item>@string/grxs_pulse_15s</item>
+    </string-array>
+
+    <string-array name="grxa_ledpulse_toff_values">
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>1750</item>
+        <item>2500</item>
+        <item>5000</item>
+        <item>7000</item>
+        <item>10000</item>
+        <item>15000</item>
+    </string-array>
+
+    <string-array name="grxa_app_help">
+        <item>Most of the preferences can be reset to their default values by double clicking.</item>
+        <item>Please, read the help buttons which appear in some preferences. That help will tell you how to delete, sort, or whatever is enabled by the dev.</item>
+        <item>You can select you default color picker style. This style is only taken if the dev has not defined an specific style for the color preferences or if you are in a preference using a specific style</item>
+        <item>In color picker preferences you can copy the hex value to the clipboard by long-clicking on the color circle. This feature can be usefull when there are many color pickers preferences</item>
+        <item>Floating Recents Area\n\n
+        - You can enable or disable in this menu. Floating Action Button has to be enabled. Then long-click on it to show the floating area\n
+        - You can change the transparency of the area by double - clicking on the title area\n
+        - You can move the area through the screen by long pressing the title area\n
+        - When the keyboard is needed the floating area is hiden.\n
+        </item>
+        <item>Some options supported by this app have to be enabled by your rom dev:\n\n
+        - Background image for the Navigation Panel Header\n
+        - Selectable themes\n
+        </item>
+    </string-array>
+
+    <!-- SUBLIME NAVIGATION VIEW RESOURCES -->
+
+    <!-- Copyright (C) 2015 Vikram Kakkar
+
+         Licensed under the Apache License, Version 2.0 (the "License");
+         you may not use this file except in compliance with the License.
+         You may obtain a copy of the License at
+
+              http://www.apache.org/licenses/LICENSE-2.0
+
+         Unless required by applicable law or agreed to in writing, software
+         distributed under the License is distributed on an "AS IS" BASIS,
+         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+         See the License for the specific language governing permissions and
+         limitations under the License.
+    -->
+
+
+    <color name="snv_primary_material_light">#ff212121</color>
+    <color name="snv_primary_material_dark">#fff5f5f5</color>
+
+    <color name="snv_ripple_material_light">#1f000000</color>
+    <color name="snv_ripple_material_dark">#42ffffff</color>
+
+    <color name="snv_background_material_light">#fffafafa</color>
+    <color name="snv_background_material_dark">#ff303030</color>
+
+    <color name="snv_primary_text_default_material_light">#de000000</color>
+    <color name="snv_primary_text_default_material_dark">#ffffff</color>
+
+    <color name="snv_primary_text_disabled_material_light">#39000000</color>
+    <color name="snv_primary_text_disabled_material_dark">#4Dffffff</color>
+
+    <dimen name="snv_navigation_icon_padding">32dp</dimen>
+    <dimen name="snv_navigation_icon_size">24dp</dimen>
+    <dimen name="snv_navigation_elevation">12dp</dimen>
+    <dimen name="snv_navigation_max_width">320dp</dimen>
+    <dimen name="snv_navigation_padding_top_default">0dp</dimen>
+    <dimen name="snv_navigation_padding_bottom">8dp</dimen>
+    <dimen name="snv_navigation_separator_vertical_padding">8dp</dimen>
+
+    <style name="SnvDefaultTextAppearance" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SnvDefaultItemTextAppearance" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SnvDefaultHintTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="SnvDefaultSubheaderItemTextAppearance" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SnvDefaultSubheaderHintTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="SnvDefaultBadgeTextAppearance" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SnvScrimInsetsFrameLayout" parent="">
+        <item name="snvInsetForeground">#4000</item>
+    </style>
+
+    <style name="SnvSublimeNavigationView" parent="">
+        <item name="elevation">@dimen/snv_navigation_elevation</item>
+        <item name="android:background">#999900</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:maxWidth">@dimen/snv_navigation_max_width</item>
+    </style>
+
+
+
+
+</resources>

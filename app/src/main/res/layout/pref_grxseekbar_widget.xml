@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@android:id/widget_frame" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <SeekBar android:id="@+id/gid_seekbar"  android:layout_marginTop="12dp" android:layout_marginBottom="4dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+        <TextView android:id="@+id/gid_seekbar_max_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp"  android:layout_alignParentEnd="true" android:layout_marginEnd="4dp" />
+        <TextView android:id="@+id/gid_seekbar_min_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp" android:layout_alignParentStart="true" android:layout_marginStart="4dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

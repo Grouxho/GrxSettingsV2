@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+        <android.support.v4.widget.DrawerLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/gid_snv_drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+
+    <include
+        layout="@layout/grx_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.sublimenavigationview.SublimeNavigationView
+        style="?navigationviewstyle"
+        android:id="@+id/gid_snv_view"
+        android:layout_width="@dimen/ancho_panel"
+        android:layout_height="match_parent"
+        android:background="?svn_panel_bg"
+        android:layout_gravity="start"
+        android:paddingBottom="@dimen/grx_altura_contenedor_botones_grupo"
+        android:fitsSystemWindows="true"
+        android:theme="?sublimetheme"
+        app:snvMenu="@menu/demo_navigation_screens"
+        app:snvBadgeTextColor="?colorAccent"
+        app:snvItemBackground="?android:attr/selectableItemBackground"
+        app:snvHeaderLayout="@layout/grx_nav_header"
+        >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/gid_buttons_container"
+            android:backgroundTint="?svn_panel_bg"
+            android:layout_width="@dimen/ancho_panel"
+            android:layout_height="@dimen/grx_altura_contenedor_botones_grupo"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:background="?svn_panel_bg"
+            >
+            <LinearLayout
+                android:clickable="true"
+                android:id="@+id/gid_button_close"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="@dimen/grx_tam_botones_grupo"
+                    android:layout_height="@dimen/grx_tam_botones_grupo"
+                    android:layout_gravity="center"
+                    android:tint="?colorAccent"
+                    android:src="@drawable/ico_expand_collapse_snv_close"/>
+            </LinearLayout>
+            <LinearLayout
+                android:clickable="true"
+                android:id="@+id/gid_button_expand"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="@dimen/grx_tam_botones_grupo"
+                    android:layout_height="@dimen/grx_tam_botones_grupo"
+                    android:layout_gravity="center"
+                    android:tint="?colorAccent"
+                    android:src="@drawable/ico_expand_collapse_snv_open"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </com.sublimenavigationview.SublimeNavigationView>
+
+</android.support.v4.widget.DrawerLayout>

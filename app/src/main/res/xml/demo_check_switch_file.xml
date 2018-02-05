@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxPreferenceCategory android:title="GrxSwitchPreference" />
+
+    <GrxSwitchPreference grx:iconTint="?complementary_color3" android:icon="@drawable/demo_icon_1"
+        android:title="Switch 1" android:key="switch_1" android:defaultValue="true"
+        android:summaryOn="Summary On" android:summaryOff="Summary Off"/>
+
+    <GrxSwitchPreference android:title="Switch 2" android:key="switch_2" android:defaultValue="false"
+        android:summaryOn="Summary On" android:summaryOff="Summary Off"/>
+
+    <GrxSwitchPreference android:title="Tinted switch" android:key="switch_33" android:defaultValue="false"
+        android:summary="standar dependency - switch 1"
+        android:dependency="switch_1" grx:switchColor="?complementary_color1"
+        />
+
+    <GrxPreferenceCategory android:title="GrxCheckBoxPreference" />
+
+    <GrxCheckBoxPreference android:title="CheckBox 1" android:dependency="switch_1" android:key="checkbox_1"
+        android:defaultValue="true" android:summaryOn="Summary On" android:summaryOff="Summary Off"/>
+
+    <GrxCheckBoxPreference grx:iconTint="?complementary_color1" android:icon="@drawable/demo_icon_5"
+        android:title="Tinted checkbox" android:key="checkbox_2" android:defaultValue="false"
+        android:summaryOn="Summary On"    android:summaryOff="Summary Off" grx:checkboxColor="?complementary_color3"     />
+
+    <GrxPreferenceCategory android:title="GrxFilePreference" />
+
+    <GrxFilePreference android:title="File Preference 1" android:key="filepref_1"
+        android:defaultValue="true" android:summary="true by default"   />
+
+    <GrxFilePreference android:title="File Preference 2" android:key="filepref_2"
+        android:dependency="filepref_1"
+        android:defaultValue="true" android:summary="true by default"      />
+
+
+</PreferenceScreen>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxInfoText android:summary="Kill packages" />
+    <GrxInfoText android:summary="You can kill an app after a preference change. This requires root. The command to kill the app is defined in the string grxs_kill_command .\n
+    It depends on you rom. I use  pkill -l TERM -f but may be you just need pkill \nYou can show a confirmation dialog" />
+
+    <GrxSwitchPreference  android:title="Kill sysui with confirmation" grx:iconTint="?complementary_color3" android:icon="@drawable/demo_icon_1"
+        android:key="switch_1" android:defaultValue="true" android:summaryOn="Summary On" android:summaryOff="Summary Off"
+        grx:bpRule="DISABLE#grx.demo.prop#TEST,TEST2"
+        grx:killpackage="com.android.systemui" grx:confirmKillpackage="true"/>
+
+    <GrxButtonPreference android:title="Kill this app" android:summary="No confirmation required" grx:button_Style="small"
+        grx:button_Text="Kill GrxSettings"  grx:killpackage="com.grx.settings" grx:confirmKillpackage="false"/>
+    <GrxInfoText android:summary="Reboot Phone" />
+    <GrxInfoText android:summary="You can reboot your phone on preference´s change. A confirmation dialog is shown by default, but you could reboot without confirmation"/>
+    <GrxColorPicker android:title="Demo reboot" android:key="cpicker_3" android:summary="No auto button, circle"
+        android:defaultValue="0xff33b5e5"  grx:saveSettings="false" grx:showAlphaSlider="false"
+        grx:showAutoButton="true" grx:reboot="true"
+        />
+
+</PreferenceScreen>

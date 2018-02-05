@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxInfoText android:summary="This preference is removed if you select REMOVE_PREFERENCE.\n
+       The rule can be like this REMOVE#grx.demo.prop#,REMOVE_PREFERENCE,"
+        grx:bpRule="REMOVE#grx.demo.prop#,REMOVE_PREFERENCE,"/>
+
+    <GrxInfoText android:summary="This preference is showed if you select the REMOVE_SCREEN value or it contains REMOVE_PREFERENCE in three dots option tool.\n
+       The rule can be like this SHOW#grx.demo.prop#,REMOVE_SCREEN,(REMOVE_PREFERENCE),"
+        grx:bpRule="SHOW#grx.demo.prop#,REMOVE_SCREEN,(REMOVE_PREFERENCE),"/>
+
+    <GrxInfoText android:summary="This preference is always showed" />
+
+</PreferenceScreen>

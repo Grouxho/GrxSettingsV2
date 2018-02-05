@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- info texts -->
+
+    <string name="gs_rom_name">GrxSettings (change it to your rom name..)</string>
+
+
+
+    <!-- ********************* Application Configuration Resources  ******************** -->
+
+    <!-- Global configuration -->
+
+    <string name="grxs_app_name">GrxSettings v2</string>
+    <bool name="grxb_demo_mode">true</bool> <!-- DEMO MODE - set to false to run your app : the app will take rom_tabs_names and rom_tabs_layouts for rom info, and rom_navigation_screens as navigation menu. Use values-rom or similar to add your arrays, strings, integers, etc.. to have your code clearer -->
+
+    <bool name="grxb_global_enable_settingsdb">false</bool> <!-- set to true when running your app when you want to save values in settings. This is a main switch. Use false when you are playing configuring preferences for not to mess your settings -->
+<!-- grxb_saveSettings_default is a preference attribute. Set by default to true for not to have to  declare that attribute on every pref. Play with this two bools when doing tests -->
+    <bool name="grxb_saveSettings_default">true</bool> <!-- saveSettings preference attribute value -->
+    <!-- user options default values -->
+
+    <bool name="grxb_allow_panelheader_changes">true</bool>
+    <bool name="grxb_allow_theme_change">true</bool>
+    <bool name="grxb_allow_user_colorpicker_selection">true</bool>
+
+    <!--           Logic                   -->
+
+    <string name="grxs_appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string> <!-- do not change, please -->
+    <string name="grxs_process_actions_order">scripts|broadcasts|groupkey|onclick|reboot|kill|</string> <!-- order to process configured actions after preference changes -->
+
+    <string name="grxs_kill_command">pkill -l TERM -f </string> <!-- Command for killpackage action -->
+    <!--    <string name="grxs_kill_command">pkill </string> -->
+
+
+    <!-- Application paths, extensions ... -->
+
+    <string name="grxs_data_base_folder">grx</string>    <!-- base folder in internal sdcard to save backups, etc. -->
+    <string name="grxs_data_icons_subfolder">ico_prefs</string> <!-- base folder subfolder where to save icons related to preferences -->
+    <string name="grxs_backups_files_extension">grxbk</string> <!-- Extension for preferences xml backups -->
+
+
+    <!-- Style, default values -->
+
+    <integer name="grxi_default_list_divider_height">1</integer>
+
+    <string name="grxs_default_theme">Theme.White.BlueGrey</string> <!-- DEFAULT THEME NAME - Change this according to the style name in styles.xml -->
+
+
+    <integer name="grxi_floatingrecents_max_items_seen">3</integer> <!-- recents screen floating area máx seen in the area (height of area)  -->
+    <integer name="grxi_floatingrecents_total_items">6</integer><!-- max number of screen to memorize -->
+
+    <!-- attributes default values -->
+
+    <integer name="grxi_default_colorPicker_color">0x7033b5e5</integer>
+
+    <string name="grxs_separator_default">|</string> <!-- default separator for multi-values preferences -->
+    <string name="grxs_colorPickerStyle_default">circle</string> <!-- Default color picker style ( circle, flower, square ) -->
+
+
+
+    <bool name="grxb_confirmKillpackage_default">false</bool>
+    <bool name="grxb_confirmReboot_default">true</bool>
+    <bool name="grxb_showShortcuts_default">true</bool>
+    <bool name="grxb_showApplications_default">true</bool>
+    <bool name="grxb_showActivities_default">true</bool>
+    <bool name="grxb_saveActionsicons_default">false</bool>
+    <bool name="grxb_saveActivityname_default">true</bool>
+    <bool name="grxb_showSystemapps_default">false</bool>
+    <bool name="grxb_showShortIcon_default">false</bool>
+    <bool name="grxb_showAlphaSlider_default">true</bool>
+    <bool name="grxb_showAutoButton_default">true</bool>
+
+
+
+
+
+
+</resources>

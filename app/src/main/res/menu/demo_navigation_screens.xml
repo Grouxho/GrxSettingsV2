@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CenteredText android:title="Preferences" android:checked="true"/>
+    <Separator/><Separator/>
+ <!--   <Text  android:id="@+id/demo_tests" android:title="Tests" app:showIconSpace="false" /> -->
+    <Text android:icon="@drawable/demo_icon_info" android:id="@+id/demo_categories_infotext" android:title="Category and info" app:showIconSpace="false" />
+    <Text android:icon="@drawable/demo_icon_checkbox" android:id="@+id/demo_check_switch_file" android:title="Checkbox, switch, file "  />
+    <Text android:icon="@drawable/demo_icon_activity" android:id="@+id/demo_open_intent_activity" android:title="Open activities and intents"  app:showIconSpace="false" />
+    <Text android:icon="@drawable/demo_icon_slider" android:id="@+id/demo_num_text_seekbar" android:title="Numbers, texts, seekbars"   android:hint="seekbar, numberpicker, edittext"/>
+    <Text android:icon="@drawable/demo_icon_select_app" android:id="@+id/demo_selectapp" android:hint="Single and multi App selector" android:title="App Selection"  />
+    <Group
+        android:id="@+id/demo_grupo_listados"
+        app:collapsible="true"
+        app:collapsed="true">
+       <!-- app:grxBPRule="DISABLE#grx.demo.prop#TEST,TEST2,(FULL)"  > -->
+
+        <GroupHeader
+            android:icon="@drawable/demo_icon_lists"
+            android:id="@+id/demo_head_grupo_listados"
+            android:title="Lists of Items"
+            android:hint="Select and Sort Items"/>
+        <Separator/>
+
+        <Text android:id="@+id/demo_select_items" android:title="Select one or more items"   app:showIconSpace="true" />
+        <Text android:id="@+id/demo_peritem_single_sel" android:title="Per Item Single Selection"   app:showIconSpace="true" />
+        <Text android:id="@+id/demo_sort_items" android:title="Sort items"   app:showIconSpace="true" />
+        <Text android:id="@+id/demo_select_sort" android:title="Select and Sort items" app:showIconSpace="true" />
+         <!--   app:grxBPRule="ENABLE#grx.demo.prop#(LITE)" -->
+        <Separator/>
+
+
+    </Group>
+
+    <Text  android:icon="@drawable/demo_icon_widget" android:id="@+id/demo_widgets" android:title="Widgets selection"  />
+    <Text android:icon="@drawable/demo_icon_date_time" android:id="@+id/demo_time_date" android:title="Date and Time"  />
+    <Text android:icon="@drawable/demo_icon_pickimage" android:id="@+id/demo_image_picker" android:title="GrxPickImage"/>
+    <Group
+        android:id="@+id/demo_color"
+        app:collapsible="true"
+        app:collapsed="true"
+        app:grxBPRule="DISABLE#grx.demo.prop#TEST,TEST2,(FULL)">
+
+        <GroupHeader
+            android:icon="@drawable/demo_icon_color"
+            android:id="@+id/demo_color_selection"
+            android:title="Color Selection"/>
+        <Separator/>
+        <Text android:id="@+id/demo_colorpicker" android:title="Color Pickers"  app:showIconSpace="true"  />
+        <Text android:id="@+id/demo_items_colors" android:title="Per item color"   app:showIconSpace="true" />
+        <Text  android:id="@+id/demo_multiappcolor" android:title="Per app color"  android:hint ="Link colors to apps" app:showIconSpace="true"  />
+        <Separator/>
+    </Group>
+    <Text  android:icon="@drawable/ic_settings_leds" android:id="@+id/demo_color_pulse" android:title="Led Color and Pulse"  android:hint ="Led control and per app led control"  />
+
+
+    <Text android:icon="@drawable/demo_icon_access" android:id="@+id/demo_access" android:hint="Apps,Activities,shortcuts.." android:title="Multiuse Selector"  />
+    <Text android:icon="@drawable/demo_icon_multiaccess" android:id="@+id/demo_multiaccess" android:hint="Select and sort accesses" android:title="MultiAccess Selector"  />
+    <Text android:icon="@drawable/demo_buttons" android:id="@+id/demo_buttons" android:title="Buttons"  />
+
+
+
+
+    <CenteredText android:title="Dependency Rules" android:checked="true"/>
+    <Separator/>
+
+    <Text android:id="@+id/demo_dependency" android:title="Dependency Examples" app:showIconSpace="false" />
+    <Separator/>
+
+    <CenteredText android:title="Actions on values change" android:checked="true"/>
+    <Separator/>
+    <Text android:id="@+id/demo_pref_actions_click" android:title="Automatic clicks"  />
+    <Text android:id="@+id/demo_groupkey_bcs" android:title="GroupKeys and Broadcasts"  />
+    <Text android:id="@+id/demo_scripts" android:title="Run Scripts"  />
+    <Text android:id="@+id/demo_reboot_killapp" android:title="Reboot and Kill apps"  />
+
+    <CenteredText android:title="Nested Screens" android:checked="true"/>
+    <Separator/>
+    <Text android:icon="@drawable/demo_icon_nested" android:id="@+id/demo_nested" android:title="Nested Screens examples" />
+
+    <CenteredText android:title="Build Prop properties rules" android:checked="true"/>
+    <Separator/>
+    <Text android:id="@+id/demo_bprules_help" android:title="Intro to BP rules" />
+    <Group
+        android:id="@+id/demo_group_bprule"
+        app:collapsible="true"
+        app:collapsed="true"
+        app:grxBPRule="REMOVE#grx.demo.prop#,(REMOVE_GROUP),"  > -->
+
+        <GroupHeader
+            android:id="@+id/demo_head_group_bprule"
+            android:title="Group removed if"
+            android:hint="..contains REMOVE_GROUP"/>
+        <Separator/>
+        <Text
+            app:grxBPRule="REMOVE#grx.demo.prop#,REMOVE_SCREEN," app:showIconSpace="true"
+            android:id="@+id/demo_bprule_screen1" android:title="Removed if.."
+            android:hint="is REMOVE_SCREEN," />
+        <Text android:id="@+id/demo_bprule_screen2" app:showIconSpace="true"
+            android:title="Test prefs rules"  />
+
+        <!--   app:grxBPRule="ENABLE#grx.demo.prop#(LITE)" -->
+        <Separator/>
+
+
+    </Group>
+
+    <Separator/>
+    <CenteredText android:title="System preferences" android:hint="System Settings, Secure and Global prefs" android:checked="true"/>
+    <Separator/>
+    <Text android:icon="@drawable/demo_settings" android:id="@+id/demo_system_settings"
+        android:title="System, Global, Secure prefs"  android:hint="if FC -> put app in priv-app" />
+
+
+
+
+
+
+
+</menu>

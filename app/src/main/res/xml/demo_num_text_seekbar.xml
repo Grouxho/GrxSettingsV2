@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxSeekBar" />
+    <GrxSeekBar android:title="Seekbar 1" android:key="seekbar_1ababab" android:summary="interval 50" android:defaultValue="600"
+        grx:minValue="400" grx:maxValue="1200" grx:units=" mS" grx:interval="50" grx:showPopup="true"
+        />
+    <GrxSeekBar  grx:seekbarColor="?complementary_color2" grx:showPopup="false"  android:title="Tinted Seekbar - reference" android:key="seekbar_2ab" android:summary="No defval, inter 1" android:defaultValue="9"
+        grx:minValue="3" grx:maxValue="15" grx:units=" sp" grx:interval="1" />
+    <GrxSeekBar android:title="Tinted seekbar - fixed color" android:key="seekbar_3ab" grx:seekbarColor="0xffff00ff"
+        grx:minValue="3" grx:maxValue="15" grx:interval="3"  grx:showPopup="true"  />
+    <GrxSeekBar android:title="Seekbar 3" android:key="seekbar_76b"
+        grx:minValue="3" grx:maxValue="15" grx:interval="3"  grx:showPopup="true" />
+
+    <GrxPreferenceCategory android:title="GrxNumberPicker" />
+
+    <GrxNumberPicker  grx:iconTint="0xffd76969"  android:icon="@drawable/demo_icon_3" android:title="Number Picker 1" android:key="numberpicker_1" android:summary="defval 7, units"
+            android:defaultValue="7"  grx:minValue="2" grx:maxValue="20" grx:units=" Sec." />
+
+    <GrxNumberPicker android:title="Number Picker 2"  grx:iconTint="?colorAccent" android:key="numberpicker_2" android:summary="no defval, no units"
+
+        grx:minValue="2" grx:maxValue="20"  />
+    <GrxPreferenceCategory android:title="GrxEditTextPreference" />
+    <GrxEditText android:title="EditText 1" android:key="edittext_1" android:summary="With default text" android:defaultValue="this is de default text" />
+    <GrxEditText grx:iconTint="?colorAccent" android:icon="@drawable/demo_icon_4"
+        android:title="EditText 2" android:key="edittext_2" android:summary="No default value"
+         grx:arrowColor="?complementary_color3"  />
+    <GrxEditText android:title="Summary is % " android:key="edittext_3" android:summary="%" grx:arrowColor="?complementary_color2" grxBc1="true" />
+    <GrxEditText android:title="Summary is % and defval" android:key="edittext_4" android:summary="%" android:defaultValue="Default value"
+        grx:arrowColor="?complementary_color5" />
+</PreferenceScreen>

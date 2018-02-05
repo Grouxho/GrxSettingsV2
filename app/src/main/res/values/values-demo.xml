@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Info fragment tabs -->
+
+
+    <string-array name="demo_tabs_names">
+        <item>About this app</item>
+        <item>Features</item>
+        <item>Credits</item>
+    </string-array>
+
+    <string-array name="demo_tabs_layouts">
+        <item>demo_info_about_tab</item>
+        <item>demo_info_changelog_tab</item>
+        <item>demo_info_credits_tab</item>
+
+    </string-array>
+
+    <!-- info texts -->
+
+
+
+    <string name="gs_bp_property">grx.demo.prop</string>
+    <string-array name="demo_build_prop_options">
+        <item>grx.demo.prop HELLO</item>
+        <item>grx.demo.prop REMOVE_PREFERENCE</item>
+        <item>grx.demo.prop REMOVE_SCREEN</item>
+        <item>grx.demo.prop REMOVE_GROUP</item>
+        <item>grx.demo.prop REMOVE_GROUP,HELLO</item>
+        <item>grx.demo.prop REMOVE_SCREEN,REMOVE_PREFERENCE</item>
+</string-array>
+
+    <string-array name="demo_screen_timeout_options">
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+
+    </string-array>
+    <string-array name="demo_screen_timeout_values">
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+        <item>600000</item>
+    </string-array>
+
+    <string-array name="demo_lists_entries">
+        <item>Alarm</item>
+        <item>Airplane</item>
+        <item>Battery</item>
+        <item>Brightness</item>
+        <item>Clock</item>
+        <item>Alarm 1</item>
+        <item>Airplane 1</item>
+        <item>Battery 1</item>
+        <item>Clock 1</item>
+        <item>Alarm 2</item>
+        <item>Airplane 2</item>
+        <item>Battery 2</item>
+        <item>Brightness 2</item>
+    </string-array>
+    <array name="demo_lists_icons">
+        <item>@drawable/demo_icon_1</item>
+        <item>@drawable/demo_icon_2</item>
+        <item>@drawable/demo_icon_3</item>
+        <item>@drawable/demo_icon_4</item>
+        <item>@drawable/demo_icon_5</item>
+        <item>@drawable/demo_icon_1</item>
+        <item>@drawable/demo_icon_2</item>
+        <item>@drawable/demo_icon_3</item>
+        <item>@drawable/demo_icon_4</item>
+        <item>@drawable/demo_icon_1</item>
+        <item>@drawable/demo_icon_2</item>
+        <item>@drawable/demo_icon_3</item>
+        <item>@drawable/demo_icon_4</item>
+    </array>
+    <string-array name="demo_lists_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="test_sb_views_options">
+        <item>Notification Icons</item>
+        <item>knox text(never seen)</item>
+        <item>Net Speed View</item>
+        <item>System Icons</item>
+        <item>Signal Cluster View</item>
+        <item>Battery Text</item>
+        <item>Battery Icon</item>
+        <item>Clock</item>
+    </string-array>
+
+    <string-array name="test_sb_views_values">
+        <item>notifications</item>
+        <item>knox</item>
+        <item>netspeedview</item>
+        <item>statusicons</item>
+        <item>signalclusterview</item>
+        <item>batterytext</item>
+        <item>batterymeterview</item>
+        <item>clock</item>
+    </string-array>
+
+    <string-array name="demo_spinner_options">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+   </string-array>
+    <string-array name="demo_spinner_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+   </string-array>
+
+    <integer-array name="demo_lists_colors">
+        <item>0xffffffff</item>
+        <item>0xff252525</item>
+        <item>0xff33b5e5</item>
+        <item>0xff335599</item>
+        <item>0xffeeeeee</item>
+        <item>0xffff00ff</item>
+        <item>0xff00ffff</item>
+        <item>0xff00ff00</item>
+        <item>0xff0000ff</item>
+        <item>0xff658941</item>
+        <item>0xff985233</item>
+        <item>0xff876941</item>
+        <item>0xffe6d3a5</item>
+    </integer-array>
+
+    <string-array name="demo_changelog">
+        <item>30 hightly customizable type of preferences</item>
+        <item>Preferences can be declared using their short class name.</item>
+        <item>Easy navigation panel configuration, with groups support.</item>
+        <item>Many user options for configuring the app. Some of them are disabled by the dev through booleans.</item>
+        <item>6 themes included. Easy customization and creation of new themes. </item>
+        <item>Customizable dependency rules, which although simple, allow a more advanced behavior than the use of Android standard dependencies</item>
+        <item>Up to 6 actions can be launched after a preference change:\n\n
+            - Simulate onclicks on other preferences (under customizable conditions)\n
+            - Change Group Keys values\n
+            - Send up to two customizables broadcast\n
+            - Run a script: the script can be defined in a string-array, a file (in this case you can pass arguments)\n
+            - Reboot the device with confirmation dialgo or not\n
+            - Kill an app (confirmation dialog ooptional)\n\n
+            These actions are executed in a predefined order (in a string) but can be overriden in every preference.
+         </item>
+        <item>Hide or show groups of screens, screens and preferences based on build prop properties values </item>
+        <item>Nested screens with support to kept seen the toolbar.</item>
+        <item>Support for system, global and secure settings.\n
+        The app should be installed in priv-app to get access to secure and global, or to mod your rom to allow not privileged apps to get it.
+            These preferences are updated in case the user go to settings, change the preference value and come back to the app.
+        </item>
+        <item>Customizable Rom Info section, with sliding tabs support. Mods developers can design as many screens as they need to show information about their works. Some extended views has been added in order to make this work easier.</item>
+        <item>Floating Action Button, with a standardized operation throughout the application.</item>
+        <item>Floating Area with links to recents screens</item>
+        <item>Backup and restore of preferences with synchronization of stored values in settings system</item>
+        <item>From your mods you can easily open a screen, sub-screen and even simulate a click on a preference through intents with predefined intent extras strings</item>
+    </string-array>
+    <string-array name="demo_preferences">
+        <item>For a detailed description of the preferences added and their customizable xml attributes, visit the github project, folder demo and guide.\n
+            In demo mode you can check all the existing preferences, and the main options added to them. Use demo screens as reference when you add your own preferences and screens.\n
+        Some styiling attributes have been added, you can see them in the demo.</item>
+
+    </string-array>
+
+    <string-array name="demo_useroptions">
+        <item>Show Rom info screen.</item>
+        <item>Show App help screen.</item>
+        <item>Theme selection, if this feature is allowed by the develooper</item>
+        <item>Navigation panel header background (image), if this featured is allowed by the develooper</item>
+        <item>Divider height in listviews</item>
+        <item>Thre color pickers styles. Color preferences will use this selection, unless the dev specifies one style on a preference. In led pulse preferences the square style is always used.</item>
+        <item>Show - hide floating action button</item>
+        <item>Floating Action Button position (left, center, right)</item>
+        <item>Floating Recents Screen window, allowing the user to select if it dismissed when pressing back or touching outside of it. The user can place the area anywhere and also to change the transparency</item>
+        <item>Navigation Panel position (right or left) with option to show expand - collapse buttons (for screen groups) or to show groups always expanded</item>
+        <item>Exit Confirmation option</item>
+        <item>Remember last screen</item>
+        <item>Double clicking on most of the preferences allows the user to reset its value to the default value. In color pickers a long click on the selected color allows the user to copy to the clipboard its value</item>
+    </string-array>
+    <string-array name="samsung_widgets">
+        <item>com.sec.android.daemonapp/com.sec.android.daemonapp.appwidget.WeatherAppWidget2x1</item>
+        <item>com.sec.android.daemonapp/com.sec.android.daemonapp.appwidget.WeatherAppWidget</item>
+    </string-array>
+
+    <string-array name="backup_wifi_key">
+        <item>mount -o rw,remount /data</item>
+        <item>mkdir -p /sdcard/backups/wifibackup</item>
+        <item>cp -rf /data/misc/wifi/wpa_supplicant.conf /sdcard/backups/wifibackup</item>
+    </string-array>
+
+    <string-array name="restore_wifi_key">
+        <item>mount -o rw,remount /data</item>
+        <item>cp -rf /sdcard/backups/wifibackup/wpa_supplicant.conf /data/misc/wifi/</item>
+    </string-array>
+
+    <string-array name="delete_wifi_backup">
+        <item>mount -o rw,remount /data</item>
+        <item>rm -r /sdcard/backups/wifibackup</item>
+    </string-array>
+
+</resources>

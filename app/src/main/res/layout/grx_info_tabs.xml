@@ -1,0 +1,24 @@
+<RelativeLayout
+    android:id="@+id/gid_info_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.grx.settings.GrxSettingsActivity">
+
+    <com.grx.settings.utils.SlidingTabLayout
+        android:id="@+id/gid_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="6dp"
+        android:background="?attr/colorPrimary"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/gid_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/gid_tabs"/>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+
+    <GrxSortList grx:optionsArray="@array/demo_lists_entries" android:title="Sort list" android:key="sortlist_n1" android:widgetLayout="@layout/widget_icon_accent"
+       grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"  />
+
+    <PreferenceScreen android:title="Nested Screen 1" android:key="nested_1">
+        <GrxSelectSortItems grx:maxChoices="3" grx:optionsArray="@array/demo_lists_entries" android:title="Select sort" android:key="selectsort_nn1" android:widgetLayout="@layout/widget_icon_accent"  grx:valuesArray="@array/demo_lists_values" grx:iconsArray="@array/demo_lists_icons"/>
+        <PreferenceScreen android:title="Nested Screen 1-1" android:key="nested_11">
+            <GrxPreferenceCategory android:title="GrxCheckBoxPreference" />
+            <GrxCheckBoxPreference android:title="CheckBox 1" android:key="checkbox_nn1" android:defaultValue="true" android:summaryOn="Summary On" android:summaryOff="Summary Off"  />
+            <PreferenceScreen android:title="Nested Screen 1-1-1">
+                <GrxPreferenceCategory android:title="GrxSwitchPreference" />
+                <GrxSwitchPreference  grx:iconTint="?colorAccent" android:icon ="@drawable/demo_icon_1" android:title="Switch 1" android:key="switch_nn1" android:defaultValue="true" android:summaryOn="Summary On" android:summaryOff="Summary Off" />
+            </PreferenceScreen>
+        </PreferenceScreen>
+
+    </PreferenceScreen>
+
+
+
+    <PreferenceScreen android:title="Nested Screen 2">
+
+        <GrxAccess android:title="All options" android:key="access_nb1" android:summary="Shortcuts, activity.." grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true" />
+        <PreferenceScreen android:title="Nested Screen 2-1">
+            <GrxColorPicker  grx:iconTint="?colorAccent" android:icon ="@drawable/demo_icon_5" android:title="Demo 1" android:key="cpicker_nv0" android:summary="ColorPicker"  />
+        </PreferenceScreen>
+    </PreferenceScreen>
+
+    <PreferenceScreen android:title="Nested Screen 3">
+        <GrxPreferenceCategory android:title="GrxPreferenceCategory" />
+        <GrxInfoText  grx:iconTint="?colorAccent" android:icon ="@drawable/demo_icon_2" android:summary="This is a GrxInfoText. The following one is a hidden category wrapping a GrxInfoText. The hidden category has got a standard dependency rule, beeing dependent on the status of the next checkbox." />
+        <GrxSwitchPreference android:title="Switch 2" android:key="switch_2ff" android:defaultValue="false" android:summaryOn="Summary On" android:summaryOff="Summary Off" />
+        <GrxPreferenceCategory android:title="Hidden Category" android:dependency="switch_2ff" grxHide="true">
+            <GrxInfoText android:summary="GrxInfotext wrapped in a invisible category. For example, you could use GrxInfoText to show information to your users.. " />
+        </GrxPreferenceCategory>
+
+
+    </PreferenceScreen>
+
+</PreferenceScreen>
