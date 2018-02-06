@@ -156,6 +156,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
             if(!Common.SyncUpMode && Common.BroadCastsList!=null) {
                 Common.BroadCastsList.clear();
             }
+            if(!Common.SyncUpMode && Common.CommonBroadCastList!=null) Common.CommonBroadCastList.clear();
             initPreferenceScreen(mGrxScreen);
             removePreferences();
 
@@ -403,6 +404,12 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                     break;
 
                 case "broadcasts":
+                     if(prefAttrsInfo.getMyCommonBcExtra()!=null) {
+                         GrxPrefsUtils.sendCommonBroadCastExtraDelayed(getActivity(),prefAttrsInfo.getMyCommonBcExtra(),prefAttrsInfo.getMyCommonBcExtraValue(),false);
+                         if(mIsDemoMode) {
+                               Toast.makeText(getActivity(),"Common BC send with extra : " + prefAttrsInfo.getMyCommonBcExtra()+" = "+ prefAttrsInfo.getMyCommonBcExtraValue(),Toast.LENGTH_SHORT).show();
+                         }
+                     }
                      sendPreferenceBroadcasts(prefAttrsInfo.getMyBroadCast1(),prefAttrsInfo.getMyBroadCast2());
                     break;
 
@@ -631,6 +638,12 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
             }
         }
 
+        public void addCommonBroadCastValuesForSyncUp(String extra, String extravalue){
+            if(extra==null) return;
+            if(Common.CommonBroadCastList==null) Common.CommonBroadCastList = new HashSet<>();
+            String entry = extra+";"+extravalue;
+            if(!Common.CommonBroadCastList.contains(entry)) Common.CommonBroadCastList.add(entry);
+        }
 
         public void addBroadCastToSendForSyncUp(String bc1, String bc2){
             if(bc1!=null && !bc1.isEmpty()){

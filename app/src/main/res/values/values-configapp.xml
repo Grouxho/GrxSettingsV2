@@ -57,6 +57,9 @@
     <string name="grxs_separator_default">|</string> <!-- default separator for multi-values preferences -->
     <string name="grxs_colorPickerStyle_default">circle</string> <!-- Default color picker style ( circle, flower, square ) -->
 
+    <!-- Common extra Broadcast Action - When the attribute commonBcExtra is found in a pref, after value change a broadcast with this action and
+    the extra value will be sent -->
+    <string name="grx_common_extra_broadcast">com.grx.settings</string>
 
 
     <bool name="grxb_confirmKillpackage_default">false</bool>

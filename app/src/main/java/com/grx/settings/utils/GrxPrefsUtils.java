@@ -681,6 +681,42 @@ public class GrxPrefsUtils {
     }
 
 
+
+    public static void sendCommonBroadCastExtraDelayed(final Context context, final String extra, final String extravalue, boolean delayed){
+        final String action = context.getResources().getString(R.string.grx_common_extra_broadcast);
+        if(action==null || action.isEmpty() || extra==null || extra.isEmpty()) return;
+        if(!delayed){
+            Intent intent = new Intent();
+            try {
+                intent.setAction(action);
+                intent.putExtra(extra,extravalue);
+                context.sendBroadcast(intent);
+            }catch (Exception e){
+                e.printStackTrace();
+                Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Runnable BC = new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent();
+                    try{
+                        intent.setAction(action);
+                        intent.putExtra(extra,extravalue);
+                        context.sendBroadcast(intent);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+
+            Handler handler = new Handler();
+            handler.removeCallbacks(BC);
+            handler.postDelayed(BC,Long.valueOf(200));
+        }
+    }
+
     public static String getHexString(int color, boolean showAlpha) {
         int base = showAlpha ? 0xFFFFFFFF : 0xFFFFFF;
         String format = showAlpha ? "#%08X" : "#%06X";

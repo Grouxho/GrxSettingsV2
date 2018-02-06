@@ -91,6 +91,7 @@ import com.grx.settings.app_fragments.DlgFrGrxNavigationUserOptions;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1123,8 +1124,14 @@ public class GrxSettingsActivity extends AppCompatActivity implements
             GrxPrefsUtils.sendPreferenceBroadcaast(this,broadcastaction,true);
 
         }
+        for(String extra : Common.CommonBroadCastList){
+            String[] arra = extra.split(";");
+            GrxPrefsUtils.sendCommonBroadCastExtraDelayed(this,arra[0],arra[1],true);
+        }
+
         Common.GroupKeysList.clear();
         Common.BroadCastsList.clear();
+        Common.CommonBroadCastList.clear();;
 
         runOnUiThread(new Runnable() {
             public void run() {
@@ -1164,6 +1171,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
             if(getNumOfAvailableScreens()!=0){
                 if(Common.GroupKeysList!=null) Common.GroupKeysList.clear();
                 if(Common.BroadCastsList!=null) Common.BroadCastsList.clear();
+                if(Common.CommonBroadCastList!=null) Common.CommonBroadCastList.clear();
                 mNumSyncPrefs=0;
                 mNumSyncScreens=0;
                 Common.SyncUpMode = true;
@@ -1911,6 +1919,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         Common.AndroidIconParams = new LinearLayout.LayoutParams(iconsize, iconsize);
         Common.GroupKeysList=new HashSet<>();
         Common.BroadCastsList=new HashSet<>();
+        Common.CommonBroadCastList=new HashSet<>();
     }
 
     private void setDrawerLayoutPosition(){

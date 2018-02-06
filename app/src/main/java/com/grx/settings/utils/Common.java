@@ -15,8 +15,10 @@ package com.grx.settings.utils;
 import android.content.SharedPreferences;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 public class Common {
@@ -182,6 +184,7 @@ public class Common {
 
     public static boolean SyncUpMode=false;
     public static HashSet<String> GroupKeysList=null;
+    public static HashSet<String> CommonBroadCastList=null;
     public static HashSet<String> BroadCastsList=null;
 
     public static boolean IsRebootPermissionGranted =false;

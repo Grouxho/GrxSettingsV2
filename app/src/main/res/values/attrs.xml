@@ -48,6 +48,8 @@
 
 
 	<declare-styleable name="grxPreferences">
+		<attr name="commonBcExtra" format="string|reference" />
+		<attr name="commonBcExtraValue" format="string|reference" />
 		<attr name="iconsValueTint"/>
 		<attr name="iconTint" format="integer|color|reference"/>
 		<attr name="groupKey" format="string"/>

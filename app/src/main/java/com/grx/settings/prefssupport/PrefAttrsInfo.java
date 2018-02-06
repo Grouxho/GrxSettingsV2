@@ -133,6 +133,8 @@ public class PrefAttrsInfo {
 
     private int mIconTint, mArrowTint=0;
 
+    private String mCommonBroadCastExtra;
+    private String mCommonBroadCastExtraValue;
 
 
         /******** GrxBasePreference ***/
@@ -269,6 +271,15 @@ public class PrefAttrsInfo {
             }
         }
 
+        if(ta.hasValue(R.styleable.grxPreferences_commonBcExtra)){
+            mCommonBroadCastExtra=ta.getString(R.styleable.grxPreferences_commonBcExtra);
+        }else mCommonBroadCastExtra=null;
+
+        if(ta.hasValue(R.styleable.grxPreferences_commonBcExtra)){
+            mCommonBroadCastExtraValue=ta.getString(R.styleable.grxPreferences_commonBcExtraValue);
+        }else mCommonBroadCastExtraValue="";
+
+
         ta.recycle();
 
         if(mMyBPRule!=null && !mMyBPRule.isEmpty()) {
@@ -387,5 +398,7 @@ public class PrefAttrsInfo {
 
     public void setMyArrowTint(int color){mArrowTint=color;}
 
+    public String getMyCommonBcExtra(){return mCommonBroadCastExtra;}
 
+    public String getMyCommonBcExtraValue(){return mCommonBroadCastExtraValue;}
 }
