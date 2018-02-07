@@ -796,6 +796,8 @@ public class GrxSettingsActivity extends AppCompatActivity implements
 
 
     private void showInfoFragment(){
+        PrefScreenFragment=null;
+        mCurrentScreen="";
         GrxInfoFragment info_fragment= new GrxInfoFragment();
         android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.gid_content,info_fragment, Common.TAG_INFOFRAGMENT).commit();
@@ -805,6 +807,8 @@ public class GrxSettingsActivity extends AppCompatActivity implements
     }
 
     private void showHelpFragment(){
+        PrefScreenFragment=null;
+        mCurrentScreen="";
         GrxHelpFragment grxHelpFragment = new GrxHelpFragment();
         android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         if(!mDrawerInLeftPosition) fragmentTransaction.setCustomAnimations(R.animator.enter_animation_r,R.animator.exit_animator_r);
@@ -1790,13 +1794,11 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                                 case "grx_mid_rom_info":
                                     showInfoFragment();
                                     if(mDrawer.isDrawerVisible(mSVN)) mDrawer.closeDrawer(mSVN);
-                                    mCurrentScreen="";
                                     saveLastScreenValueToSHP();
                                     break;
                                 case "grx_mid_app_help":
                                     showHelpFragment();
                                     if(mDrawer.isDrawerVisible(mSVN)) mDrawer.closeDrawer(mSVN);
-                                    mCurrentScreen="";
                                     saveLastScreenValueToSHP();
                                     break;
 
