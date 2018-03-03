@@ -2042,7 +2042,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         mShowFab = Common.sp.getBoolean(Common.S_APPOPT_SHOW_FAV, Common.DEF_VAL_SHOW_FAB);
         mConfigMenu.getMenuItem(R.id.grx_mid_show_fab).setChecked(mShowFab);
 
-        mRememberScreen = Common.sp.getBoolean(Common.S_APPOPT_REMEMBER_SCREEN, Common.DEF_VAL_REMENBER_SCREEN);
+        mRememberScreen = Common.sp.getBoolean(Common.S_APPOPT_REMEMBER_SCREEN, getResources().getBoolean(R.bool.grxb_remember_screen_default));
         mConfigMenu.getMenuItem(R.id.grx_mid_remember_screen).setChecked(mRememberScreen);
 
         mGroupsExpanded=Common.sp.getBoolean(Common.S_APPOPT_MENU_GROUPS_ALWAYS_OPEN, Common.DEF_VAL_GROUPS_ALWAYS_OPEN);

@@ -74,7 +74,7 @@
     <bool name="grxb_showAlphaSlider_default">true</bool>
     <bool name="grxb_showAutoButton_default">true</bool>
 
-
+    <bool name="grxb_remember_screen_default">true</bool>
 
 
 

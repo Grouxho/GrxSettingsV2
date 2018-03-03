@@ -36,7 +36,7 @@ public class Common {
     public static final String S_APPOPT_SHOW_FAV= "grx_show_fab";
     public static final boolean DEF_VAL_SHOW_FAB = true;
     public static final String S_APPOPT_REMEMBER_SCREEN= "grx_remenber_screen";
-    public static final boolean DEF_VAL_REMENBER_SCREEN = true;
+   
     public static final String S_APPOPT_MENU_GROUPS_ALWAYS_OPEN= "grx_men_groups_open";
     public static final boolean DEF_VAL_GROUPS_ALWAYS_OPEN = false;
     public static final String S_APPOPT_SHOW_COLLAPSE_EXPAND_BUTTONS= "grx_expand_collapser_buttons";
