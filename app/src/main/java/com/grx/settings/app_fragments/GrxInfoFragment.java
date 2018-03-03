@@ -118,7 +118,7 @@ public class GrxInfoFragment extends Fragment {
                  });
 
                  int pos= 0;
-                 if(Common.sp.getBoolean(Common.S_APPOPT_REMEMBER_SCREEN, Common.DEF_VAL_REMENBER_SCREEN)) pos= Common.sp.getInt("tab_pos",0);
+                 if(Common.sp.getBoolean(Common.S_APPOPT_REMEMBER_SCREEN, getResources().getBoolean(R.bool.grxb_remember_screen_default))) pos= Common.sp.getInt("tab_pos",0);
                  if(pos<mViewPager.getAdapter().getCount()) {
                      mViewPager.setCurrentItem(pos);
                  }
