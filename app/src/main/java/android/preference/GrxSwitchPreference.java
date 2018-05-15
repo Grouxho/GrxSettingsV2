@@ -68,7 +68,7 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
         //TypedArray ta = getContext().obtainStyledAttributes(att, R.styleable.grxSwitchPreference);
         if(ta.hasValue(R.styleable.grxSwitchPreference_switchColor)) {
             try {
-                mColor = ta.getColor(R.styleable.grxCheckBoxPreference_checkboxColor, 0);
+                mColor = ta.getColor(R.styleable.grxSwitchPreference_switchColor, 0);
             } catch (Exception e) {
             }
         }
