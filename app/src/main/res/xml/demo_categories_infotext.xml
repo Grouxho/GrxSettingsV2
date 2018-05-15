@@ -1,42 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:grx="http://schemas.android.com/apk/res-auto">
-    <GrxSwitchPreference android:title="Enable Back Key Mapping" android:key="b_bk_map_enabled" android:defaultValue="false"
-        grx:commonBcExtra="UPDATE" grx:commonBcExtraValue="BACK_KEY_MAPPING"/>
-
-    <GrxSeekBar android:title="Double Tap Max Time" android:key="b_bkmap_dt_timeout" android:dependency="b_bk_map_enabled"
-        android:defaultValue="500" grx:minValue="100" grx:maxValue="700" grx:units=" mS" grx:showPopup="true" grx:interval="20"
-        grx:commonBcExtra="UPDATE" grx:commonBcExtraValue="BACK_KEY_MAPPING"/>
-
-    <GrxInfoText android:summary="After selecting your options on every category, press one of the existing buttons to update the mod in rom. You do not need to do it on boots, just when you change a value and you want it to take effect in rom" />
-
-    <GrxPreferenceCategory android:title="GrxSeekBar" android:dependency="b_bk_map_enabled" grx:hiddenCategory="true" >
-
-    <PreferenceScreen android:title="when in lock" android:key="ls"  >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grx="http://schemas.android.com/apk/res-auto">
+    <GrxPreferenceCategory android:title="GrxPreferenceCategory and GrxInfoText" />
+    <GrxInfoText android:summary="This is a GrxInfoText. The above category is a normal category. You can add an icon on the right side and to tint it"
+        grx:rightIcon="@drawable/demo_icon_3" grx:rightIconTint="?complementary_color3" android:key="it_1"/>
+    <GrxPreferenceCategory android:title="GrxPreferenceCategory - Backgroound and text color"
+        grx:textColor="?contrast_text_color" grx:backgroundColor="?colorAccent" android:key="cat_1"/>
 
 
-    </PreferenceScreen>
-
-    <PreferenceScreen android:title="when home..." android:key="hs">
-        <GrxButtonPreference android:title="Update the mod in rom" android:key="bkbutton2"  android:summary="Press the button to apply selected options" grx:button_Style="big"
-            grx:button_Text="Apply Back Mapping Options" grx:button_backgroundColor="?complementary_color3" grx:commonBcExtra="UPDATE" grx:commonBcExtraValue="BACK_KEY_MAPPING" />
-
-        <GrxAccess android:title="Select App, activity or shortcut" android:key="b_bkmap_ca_st" android:summary=""
-            grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true" grx:arrowColor="?complementary_color1" />
-
-
-        <GrxAccess android:title="Select App, activity or shortcut" android:key="b_bkmap_ca_dt" android:summary=""
-            grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true" grx:arrowColor="?complementary_color1" />
-
-
-        <GrxAccess android:title="Select App, activity or shortcut" android:key="b_bkmap_ca_lp" android:summary=""
-            grx:showShortcuts="true" grx:showApplications="true" grx:showActivities="true" grx:arrowColor="?complementary_color1" />
-
-
-
-    </PreferenceScreen>
-
+    <GrxPreferenceCategory android:title="Centered Category\n\It is possible to add\nup to 5 lines\nin category title\nYou can also use empty lines" grx:centerHorizontal="true" />
+    <GrxInfoText grx:iconTint="0xff00ff00" android:icon="@drawable/demo_icon_2" android:summary="You also can tint the android icon (left side) The following one is a hidden category wrapping a GrxInfoText. The hidden category has got a standard dependency rule, beeing dependent on the status of the next checkbox." />
+    <GrxSwitchPreference android:title="Switch 2" android:key="switch_2" android:defaultValue="false" android:summaryOn="Summary On" android:summaryOff="Summary Off" />
+    <GrxPreferenceCategory android:title="Hidden Category" android:dependency="switch_2" grx:hiddenCategory="true">
+        <GrxInfoText android:icon="@drawable/demo_github_logo" android:summary="GrxInfotext wrapped in a invisible category. For example, you could use GrxInfoText to show information to your users.. "
+            grx:rightIcon="@drawable/demo_icon_4" grx:rightIconTint="?complementary_color2" android:key="it_2"/>
     </GrxPreferenceCategory>
+
 
 
 </PreferenceScreen>
