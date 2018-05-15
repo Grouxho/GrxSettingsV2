@@ -77,57 +77,57 @@ public class GrxInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-         switch (mNumOfTabs){
-             case 0: return null;
-             //case 1: return mViews[0];
-             default:
-                 View view = inflater.inflate(R.layout.grx_info_tabs, container, false);
-                 mViewPager = (ViewPager) view.findViewById(R.id.gid_viewpager);
-                 mViewPager.setAdapter(new CustomPagerAdapter(getActivity()));
-                 // Assiging the Sliding Tab Layout View
-                 final SlidingTabLayout tabs = (SlidingTabLayout) view.findViewById(R.id.gid_tabs);
-                 tabs.setDistributeEvenly(false);
-                 //grx tab indicator color
-                 TypedArray a = getActivity().getTheme().obtainStyledAttributes(new int[]{R.attr.tabs_indicator_color});
-                 final int color_tint = a.getColor(0, 0);
-                 a.recycle();
+        switch (mNumOfTabs){
+            case 0: return null;
+            //case 1: return mViews[0];
+            default:
+                View view = inflater.inflate(R.layout.grx_info_tabs, container, false);
+                mViewPager = (ViewPager) view.findViewById(R.id.gid_viewpager);
+                mViewPager.setAdapter(new CustomPagerAdapter(getActivity()));
+                // Assiging the Sliding Tab Layout View
+                final SlidingTabLayout tabs = (SlidingTabLayout) view.findViewById(R.id.gid_tabs);
+                tabs.setDistributeEvenly(false);
+                //grx tab indicator color
+                TypedArray a = getActivity().getTheme().obtainStyledAttributes(new int[]{R.attr.tabs_indicator_color});
+                final int color_tint = a.getColor(0, 0);
+                a.recycle();
 
-                 tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-                     @Override
-                     public int getIndicatorColor(int position) {
-                         return color_tint;
-                     }
-                 });
-                 tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-                     @Override
-                     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+                    @Override
+                    public int getIndicatorColor(int position) {
+                        return color_tint;
+                    }
+                });
+                tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-                     }
+                    }
 
-                     @Override
-                     public void onPageSelected(int position) {
-                         GrxSettingsActivity grxsettingsactivity = (GrxSettingsActivity) getActivity();
-                         if (grxsettingsactivity != null)
-                             grxsettingsactivity.SetObservableScrollView((ObservableScrollView) mViews[position]);
-                     }
+                    @Override
+                    public void onPageSelected(int position) {
+                        GrxSettingsActivity grxsettingsactivity = (GrxSettingsActivity) getActivity();
+                        if (grxsettingsactivity != null)
+                            grxsettingsactivity.SetObservableScrollView((ObservableScrollView) mViews[position]);
+                    }
 
-                     @Override
-                     public void onPageScrollStateChanged(int state) {
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
 
-                     }
-                 });
+                    }
+                });
 
-                 int pos= 0;
-                 if(Common.sp.getBoolean(Common.S_APPOPT_REMEMBER_SCREEN, getResources().getBoolean(R.bool.grxb_remember_screen_default))) pos= Common.sp.getInt("tab_pos",0);
-                 if(pos<mViewPager.getAdapter().getCount()) {
-                     mViewPager.setCurrentItem(pos);
-                 }
-                 tabs.setViewPager(mViewPager);
-                 if(mNumOfTabs==1) tabs.setVisibility(View.GONE);
+                int pos= 0;
+                if(Common.sp.getBoolean(Common.S_APPOPT_REMEMBER_SCREEN, getResources().getBoolean(R.bool.grxb_remember_screen_default))) pos= Common.sp.getInt("tab_pos",0);
+                if(pos<mViewPager.getAdapter().getCount()) {
+                    mViewPager.setCurrentItem(pos);
+                }
+                tabs.setViewPager(mViewPager);
+                if(mNumOfTabs==1) tabs.setVisibility(View.GONE);
 
-                 return view;
+                return view;
 
-         }
+        }
 
 
 

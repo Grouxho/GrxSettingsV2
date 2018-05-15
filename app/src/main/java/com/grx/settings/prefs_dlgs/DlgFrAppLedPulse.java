@@ -361,6 +361,7 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
                     if(i==0) mLedoffTime=0;
                     mLedOnTime=Integer.valueOf(getActivity().getResources().getStringArray(R.array.grxa_ledpulse_ton_values)[i]);
                     updateLedNotification();
+                    mNotificationManager.notify(1,mNotification); //*****
                 }
 
                 @Override
@@ -375,6 +376,7 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     mLedoffTime=Integer.valueOf(getActivity().getResources().getStringArray(R.array.grxa_ledpulse_toff_values)[i]);
                     updateLedNotification();
+                    mNotificationManager.notify(1,mNotification); //*****
                 }
 
                 @Override
@@ -432,8 +434,8 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
     }
 
     private void updateSMHexValue(int color) {
-       mSMHexValView.setText(ColorPickerPreference.convertToRGB(color).toUpperCase(Locale.getDefault()));
-       mSMHexValView.setTextColor(mSMHexDefaultTextColor);
+        mSMHexValView.setText(ColorPickerPreference.convertToRGB(color).toUpperCase(Locale.getDefault()));
+        mSMHexValView.setTextColor(mSMHexDefaultTextColor);
     }
     public int getSMColor() {
         return mSMColorPicker.getColor();
@@ -442,7 +444,7 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
 
     private void updateInfo(){
         if(mShowApp){
-             mPackageName = getPackageNameFromValue(mCurrentValue);
+            mPackageName = getPackageNameFromValue(mCurrentValue);
             if( GrxPrefsUtils.isAppInstalled(getActivity(),mPackageName)){
                 String label = GrxPrefsUtils.getApplicationLabel(getActivity(),mPackageName);
                 if(label==null || label.isEmpty()) {
@@ -563,7 +565,7 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
             else color=value;
         }
         return Color.parseColor(color);
-      }
+    }
 
 
     private void initSpinnersFromValue(String value){
@@ -586,7 +588,7 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
         if(array.length<(i+1)) return null;
         return array[i];
 
-   }
+    }
 
     private String getStringPulseOffFromValue(String value){
         if(value==null || value.isEmpty()) return null;
@@ -612,9 +614,9 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
         String returnvalue="";
         if(mShowApp){
             if(mPackageName==null ) mPackageName="";
-                returnvalue+=mPackageName;
-                returnvalue+=";";
-            }
+            returnvalue+=mPackageName;
+            returnvalue+=";";
+        }
 
         returnvalue+=mSMHexValView.getText().toString();
         if(mShowPulse) {
@@ -641,8 +643,8 @@ public class DlgFrAppLedPulse extends DialogFragment implements  DlgGrxAppSelect
 
         public void onReceive(Context paramContext, Intent paramIntent)
         {
-       //     updateLedNotification();
-        //    mNotificationManager.notify(1, mNotification);
+            //     updateLedNotification();
+            //    mNotificationManager.notify(1, mNotification);
        /*     Notification notif = new Notification();
             notif.ledARGB = 0xFFFF0000; // Red
             notif.flags = Notification.FLAG_SHOW_LIGHTS;

@@ -1,11 +1,11 @@
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
 
 
@@ -15,6 +15,8 @@ package android.preference;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.grx.settings.R;
+import com.grx.settings.utils.Common;
 
 
 public class GrxButtonPreference extends GrxBasePreference {
@@ -46,15 +49,18 @@ public class GrxButtonPreference extends GrxBasePreference {
     }
 
     private void initAttributes(Context context, AttributeSet attrs){
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferenceButton);
+        TypedArray ta;
+        if(Common.mContextWrapper!=null) ta = Common.mContextWrapper.obtainStyledAttributes(attrs, R.styleable.grxPreferenceButton);
+        else ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferenceButton);
+        //TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferenceButton);
         mButtonStyle=ta.getInt(R.styleable.grxPreferenceButton_button_Style,0);
         mButtonText=ta.getString(R.styleable.grxPreferenceButton_button_Text);
 
         if(ta.hasValue(R.styleable.grxPreferenceButton_button_backgroundColor))
-                buttonbgcolor = ta.getInt(R.styleable.grxPreferenceButton_button_backgroundColor, 0);
+            buttonbgcolor = ta.getInt(R.styleable.grxPreferenceButton_button_backgroundColor, 0);
 
         if(ta.hasValue(R.styleable.grxPreferenceButton_button_textColor))
-                    buttontextcolor = ta.getInt(R.styleable.grxPreferenceButton_button_textColor, 0);
+            buttontextcolor = ta.getInt(R.styleable.grxPreferenceButton_button_textColor, 0);
 
         ta.recycle();
 
@@ -93,7 +99,7 @@ public class GrxButtonPreference extends GrxBasePreference {
         }
 
         if(buttontextcolor!=0){
-           if(vButton!=null) vButton.setTextColor(buttontextcolor);
+            if(vButton!=null) vButton.setTextColor(buttontextcolor);
         }
 
     }

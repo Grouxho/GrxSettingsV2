@@ -1,11 +1,11 @@
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
 
 package android.preference;
@@ -13,6 +13,8 @@ package android.preference;
 import android.content.Context;
 import android.content.res.TypedArray;
 
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -61,15 +63,19 @@ public class GrxPreferenceCategory extends PreferenceCategory implements GrxPref
         String mMyBPRule=myPrefAttrsInfo.getMyBpRule();
         if(mMyBPRule!=null && !mMyBPRule.isEmpty()) isBPEnabled  = BPRulesUtils.isBPEnabled(mMyBPRule);
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferencecategory);
+        TypedArray ta;
+        if(Common.mContextWrapper!=null) ta = Common.mContextWrapper.obtainStyledAttributes(attrs, R.styleable.grxPreferencecategory);
+        else ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferencecategory);
+
+        //  TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferencecategory);
 
         if(ta.hasValue(R.styleable.grxPreferencecategory_textColor))
-                mTextColor =ta.getColor(R.styleable.grxPreferencecategory_textColor,0x80000000);
+            mTextColor =ta.getColor(R.styleable.grxPreferencecategory_textColor,0x80000000);
 
 
 
         if(ta.hasValue(R.styleable.grxPreferencecategory_backgroundColor))
-                mBackgroundColor = ta.getInt(R.styleable.grxPreferencecategory_backgroundColor, 0);
+            mBackgroundColor = ta.getInt(R.styleable.grxPreferencecategory_backgroundColor, 0);
 
 
 
@@ -106,7 +112,7 @@ public class GrxPreferenceCategory extends PreferenceCategory implements GrxPref
             if(mTextColor!=0) vTit.setTextColor(mTextColor);
             if(mBackgroundColor!=0) vTit.setBackgroundColor(mBackgroundColor);
             if(centerhorizontal) {
-                    vTit.setGravity(Gravity.CENTER);
+                vTit.setGravity(Gravity.CENTER);
 
             }
         }
@@ -148,5 +154,6 @@ public class GrxPreferenceCategory extends PreferenceCategory implements GrxPref
         setEnabled(state);
         dep=state;
     }
+
 
 }

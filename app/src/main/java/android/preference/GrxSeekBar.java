@@ -1,13 +1,13 @@
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
- 
+
 package android.preference;
 
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -28,6 +30,7 @@ import android.widget.TextView;
 
 import com.grx.settings.R;
 import com.grx.settings.prefssupport.PrefAttrsInfo;
+import com.grx.settings.utils.Common;
 
 
 public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeListener{
@@ -75,7 +78,7 @@ public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeList
             int states[][] = {{android.R.attr.state_checked}, {}};
             int colors[] = {mSeekbarColor, mSeekbarColor};
             mSeekBar.setThumbTintList(new ColorStateList(states, colors));
-          //  mSeekBar.getThumb().setTint(mSeekbarColor);
+            //  mSeekBar.getThumb().setTint(mSeekbarColor);
             mSeekBar.getProgressDrawable().setColorFilter(mSeekbarColor, PorterDuff.Mode.MULTIPLY);
             vPopup.setBackgroundColor(mSeekbarColor);
         }
@@ -91,7 +94,12 @@ public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeList
         initIntPrefsCommonAttributes(getContext(),attrs,0,false);
         mDisableDoubleClick=true;
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+        // TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+
+        TypedArray ta;
+        if(Common.mContextWrapper!=null) ta = Common.mContextWrapper.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+        else ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+
         mMin = ta.getInt(R.styleable.grxPreferences_minValue,0);
         mMax = ta.getInt(R.styleable.grxPreferences_maxValue,3);
         mUnits = ta.getString(R.styleable.grxPreferences_units);
@@ -99,7 +107,7 @@ public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeList
         mInterval=ta.getInt(R.styleable.grxPreferences_interval,1);
 
         if(ta.hasValue(R.styleable.grxPreferences_seekbarColor))
-                mSeekbarColor = ta.getInt(R.styleable.grxPreferences_seekbarColor, 0);
+            mSeekbarColor = ta.getInt(R.styleable.grxPreferences_seekbarColor, 0);
 
         ta.recycle();
         if(mUnits==null) mUnits="";
@@ -108,7 +116,7 @@ public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeList
             setDefaultValue(myPrefAttrsInfo.getMyIntDefValue());
         else setMyIntDefaultValue(mMin);
 
-  }
+    }
 
 
     @Override
@@ -178,7 +186,7 @@ public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeList
             if(mUnits.isEmpty()) vTxtPopup.setText(String.valueOf(mIntValue));
             else vTxtPopup.setText(String.valueOf(mIntValue)+ " "+mUnits);
         }
-       //persistInt(newValue);  // un-comment for real time changes. BUT do not use customized dependencies if your seekbar´s values range is big and interval little or it will be laggy.
+        //persistInt(newValue);  // un-comment for real time changes. BUT do not use customized dependencies if your seekbar´s values range is big and interval little or it will be laggy.
     }
 
 
@@ -195,7 +203,7 @@ public class GrxSeekBar extends GrxBasePreference implements OnSeekBarChangeList
             if(getKey()==null || getKey().isEmpty()) return;
             //persistInt(mIntValue);
             saveNewIntValue(mIntValue);
-       //     saveintValueInSettings(mIntValue);
+            //     saveintValueInSettings(mIntValue);
             //callChangeListener(mIntValue);
             //notifyChanged();
 

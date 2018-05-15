@@ -168,7 +168,16 @@ public class GrxPrefsUtils {
 
     public static void createFolder(String folder){
         File f = new File(folder);
-        if(!f.exists()) f.mkdirs();
+        if(!f.exists()) {
+            f.mkdirs();
+            f.setReadable(true,false);
+            f.setWritable(true,false);
+            try{
+                Runtime.getRuntime().exec("chmod 777 " + folder);
+            }catch (IOException e){}
+
+
+        }
     }
 
     public static void fixFolderPermissions(String folder, String extension){
@@ -180,6 +189,7 @@ public class GrxPrefsUtils {
                     if (ori_files[ind].getName().contains(extension))
                         ori_files[ind].setWritable(true,false);
                     ori_files[ind].setReadable(true,false);
+
 
                 }
             }
@@ -357,7 +367,7 @@ public class GrxPrefsUtils {
     }
 
     public static void animateTextviewMarquee(TextView textView){
-         textView.setTextIsSelectable(true);
+        textView.setTextIsSelectable(true);
         textView.setSingleLine(true);
         textView.setHorizontallyScrolling(true);
         textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -397,7 +407,7 @@ public class GrxPrefsUtils {
         }
         if(drawable==null){
             if(intent.getIntExtra(Common.EXTRA_URI_TYPE,-1)!=Common.ID_ACCESS_CUSTOM)
-                           drawable= GrxPrefsUtils.getIconFromIntent(context, intent);
+                drawable= GrxPrefsUtils.getIconFromIntent(context, intent);
         }
         return drawable;
     }
@@ -460,8 +470,16 @@ public class GrxPrefsUtils {
         try {
             File file = new File(file_name);
             if(file.exists()){
+
                 file.setReadable(true,false);
                 file.setWritable(true,false);
+
+                try{
+                    Runtime.getRuntime().exec("chmod 777 " + file_name);
+                }catch (IOException e){
+
+                }
+
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -570,7 +588,7 @@ public class GrxPrefsUtils {
         Drawable drw = null;
         try {
             drw= context.getPackageManager().getApplicationInfo(packagename,0).loadIcon(context.getPackageManager());
-            }catch (Exception e){}
+        }catch (Exception e){}
         return drw;
     }
 
@@ -724,11 +742,11 @@ public class GrxPrefsUtils {
     }
 
     public static int getCurrentAccentColor(Context context){
-            TypedValue typedValue = new TypedValue();
-            TypedArray a = context.obtainStyledAttributes(typedValue.data, new int[] { R.attr.colorAccent });
-            int color = a.getColor(0, 0);
-            a.recycle();
-            return color;
+        TypedValue typedValue = new TypedValue();
+        TypedArray a = context.obtainStyledAttributes(typedValue.data, new int[] { R.attr.colorAccent });
+        int color = a.getColor(0, 0);
+        a.recycle();
+        return color;
     }
     public static int dip_to_pixels(Context context, int dips) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
@@ -737,7 +755,7 @@ public class GrxPrefsUtils {
 
 
 
-            /************* settings system, global and secure support ***/
+    /************* settings system, global and secure support ***/
 
     public static int getIntValueFromSettingsSystem(Context context, String key, int defval, boolean syncsettings){
         int returnval = defval;

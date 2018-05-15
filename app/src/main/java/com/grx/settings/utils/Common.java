@@ -12,8 +12,13 @@
 
 package com.grx.settings.utils;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.view.ContextThemeWrapper;
 import android.widget.LinearLayout;
+
+import com.grx.settings.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -239,7 +244,20 @@ public class Common {
         return style;
     }
 
+    public static Context mContextWrapper = null;
 
+    /** a little help for preferences to access to non estandar color references when configuration changes or app  restart.
+     PreferenceFragment could be initialized faster than the activity set the user selected theme, so preferences could get a wrong color.
+     */
 
-
+    public static void buildContextWrapper(Context context){
+        Common.mContextWrapper = null;
+        String themename = Common.sp.getString(Common.S_APPOPT_USER_SELECTED_THEME_NAME, context.getString(R.string.grxs_default_theme));
+        if(themename==null || themename.isEmpty()) return;
+        int themeid = context.getResources().getIdentifier(themename,"style",  context.getPackageName());
+        Resources.Theme helpertheme = context.getResources().newTheme();
+        helpertheme.applyStyle(themeid,true);
+        Common.mContextWrapper = new ContextThemeWrapper(context, 0);
+        Common.mContextWrapper.getTheme().setTo(helpertheme);
+    }
 }

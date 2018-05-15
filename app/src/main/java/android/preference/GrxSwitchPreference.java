@@ -1,25 +1,24 @@
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
- 
- 
+
+
 package android.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.os.Parcel;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -41,7 +40,7 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
     private SwitchCompat mSwitch;
 
     private int mColor=0, mTrackColor=0;
-    private int mIconColor=0;
+    private int mLefticonColor =0;
 
 
     public GrxSwitchPreference(Context context, AttributeSet attrs) {
@@ -61,8 +60,12 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
 
 
 
-    private void ini_preference(Context c, AttributeSet att){
-        TypedArray ta = getContext().obtainStyledAttributes(att, R.styleable.grxSwitchPreference);
+    private void ini_preference(Context context, AttributeSet attrs){
+
+        TypedArray ta;
+        if(Common.mContextWrapper!=null) ta = Common.mContextWrapper.obtainStyledAttributes(attrs, R.styleable.grxSwitchPreference);
+        else ta = context.obtainStyledAttributes(attrs, R.styleable.grxSwitchPreference);
+        //TypedArray ta = getContext().obtainStyledAttributes(att, R.styleable.grxSwitchPreference);
         if(ta.hasValue(R.styleable.grxSwitchPreference_switchColor)) {
             try {
                 mColor = ta.getColor(R.styleable.grxCheckBoxPreference_checkboxColor, 0);
@@ -72,12 +75,12 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
         ta.recycle();
         setWidgetLayoutResource(R.layout.switch_widget);
         if(mColor!=0) {
-             mTrackColor =  Color.argb(Color.alpha(mColor)/4, Color.red(mColor),Color.green(mColor),Color.blue(mColor));
+            mTrackColor =  Color.argb(Color.alpha(mColor)/4, Color.red(mColor),Color.green(mColor),Color.blue(mColor));
         }
-        myPrefAttrsInfo = new PrefAttrsInfo(c, att, getTitle(), getSummary(),getKey());
-       mIconColor= myPrefAttrsInfo.getMyIconTintColor();
+        myPrefAttrsInfo = new PrefAttrsInfo(context, attrs, getTitle(), getSummary(),getKey());
+        mLefticonColor = myPrefAttrsInfo.getMyIconTintColor();
 
-     }
+    }
 
 
 
@@ -99,7 +102,7 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
         mSwitch.setChecked(isChecked());
         if(vAndroidIcon!=null) {
             vAndroidIcon.setLayoutParams(Common.AndroidIconParams);
-            if(mIconColor!=0) vAndroidIcon.setColorFilter(mIconColor);
+            if(mLefticonColor !=0) vAndroidIcon.setColorFilter(mLefticonColor);
         }
         return view;
     }
@@ -151,33 +154,33 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
 
 
             switch (myPrefAttrsInfo.getMySystemPrefType()){
-            case SHARED:
-                if(myPrefAttrsInfo.isAllowedToBeSavedInSettingsDb()){
-                    int value = (checked) ? 1:0;
-                    int real;
-                    try {
-                        real = Settings.System.getInt(getContext().getContentResolver(), this.getKey());
-                        if(real!=value){
-                            Settings.System.putInt(getContext().getContentResolver(), this.getKey(), value);
+                case SHARED:
+                    if(myPrefAttrsInfo.isAllowedToBeSavedInSettingsDb()){
+                        int value = (checked) ? 1:0;
+                        int real;
+                        try {
+                            real = Settings.System.getInt(getContext().getContentResolver(), this.getKey());
+                            if(real!=value){
+                                Settings.System.putInt(getContext().getContentResolver(), this.getKey(), value);
 
+                            }
+                        } catch (Settings.SettingNotFoundException e) {
+                            Settings.System.putInt(getContext().getContentResolver(), this.getKey(), value);
                         }
-                    } catch (Settings.SettingNotFoundException e) {
-                        Settings.System.putInt(getContext().getContentResolver(), this.getKey(), value);
                     }
-                }
-                break;
-            case SYSTEM:
-                Settings.System.putInt(getContext().getContentResolver(),myPrefAttrsInfo.getMyKey(), (checked) ? 1:0  );
-                break;
-            case SECURE:
-                Settings.Secure.putInt(getContext().getContentResolver(),myPrefAttrsInfo.getMyKey(), (checked) ? 1:0  );
-                break;
-            case GLOBAL:
-                Settings.Global.putInt(getContext().getContentResolver(),myPrefAttrsInfo.getMyKey(), (checked) ? 1:0  );
-                break;
-            default:
-                break;
-        }
+                    break;
+                case SYSTEM:
+                    Settings.System.putInt(getContext().getContentResolver(),myPrefAttrsInfo.getMyKey(), (checked) ? 1:0  );
+                    break;
+                case SECURE:
+                    Settings.Secure.putInt(getContext().getContentResolver(),myPrefAttrsInfo.getMyKey(), (checked) ? 1:0  );
+                    break;
+                case GLOBAL:
+                    Settings.Global.putInt(getContext().getContentResolver(),myPrefAttrsInfo.getMyKey(), (checked) ? 1:0  );
+                    break;
+                default:
+                    break;
+            }
 
         }catch (Exception e){
             e.printStackTrace();
@@ -221,7 +224,7 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
     }
 
 
-     /************ custom dependencies ****************/
+    /************ custom dependencies ****************/
 /*
     @Override
     public void setEnabled(boolean enabled){
@@ -230,7 +233,7 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
     }*/
 
     public void OnCustomDependencyChange(boolean state){
-         setEnabled(state);
+        setEnabled(state);
     }
 
     /***** settings system, global and secure support */
@@ -240,16 +243,16 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
         int real = myPrefAttrsInfo.getMyBooleanDefValue() ? 1 : 0;
         switch (myPrefAttrsInfo.getMySystemPrefType()){
             case SYSTEM:
-            real =GrxPrefsUtils.getIntValueFromSettingsSystem(getContext(),myPrefAttrsInfo.getMyKey(),real,false);
-            break;
+                real =GrxPrefsUtils.getIntValueFromSettingsSystem(getContext(),myPrefAttrsInfo.getMyKey(),real,false);
+                break;
             case SECURE:
-            real =GrxPrefsUtils.getIntValueFromSettingsSecure(getContext(),myPrefAttrsInfo.getMyKey(),real,false);
-            break;
+                real =GrxPrefsUtils.getIntValueFromSettingsSecure(getContext(),myPrefAttrsInfo.getMyKey(),real,false);
+                break;
             case GLOBAL:
-            real =GrxPrefsUtils.getIntValueFromSettingsGlobal(getContext(),myPrefAttrsInfo.getMyKey(),real,false);
-            break;
+                real =GrxPrefsUtils.getIntValueFromSettingsGlobal(getContext(),myPrefAttrsInfo.getMyKey(),real,false);
+                break;
             default:
-            break;
+                break;
         }
         boolean checked = (real==1) ? true : false;
         setChecked(checked);
@@ -259,7 +262,6 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
     /**** provide my info */
 
     public PrefAttrsInfo getPrefAttrsInfo() { return myPrefAttrsInfo;}
-
 
 
 }

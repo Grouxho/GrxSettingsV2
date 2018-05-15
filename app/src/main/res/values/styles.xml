@@ -1,6 +1,6 @@
 <resources>
 
-        <!--               lIGHT THEMES           -->
+    <!--               lIGHT THEMES           -->
 
     <!-- Base theme Light  -->
 
@@ -41,7 +41,7 @@
         <item name="seekbar_popup_bg">?colorAccent</item>
         <item name="snackbar_bg">#304553</item>
         <item name="contrast_text_color">#ffffff</item>
-		<item name="prefscreen_arrow_tint">?colorAccent</item>
+        <item name="prefscreen_arrow_tint">?colorAccent</item>
         <item name="complemnt_accent_color">?colorAccent</item>
         <item name="button_bg_tint">?colorAccent</item>
         <item name="button_text_color">?contrast_text_color</item>
@@ -71,7 +71,7 @@
         <item name="navigationviewstyle">@style/NavigationViewStyle</item>
         <item name="svn_separatorHeight">1dp</item>
         <item name="svn_separatorColor">#424242</item>
-		<item name="svn_fab_tint">?colorAccent</item>
+        <item name="svn_fab_tint">?colorAccent</item>
         <item name="svn_menuTextColor">#424242</item>
         <item name="svn_hintTextColor">#616161</item>
     </style>
@@ -203,7 +203,7 @@
         <item name="menucenteredtextcolor">#ff1200</item>
         <item name="complementary_color1">#FF6F00</item>
         <item name="complementary_color2">#33b5e5</item>
-        <item name="complementary_color3">#FF5722</item>
+        <item name="complementary_color3">#ffb93221</item>
         <item name="complementary_color4">#009688</item>
         <item name="complementary_color5">#880E4F</item>
 
@@ -289,6 +289,55 @@
         <item name="svn_separatorHeight">1dp</item>
         <item name="svn_separatorColor">#424242</item>
         <item name="svn_menuTextColor">#ffffff</item>
+    </style>
+
+
+    <!-- Dark REd -->
+
+
+    <style name="Theme.Black.Red" parent="@style/Theme.Base.Dark">
+        <item name="colorPrimary">#F44336</item>
+        <item name="colorPrimaryDark">#D32F2F</item>
+        <item name="colorAccent">#ff0000</item>
+        <item name="contrast_text_color">#fffdfdfd</item>
+        <item name="svn_nav_header_bg">?colorPrimary</item>
+        <item name="pref_category_text_color">?colorAccent</item>
+        <item name="sublimetheme">@style/SublimeTheme_black_red</item>
+        <item name="snackbar_bg">#c83434</item>
+        <item name="main_bg_color">#232323</item>
+        <item name="toolbartitlecolor">#ffffffff</item>
+        <item name="button_bg_tint">?colorAccent</item>
+        <item name="button_text_color">?contrast_text_color</item>
+        <item name="toolbarsubtitlecolor">#fffafafa</item>
+        <item name="drawerArrowColor">#F5F5F5</item>
+        <item name="threedotscolor">#ffffffff</item>
+        <item name="recentscreensbg">?colorPrimaryDark</item>
+        <item name="recentscreenstextcolor">?contrast_text_color</item>
+        <item name="menucenteredtextcolor">?colorPrimaryDark</item>
+        <item name="fab_m_color">#C62828</item>
+        <item name="fab_m_press">#D50000</item>
+        <item name="fab_m_ripple">#FF5252</item>
+        <item name="complementary_color1">#009688</item>
+        <item name="complementary_color2">#FF5722</item>
+        <item name="complementary_color3">#EF5350</item>
+        <item name="complementary_color4">#009688</item>
+        <item name="complementary_color5">#2196F3</item>
+
+    </style>
+
+    <style name="SublimeTheme_black_red" parent="@style/SublimeTheme_dark">
+        <item name="colorPrimary">#F44336</item>
+        <item name="colorPrimaryDark">#B71C1C</item>
+        <item name="colorAccent">#D32F2F</item>
+        <item name="svn_panel_bg">#1c1d1f</item>
+        <item name="android:listDivider">@color/divider_svn</item>
+        <item name="navigationviewstyle">@style/NavigationViewStyle</item>
+        <item name="svn_fab_tint">?colorAccent</item>
+        <item name="svn_hintTextColor">#fafafa</item>
+        <item name="svn_separatorHeight">1dp</item>
+        <item name="svn_separatorColor">#2d2e30</item>
+        <item name="svn_menuTextColor">#fafafa</item>
+
     </style>
 
 
@@ -429,7 +478,7 @@
     <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">17dp</item>
         <item name="android:textColor">?toolbartitlecolor</item>
-     </style>
+    </style>
 
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">14dp</item>

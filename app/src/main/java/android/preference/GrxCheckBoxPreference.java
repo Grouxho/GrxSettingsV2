@@ -1,12 +1,12 @@
 
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
 
 package android.preference;
@@ -14,13 +14,14 @@ package android.preference;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
 import com.grx.settings.GrxPreferenceScreen;
@@ -36,7 +37,7 @@ public class GrxCheckBoxPreference extends CheckBoxPreference implements GrxPref
     ImageView vAndroidIcon;
     private PrefAttrsInfo myPrefAttrsInfo;
     private int mColor;
-    private int mIconColor=0;
+    private int mLefticonColor =0;
 
     public GrxCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context,attrs);
@@ -52,11 +53,15 @@ public class GrxCheckBoxPreference extends CheckBoxPreference implements GrxPref
         ini_preference(context, attrs);
     }
 
-    private void ini_preference(Context c, AttributeSet att){
-        myPrefAttrsInfo = new PrefAttrsInfo(c, att, getTitle(), getSummary(),getKey());
-        mIconColor= myPrefAttrsInfo.getMyIconTintColor();
+    private void ini_preference(Context context, AttributeSet attrs){
+        myPrefAttrsInfo = new PrefAttrsInfo(context, attrs, getTitle(), getSummary(),getKey());
+        mLefticonColor = myPrefAttrsInfo.getMyIconTintColor();
 
-        TypedArray ta = getContext().obtainStyledAttributes(att, R.styleable.grxCheckBoxPreference);
+        TypedArray ta;
+        if(Common.mContextWrapper!=null) ta = Common.mContextWrapper.obtainStyledAttributes(attrs, R.styleable.grxCheckBoxPreference);
+        else ta = context.obtainStyledAttributes(attrs, R.styleable.grxCheckBoxPreference);
+
+        //TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.grxCheckBoxPreference);
         mColor = ta.getInt(R.styleable.grxCheckBoxPreference_checkboxColor, 0);
         ta.recycle();
 
@@ -70,7 +75,7 @@ public class GrxCheckBoxPreference extends CheckBoxPreference implements GrxPref
         if(mColor!=0) appCompatCheckBox = (AppCompatCheckBox) view.findViewById(android.R.id.checkbox);
         if(vAndroidIcon!=null) {
             vAndroidIcon.setLayoutParams(Common.AndroidIconParams);
-            if(mIconColor!=0) vAndroidIcon.setColorFilter(mIconColor);
+            if(mLefticonColor !=0) vAndroidIcon.setColorFilter(mLefticonColor);
         }
         if(appCompatCheckBox!=null) {
             int states[][] = {{android.R.attr.state_checked}, {}};
@@ -216,8 +221,5 @@ public class GrxCheckBoxPreference extends CheckBoxPreference implements GrxPref
 
 
     public PrefAttrsInfo getPrefAttrsInfo() { return myPrefAttrsInfo;}
-
-
-
 
 }

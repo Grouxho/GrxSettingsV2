@@ -18,6 +18,7 @@ import android.util.AttributeSet;
 
 import com.grx.settings.R;
 import com.grx.settings.utils.BPRulesUtils;
+import com.grx.settings.utils.Common;
 
 import java.util.regex.Pattern;
 
@@ -137,18 +138,18 @@ public class PrefAttrsInfo {
     private String mCommonBroadCastExtraValue;
 
 
-        /******** GrxBasePreference ***/
+    /******** GrxBasePreference ***/
 
-     public void initArraysIds(Context context, AttributeSet attrs){
+    public void initArraysIds(Context context, AttributeSet attrs){
 
-         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
 
-         idOptionsArray = ta.getResourceId(R.styleable.grxPreferences_optionsArray,0);
-         idValuesArrayy = ta.getResourceId(R.styleable.grxPreferences_valuesArray,0);
-         idIconsArray = ta.getResourceId(R.styleable.grxPreferences_iconsArray,0);
+        idOptionsArray = ta.getResourceId(R.styleable.grxPreferences_optionsArray,0);
+        idValuesArrayy = ta.getResourceId(R.styleable.grxPreferences_valuesArray,0);
+        idIconsArray = ta.getResourceId(R.styleable.grxPreferences_iconsArray,0);
 
-         ta.recycle();
-     }
+        ta.recycle();
+    }
 
 
 
@@ -168,7 +169,7 @@ public class PrefAttrsInfo {
 
     }
 
-            /*** string */
+    /*** string */
 
     public PrefAttrsInfo(Context context, AttributeSet attrs, CharSequence title, CharSequence summary, String key, boolean isMultivalue) {
         mIsMultiValue = isMultivalue;
@@ -206,7 +207,11 @@ public class PrefAttrsInfo {
 
         /*** common attributes */
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+        TypedArray ta;
+        if(Common.mContextWrapper!=null) ta = Common.mContextWrapper.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+        else ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
+
+        //TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
 
         mMyGroupKey = ta.getString(R.styleable.grxPreferences_groupKey);
 

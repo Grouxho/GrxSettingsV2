@@ -193,20 +193,30 @@ public class GrxSettingsActivity extends AppCompatActivity implements
     Handler mHandler = new Handler();
 
 
+    private boolean calledFromTile = false;
 
+    public  static GrxSettingsActivity GrxSettingsActivityInstance = null;
 
 
     /*************************************************************************************************/
     /********************* ROOT AND SCRIPT OPERATIONS ************************************************/
     /*************************************************************************************************/
 
-
+    public void testFromTile(String txt){
+        showToast(txt);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
+
+        if(savedInstanceState==null){
+            calledFromTile = getIntent().getIntExtra("GrxTileService",0)!=0;
+        }
+
+
 
         RootPrivilegedUtils.checkRootGranted();
 
@@ -291,7 +301,9 @@ public class GrxSettingsActivity extends AppCompatActivity implements
             setToolbarTitle(mCurrentMenuItem,mCurrentScreen);
             if(savedInstanceState==null) showPreferencesScreen(mCurrentMenuItem,mCurrentScreen);
             else PrefScreenFragment = (GrxPreferenceScreen) getFragmentManager().findFragmentByTag(Common.TAG_PREFSSCREEN_FRAGMENT);
-            if(mode!= Common.INI_MODE_INSTANCE) showSnack(mCurrentMenuItem.getTitle().toString());
+            if(mode!= Common.INI_MODE_INSTANCE) {
+                if(mCurrentMenuItem!=null) showSnack(mCurrentMenuItem.getTitle().toString());
+            }
             setSNVMenuHeaderChecked(mCurrentMenuItem.getGroupId(), true);
         }
         if(savedInstanceState==null) GrxPrefsUtils.deleteGrxPreferenceTmpFilesInFolder(Common.CacheDir); //let´s clean existing tmp files
@@ -303,6 +315,19 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         if(mCurrentScreen.isEmpty()) showInfoFragment();
 
         Common.IsRebootPermissionGranted = RootPrivilegedUtils.getIsRebootPermissionGranted(this);
+
+        GrxSettingsActivityInstance = this;
+
+      /*  if(calledFromTile){
+            mCurrentMenu= 1;
+            mSVN.switchMenuTo(mConfigMenu);
+            showInfoFragment();
+            mDrawer.openDrawer(mSVN);
+            saveLastScreenValueToSHP();
+            showToast("viene del tile");
+        }*/
+
+
 
     }
 
@@ -341,10 +366,10 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         mFloatingRecentsWindow.setGrxFWCallBack(this);
         mFloatingRecentsWindow.setVisibility(Common.sp.getInt("fw_visibility",View.GONE));
         setInitialRecentsScreens();
-        if(mCurrentScreen!=null && !mCurrentScreen.isEmpty()) {
+        if(mCurrentScreen!=null && !mCurrentScreen.isEmpty() && mCurrentMenuItem!=null) {  /// FIX A SUBIR A GITHUB
             mFloatingRecentsWindow.addScreen(mCurrentMenuItem.getTitle().toString(),mCurrentScreen,mCurrentMenuItem.getItemId());
-            }
-         getWindowManager().addView(mFloatingRecentsWindow, mFloatingRecentsWindow.getLayoutParams());
+        }
+        getWindowManager().addView(mFloatingRecentsWindow, mFloatingRecentsWindow.getLayoutParams());
 
     }
 
@@ -491,7 +516,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         setToolBarSubTitle("");
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-       if(!Common.SyncUpMode) {  ///grxgrxgrx
+        if(!Common.SyncUpMode) {  ///grxgrxgrx
             if(!mDrawerInLeftPosition) fragmentTransaction.setCustomAnimations(R.animator.enter_animation_r,R.animator.exit_animator_r);
             else fragmentTransaction.setCustomAnimations(R.animator.enter_animation,0);
         }
@@ -509,7 +534,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
     }
 
 
-            /***** toolbar **/
+    /***** toolbar **/
 
     private void setToolBarSubTitle(CharSequence Subtitle){
         if(getSupportActionBar()!=null){
@@ -529,7 +554,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
 
 
 
-            //navigation menu auto-scrolling
+    //navigation menu auto-scrolling
     private void initMenuItemsPositions(){
         ArrayList<SublimeBaseMenuItem> menuItems = mOptionsMenu.getMenuItems();
         for(int i=0;i<menuItems.size();i++){
@@ -545,7 +570,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
             int group = mCurrentMenuItem.getGroupId();
             if(group!=0){
                 SublimeGroup sublimeGroup = mOptionsMenu.getGroup(group);
-               if  (sublimeGroup!=null && sublimeGroup.isCollapsible() && sublimeGroup.isCollapsed()) sublimeGroup.setStateCollapsed(false);
+                if  (sublimeGroup!=null && sublimeGroup.isCollapsible() && sublimeGroup.isCollapsed()) sublimeGroup.setStateCollapsed(false);
             }
 
             int pos=mCurrentMenuItem.getPosition();
@@ -579,12 +604,12 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                 }else showInfoFragment();
                 break;
 
-             case Common.INI_MODE_FORCED:
-                   mCurrentScreen="";
+            case Common.INI_MODE_FORCED:
+                mCurrentScreen="";
 
-                   mCurrentMenuItem=null;
-                   showInfoFragment();
-                    return;
+                mCurrentMenuItem=null;
+                showInfoFragment();
+                return;
 
         }
 
@@ -665,7 +690,9 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         finish();  //hay que reiniciar para que en ambas orientaciones pille bien el cambio de posición y las preferencias restauradas
         this.overridePendingTransition(0,R.animator.fadeout);
         startActivity(new Intent(this, GrxSettingsActivity.class));
+        Common.buildContextWrapper(this);
         this.overridePendingTransition(R.animator.fadein, 0);
+
     }
 
     private void updateUserConfigCheckBox(String userOption, boolean state){
@@ -1068,11 +1095,11 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         ab.setTitle(title);
         ab.setMessage(message);
         ab.setPositiveButton(R.string.grxs_ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
         ab.create().show();
     }
 
@@ -1117,7 +1144,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
 
     public void finishPreferencesSynchronization(){
         final ProgressBar progressBar = mProgressbar;
-       // if(!mCurrentScreen.isEmpty() && mCurrentMenuItem!=null) showPreferencesScreen(mCurrentMenuItem,mCurrentScreen);
+        // if(!mCurrentScreen.isEmpty() && mCurrentMenuItem!=null) showPreferencesScreen(mCurrentMenuItem,mCurrentScreen);
         Common.SyncUpMode = false;
         if(this.getResources().getBoolean(R.bool.grxb_global_enable_settingsdb)) {
             for (String groupkey : Common.GroupKeysList) {
@@ -1218,7 +1245,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                 }catch (Exception e){}
             }
         }
-      return ResXML.size();
+        return ResXML.size();
     }
 
 
@@ -1360,7 +1387,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
     /**************************** RESTORE PREFERENCES   ****************************/
     /********************************************************************************/
 
-                /*** main dialog */
+    /*** main dialog */
 
     public void showRestoreDialog(){
         if(mRestoreDialog!=null) mRestoreDialog.dismiss();
@@ -1369,7 +1396,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
 
     }
 
-                /* DlgFrRestore interface implementation */
+    /* DlgFrRestore interface implementation */
 
     public void processDlgFrRestoreAction(boolean ok, DlgFrRestore.RESTORE_STATE next_action, String info){
         DlgFrRestore frRestore = (DlgFrRestore) getFragmentManager().findFragmentByTag("DlgFrRestore");
@@ -1394,7 +1421,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
     }
 
 
-                /***** Restore AsyncTask **/
+    /***** Restore AsyncTask **/
 
     private class RestorePreferencesTask extends AsyncTask<Void, Void, Void> {
         private ProgressDialog dialog;
@@ -1635,7 +1662,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
     private void updateThemeTextInfo(){
         if(!getResources().getBoolean(R.bool.grxb_allow_theme_change)) return;
         String[] arr= getResources().getStringArray(R.array.grxa_theme_list);
-       mThemeS=mThemeS=Common.sp.getString(Common.S_APPOPT_USER_SELECTED_THEME_NAME,getString(R.string.grxs_default_theme));
+        mThemeS=mThemeS=Common.sp.getString(Common.S_APPOPT_USER_SELECTED_THEME_NAME,getString(R.string.grxs_default_theme));
         int pos = 0;
         String[] values = getResources().getStringArray(R.array.grxa_theme_values);
         for(int i = 0; i< values.length; i++){
@@ -1728,11 +1755,11 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                 currgroup =  mCurrentMenuItem.getGroupId();
             }
 
-                               /*let´s tint group arrows properly */
+            /*let´s tint group arrows properly */
             int nexgroup = menuItem.getGroupId();
             if(currgroup!=nexgroup) setSNVMenuHeaderChecked(currgroup, false);
             setSNVMenuHeaderChecked(nexgroup, true);
-                                /*  check new menu item and change pref screen */
+            /*  check new menu item and change pref screen */
             menuItem.setChecked(true);
             mCurrentMenuItem = menuItem;
             mChangeScreenAfterDrawerClosed=true;
@@ -2086,15 +2113,15 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                     dialogInterface.dismiss();
                 }
             });
-           ab.setPositiveButton(getString(R.string.grxs_ok), new DialogInterface.OnClickListener() {
-               @Override
-               public void onClick(DialogInterface dialogInterface, int i) {
-                   doReboot();
-               }
-           }) ;
-           ab.setTitle(getString(R.string.grxs_reboot_dialog_title));
-           ab.setMessage(getString(R.string.grxs_reboot_dialog_message));
-           ab.create().show();
+            ab.setPositiveButton(getString(R.string.grxs_ok), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    doReboot();
+                }
+            }) ;
+            ab.setTitle(getString(R.string.grxs_reboot_dialog_title));
+            ab.setMessage(getString(R.string.grxs_reboot_dialog_message));
+            ab.create().show();
 
         }else  doReboot();
 

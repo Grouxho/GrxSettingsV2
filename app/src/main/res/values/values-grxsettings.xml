@@ -32,6 +32,7 @@
     <string name="grxs_theme_default_dark">Blue (Dark)</string>
     <string name="grxs_theme_light_tile">Green (Light)</string>
     <string name="grxs_theme_black_ics">Black Ics</string>
+    <string name="grxs_theme_black_red">Red Dark</string>
     <string name="grxs_theme_black_and_white">Black Dark</string>
     <string name="grxs_theme_dark_tile">Green (Dark)</string>
     <string name="grxs_theme_light_red">Red (Light)</string>
@@ -190,6 +191,7 @@
         <item>@string/grxs_theme_default_dark</item>
         <item>@string/grxs_theme_black_and_white</item>
         <item>@string/grxs_theme_black_ics</item>
+        <item>@string/grxs_theme_black_red</item>
 
     </string-array>
 
@@ -201,6 +203,7 @@
         <item>Theme.Dark.Blue</item>
         <item>Theme.Black.White</item>
         <item>Theme.Black.Ics</item>
+        <item>Theme.Black.Red</item>
 
     </string-array>
 

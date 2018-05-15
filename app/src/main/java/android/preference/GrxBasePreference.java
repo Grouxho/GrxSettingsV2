@@ -1,11 +1,11 @@
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
 
 package android.preference;
@@ -15,7 +15,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -48,7 +50,10 @@ public class GrxBasePreference extends Preference implements
     public boolean mDisableDoubleClick=false;
 
 
-        /* icons and widget arrow */
+    public int mLeftIconColor=0;
+    public int mArrowColor =0;
+
+    /* icons and widget arrow */
 
     public ImageView vAndroidIcon;
     public ImageView vWidgetArrow =null;
@@ -87,7 +92,7 @@ public class GrxBasePreference extends Preference implements
         mNumClicks =0;
     }
 
-            /*** type of pref */
+    /*** type of pref */
 
 
     public void setTypeOfPreference(PrefAttrsInfo.PREF_TYPE  type){
@@ -95,7 +100,7 @@ public class GrxBasePreference extends Preference implements
     }
 
 
-            /*** initialize string prefs **/
+    /*** initialize string prefs **/
 
     public void initStringPrefsCommonAttributes(Context context, AttributeSet attrs, boolean isMultiValue, boolean iniArrays ){
         setTypeOfPreference(PrefAttrsInfo.PREF_TYPE.STRING);
@@ -129,33 +134,35 @@ public class GrxBasePreference extends Preference implements
 
     public void setMyIntDefaultValue(int value){myPrefAttrsInfo.setmMyIntDefaultValue(value);}
 
-        /****** view **///
+    /****** view **///
 
-        @Override
-        protected View onCreateView(ViewGroup parent) {
-            View view = super.onCreateView(parent);
-            vWidgetArrow = (ImageView) view.findViewById(R.id.gid_widget_arrow);
-            vWidgetIcon = (ImageView) view.findViewById(R.id.gid_widget_icon);
-            vAndroidIcon = (ImageView) view.findViewById(android.R.id.icon);
-            vWidgetText = (TextView) view.findViewById(R.id.gid_widget_text);
-            if(vAndroidIcon!=null) {
-                vAndroidIcon.setLayoutParams(Common.AndroidIconParams);
-                int tintcolor = myPrefAttrsInfo.getMyIconTintColor();
-                if(tintcolor!=0) vAndroidIcon.setColorFilter(tintcolor);
-            }
-            if(vWidgetArrow!=null ){
-                int arrowcolor = myPrefAttrsInfo.getMyArrowTint();
-                if(arrowcolor!=0){
-                    int states[][] = {{android.R.attr.state_checked}, {}};
-                    int colors[] = {arrowcolor, arrowcolor};
-                    vWidgetArrow.setBackgroundTintList(new ColorStateList(states, colors));
-                }else {
-                    vWidgetArrow.setVisibility(View.GONE);
-                    mArrowNeeded=false;
-                }
-            }
-            return view;
+    @Override
+    protected View onCreateView(ViewGroup parent) {
+        View view = super.onCreateView(parent);
+        vWidgetArrow = (ImageView) view.findViewById(R.id.gid_widget_arrow);
+        vWidgetIcon = (ImageView) view.findViewById(R.id.gid_widget_icon);
+        vAndroidIcon = (ImageView) view.findViewById(android.R.id.icon);
+        vWidgetText = (TextView) view.findViewById(R.id.gid_widget_text);
+        if(vAndroidIcon!=null) {
+            vAndroidIcon.setLayoutParams(Common.AndroidIconParams);
+            if(mLeftIconColor==0) mLeftIconColor = myPrefAttrsInfo.getMyIconTintColor();
+            if(mLeftIconColor!=0) vAndroidIcon.setColorFilter(mLeftIconColor);
         }
+        if(vWidgetArrow!=null ){
+            if(mArrowColor==0 ) {
+                mArrowColor = myPrefAttrsInfo.getMyArrowTint();
+            }
+            if(mArrowColor !=0){
+                int states[][] = {{android.R.attr.state_checked}, {}};
+                int colors[] = {mArrowColor, mArrowColor};
+                vWidgetArrow.setBackgroundTintList(new ColorStateList(states, colors));
+            }else {
+                vWidgetArrow.setVisibility(View.GONE);
+                mArrowNeeded=false;
+            }
+        }
+        return view;
+    }
 
     @Override
     public void onBindView(View view) {
@@ -163,57 +170,57 @@ public class GrxBasePreference extends Preference implements
         float alpha = (isEnabled() ? (float) 1.0 : (float) 0.4);
         if(vWidgetText!=null) vWidgetText.setAlpha(alpha);
         if(vWidgetArrow!=null) {
-            int arrowcolor = myPrefAttrsInfo.getMyArrowTint();
-            if(arrowcolor!=0) {
+            if(mArrowColor==0) mArrowColor = myPrefAttrsInfo.getMyArrowTint();
+            if(mArrowColor!=0) {
                 int states[][] = {{android.R.attr.state_checked}, {}};
-                int colors[] = {arrowcolor, arrowcolor};
+                int colors[] = {mArrowColor, mArrowColor};
                 vWidgetArrow.setBackgroundTintList(new ColorStateList(states, colors));
             }
             vWidgetArrow.setAlpha(alpha);
         }
         if(vWidgetIcon!=null) vWidgetIcon.setAlpha(alpha);
         if(vAndroidIcon!=null) vAndroidIcon.setAlpha(alpha);
-   }
+    }
 
-   public void refreshView(){
-       if(vWidgetIcon!=null){
-           vWidgetIcon.setImageDrawable(mWidgetIcon);
-           if(mWidgetIcon!=null) vWidgetIcon.setVisibility(View.VISIBLE);
-           else vWidgetIcon.setVisibility(View.GONE);
-       }
-       if(vWidgetArrow!=null) {
+    public void refreshView(){
+        if(vWidgetIcon!=null){
+            vWidgetIcon.setImageDrawable(mWidgetIcon);
+            if(mWidgetIcon!=null) vWidgetIcon.setVisibility(View.VISIBLE);
+            else vWidgetIcon.setVisibility(View.GONE);
+        }
+        if(vWidgetArrow!=null) {
 
-           if(mWidgetIcon!=null){
-               vWidgetArrow.setVisibility(View.GONE);
-           }else {
-               if(mArrowNeeded) vWidgetArrow.setVisibility(View.VISIBLE);
-               else vWidgetArrow.setVisibility(View.GONE);
-           }
-       }
-   }
+            if(mWidgetIcon!=null){
+                vWidgetArrow.setVisibility(View.GONE);
+            }else {
+                if(mArrowNeeded) vWidgetArrow.setVisibility(View.VISIBLE);
+                else vWidgetArrow.setVisibility(View.GONE);
+            }
+        }
+    }
 
 
 
-        /*** default and initial values */
+    /*** default and initial values */
 
-     public void updateFromSettingsValue(){
-         switch (mTypeOfPreference){
-             case INT:
-                 mIntValue=getSettingsIntValue();
-                 persistInt(mIntValue);
-                 configIntPreference(mIntValue);
-                 break;
-             case STRING:
-                 mStringValue = getSettingsStringValue();
-                 persistString(mStringValue);
-                 configStringPreference(mStringValue);
-                 break;
-             default:
-                 break;
-
-         }
+    public void updateFromSettingsValue(){
+        switch (mTypeOfPreference){
+            case INT:
+                mIntValue=getSettingsIntValue();
+                persistInt(mIntValue);
+                configIntPreference(mIntValue);
+                break;
+            case STRING:
+                mStringValue = getSettingsStringValue();
+                persistString(mStringValue);
+                configStringPreference(mStringValue);
+                break;
+            default:
+                break;
 
         }
+
+    }
 
     private String getSettingsStringValue(){
         String returnvalue = myPrefAttrsInfo.getMyStringDefValue();
@@ -274,7 +281,7 @@ public class GrxBasePreference extends Preference implements
                     configStringPreference(mStringValue);
 
                 }else {
-                        updateFromSettingsValue();
+                    updateFromSettingsValue();
                 }
                 break;
             case INT:
@@ -302,7 +309,7 @@ public class GrxBasePreference extends Preference implements
     }
 
 
-                /*** stock dependency ***/
+    /*** stock dependency ***/
 
     @Override
     public void onDependencyChanged(Preference dependency, boolean disableDependent) {
@@ -310,22 +317,22 @@ public class GrxBasePreference extends Preference implements
     }
 
 
-                /*** click - double click********/
+    /*** click - double click********/
 
 
-     @Override
-     protected void onClick() {
-         if(mHandler ==null) setUpDoubleClick();
-         if(DoubleClickRunnable ==null) showDialog();
-         else{
-             mNumClicks++;
-             if(!mDoubleClickPending){
-                 mHandler.removeCallbacks(DoubleClickRunnable);
-                 mDoubleClickPending =true;
-                 mHandler.postDelayed(DoubleClickRunnable, mLongClickTimeOut);
-             }
-         }
-     }
+    @Override
+    protected void onClick() {
+        if(mHandler ==null) setUpDoubleClick();
+        if(DoubleClickRunnable ==null) showDialog();
+        else{
+            mNumClicks++;
+            if(!mDoubleClickPending){
+                mHandler.removeCallbacks(DoubleClickRunnable);
+                mDoubleClickPending =true;
+                mHandler.postDelayed(DoubleClickRunnable, mLongClickTimeOut);
+            }
+        }
+    }
 
     private void setUpDoubleClick(){
         mHandler = new Handler();
@@ -377,8 +384,8 @@ public class GrxBasePreference extends Preference implements
 
         switch (mTypeOfPreference){
             case INT:
-                    if(mIntValue==myPrefAttrsInfo.getMyIntDefValue()) return;
-                    break;
+                if(mIntValue==myPrefAttrsInfo.getMyIntDefValue()) return;
+                break;
             case STRING:
                 if(mStringValue ==null ) return;
                 if(mStringValue.equals(myPrefAttrsInfo.getMyStringDefValue())) return;
@@ -395,7 +402,7 @@ public class GrxBasePreference extends Preference implements
         dlg.setButton(DialogInterface.BUTTON_POSITIVE, getContext().getString(R.string.grxs_ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-            resetPreference();
+                resetPreference();
             }
         });
         dlg.show();
@@ -411,7 +418,7 @@ public class GrxBasePreference extends Preference implements
 
     public void saveNewStringValue(String value) {
         mStringValue =value;
-     //   if(mStringValue ==null) mStringValue ="";
+        //   if(mStringValue ==null) mStringValue ="";
         if(!myPrefAttrsInfo.isValidKey()) return;
         persistString(mStringValue);
         saveStringValueInSettings(mStringValue);
@@ -485,7 +492,7 @@ public class GrxBasePreference extends Preference implements
     }
 
     public void saveNewIntValue(int value){
-       // if(mIntValue==value) return;
+        // if(mIntValue==value) return;
         mIntValue=value;
         if(!myPrefAttrsInfo.isValidKey()) return;
         persistInt(mIntValue);
@@ -505,16 +512,16 @@ public class GrxBasePreference extends Preference implements
 
     public void performOnclickRule(String rule){
         if(mTypeOfPreference.equals(PrefAttrsInfo.PREF_TYPE.INT)){
-             if(OnClickRuleHelper.shouldPerformOnClickForIntPref(mIntValue,rule) ) onClick();
-          } else if(mTypeOfPreference.equals(PrefAttrsInfo.PREF_TYPE.STRING)){
+            if(OnClickRuleHelper.shouldPerformOnClickForIntPref(mIntValue,rule) ) onClick();
+        } else if(mTypeOfPreference.equals(PrefAttrsInfo.PREF_TYPE.STRING)){
             if(OnClickRuleHelper.shouldPerformOnClickForStringPref(mStringValue,rule) ) onClick();
-       }
+        }
 
-     }
+    }
 
 
 
-            /** configure preference **/
+    /** configure preference **/
 
     public void configStringPreference(String value){
 
@@ -546,7 +553,7 @@ public class GrxBasePreference extends Preference implements
     /*********** listener and connections to GrxPreferenceScreen ****************/
 
 
-        /******  Onpreferencechangelistener - add custom dependency rule, remove preference based on BP rules *********/
+    /******  Onpreferencechangelistener - add custom dependency rule, remove preference based on BP rules *********/
 
     @Override
     public void setOnPreferenceChangeListener(Preference.OnPreferenceChangeListener onPreferenceChangeListener){
@@ -578,7 +585,7 @@ public class GrxBasePreference extends Preference implements
         setEnabled(state);
     }
 
-      /****  provide pref info to GrxPreferenceScreen to process reboot and kill apps options  */
+    /****  provide pref info to GrxPreferenceScreen to process reboot and kill apps options  */
 
     public PrefAttrsInfo getPrefAttrsInfo() { return myPrefAttrsInfo;}
 

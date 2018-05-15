@@ -1,13 +1,13 @@
-/* 
- * Grouxho - espdroids.com - 2018	
+/*
+ * Grouxho - espdroids.com - 2018
 
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
- 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
  */
- 
+
 package android.preference;
 
 import android.content.Context;
@@ -32,6 +32,8 @@ public class GrxSingleSelection extends GrxBasePreference implements DlgFrMultiS
     private String mLabel;
     int iconsValueTint =0;
 
+    String sep_summary =" - ";
+
     public GrxSingleSelection(Context context, AttributeSet attrs) {
         super(context, attrs);
         initAttributes(context, attrs);
@@ -48,12 +50,12 @@ public class GrxSingleSelection extends GrxBasePreference implements DlgFrMultiS
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxsiconsarray);
 
         if(ta.hasValue(R.styleable.grxsiconsarray_iconsValueTint))
-                iconsValueTint = ta.getInt(R.styleable.grxsiconsarray_iconsValueTint, 0);
+            iconsValueTint = ta.getInt(R.styleable.grxsiconsarray_iconsValueTint, 0);
 
 
         ta.recycle();
 
-
+        if(myPrefAttrsInfo.getMySummary()==null || myPrefAttrsInfo.getMySummary().isEmpty()) sep_summary ="";
         setDefaultValue(myPrefAttrsInfo.getMyStringDefValue());
     }
 
@@ -89,7 +91,7 @@ public class GrxSingleSelection extends GrxBasePreference implements DlgFrMultiS
         }
 
         String summary = myPrefAttrsInfo.getMySummary();
-        if(mLabel!=null && !mLabel.isEmpty() ) summary+= "  "+"("+mLabel+")";
+        if(mLabel!=null && !mLabel.isEmpty() ) summary+= sep_summary +mLabel;
         setSummary(summary);
 
     }
@@ -121,12 +123,16 @@ public class GrxSingleSelection extends GrxBasePreference implements DlgFrMultiS
         }
     }
 
+    private void set_summary(){
+
+    }
+
     @Override
     public void onBindView(View view) {
         super.onBindView(view);
         refreshView();
         String summary = myPrefAttrsInfo.getMySummary();
-        if(mLabel!=null && !mLabel.isEmpty() ) summary+= "  "+"("+mLabel+")";
+        if(mLabel!=null && !mLabel.isEmpty() ) summary+= sep_summary +mLabel;
         setSummary(summary);
     }
 

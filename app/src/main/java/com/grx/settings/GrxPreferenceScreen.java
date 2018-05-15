@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.GrxBasePreference;
@@ -14,6 +15,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import android.preference.GrxDatePicker;
 import android.preference.GrxPreferenceCategory;
 import android.preference.GrxSwitchPreference;
 import android.preference.GrxTimePicker;
+
 
 import com.grx.settings.act.GrxImagePicker;
 import com.grx.settings.prefs_dlgs.DlgFrGrxDatePicker;
@@ -63,7 +66,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         DlgFrGrxDatePicker.OnGrxDateSetListener,
         DlgFrGrxTimePicker.OnGrxTimeSetListener,
         GrxObserver.OnObservedSettingsKeyChange
-    {
+{
 
     String mCurrentScreen;
     String mCurrentSubScreen;
@@ -86,11 +89,11 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
 
     int mNumPrefs=0;
 
-     Map<String, List<CustomDependencyHelper>> CustomDependencies = new HashMap<String, List<CustomDependencyHelper>>();
+    Map<String, List<CustomDependencyHelper>> CustomDependencies = new HashMap<String, List<CustomDependencyHelper>>();
 
-     PreferenceScreen mCurrentPreferenceScreen ;
+    PreferenceScreen mCurrentPreferenceScreen ;
 
-     List<Preference> mPrefsToRemove = new ArrayList<>();
+    List<Preference> mPrefsToRemove = new ArrayList<>();
 
     public boolean mIsDemoMode=false;
 
@@ -132,6 +135,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
             mCurrentKey = getArguments().getString(Common.EXTRA_KEY);
             mDividerHeight = getArguments().getInt(Common.EXTRA_DIV_HEIGHT,getResources().getInteger(R.integer.grxi_default_list_divider_height));
         }else{
+            Common.buildContextWrapper(getActivity());
             mCurrentScreen=savedInstanceState.getString(Common.EXTRA_SCREEN);
             mCurrentSubScreen=savedInstanceState.getString(Common.EXTRA_SUB_SCREEN);
             mCurrentKey=savedInstanceState.getString(Common.EXTRA_KEY);
@@ -168,24 +172,37 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
 
         //update_all_custom_dependencies(); //gives fc here if the app is restarted by the system. F.example changin screen zoom on S7E
 
-
-
-
     }
-       @Override
-        public void onResume() {
-            super.onResume();
-           refreshSettingsKeys();
+
+
+    /** help preferences to preserve non standar color attributes */
+
+    private void buildContextWrapper(){
+        Common.mContextWrapper = null;
+        String themename = Common.sp.getString(Common.S_APPOPT_USER_SELECTED_THEME_NAME, getString(R.string.grxs_default_theme));
+        if(themename==null || themename.isEmpty()) return;
+        int themeid = getResources().getIdentifier(themename,"style",  getActivity().getPackageName());
+        Resources.Theme helpertheme = getResources().newTheme();
+        helpertheme.applyStyle(themeid,true);
+        Common.mContextWrapper = new ContextThemeWrapper(getActivity(), 0);
+        Common.mContextWrapper.getTheme().setTo(helpertheme);
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refreshSettingsKeys();
 /*            if(mGrxSettingsActivity !=null && Common.SyncUpMode){
                 mGrxSettingsActivity.onPreferenceScreenSinchronized(mNumPrefs);
             }*/
-        }
+    }
 
-        @Override
-        public  void onStop(){
-            super.onStop();
+    @Override
+    public  void onStop(){
+        super.onStop();
 
-        }
+    }
 
 
 
@@ -218,26 +235,26 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     }
 
     private void showScreen(PreferenceScreen preferenceScreen){
-            if(preferenceScreen!=null){
-                String p_actual= getPreferenceScreen().getKey();
-                mScreenPositions.put(p_actual, getListPosition());
-                PreferenceScreen p = (PreferenceScreen) preferenceScreen;
-                if(p.getDialog()!=null) p.getDialog().dismiss();
-                setPreferenceScreen((PreferenceScreen)preferenceScreen);
-                mGrxSettingsActivity.onBackKey(preferenceScreen.getTitle(), true);
-                setListPosition(mScreenPositions.get(getPreferenceScreen().getKey()));
-                mCurrentSubScreen=getPreferenceScreen().getKey();
-                mGrxSettingsActivity.onScreenChange(mCurrentSubScreen);
-            }
-            if (!(mCurrentKey==null || mCurrentKey.isEmpty())){
-                Preference pref = getPreferenceScreen().findPreference(mCurrentKey);
-                if(pref!=null) {
-                    if(pref.isEnabled()) getPreferenceScreen().onItemClick(null,null,pref.getOrder(),0);
-                }
-                mCurrentKey=null;
-            }
-
+        if(preferenceScreen!=null){
+            String p_actual= getPreferenceScreen().getKey();
+            mScreenPositions.put(p_actual, getListPosition());
+            PreferenceScreen p = (PreferenceScreen) preferenceScreen;
+            if(p.getDialog()!=null) p.getDialog().dismiss();
+            setPreferenceScreen((PreferenceScreen)preferenceScreen);
+            mGrxSettingsActivity.onBackKey(preferenceScreen.getTitle(), true);
+            setListPosition(mScreenPositions.get(getPreferenceScreen().getKey()));
+            mCurrentSubScreen=getPreferenceScreen().getKey();
+            mGrxSettingsActivity.onScreenChange(mCurrentSubScreen);
         }
+        if (!(mCurrentKey==null || mCurrentKey.isEmpty())){
+            Preference pref = getPreferenceScreen().findPreference(mCurrentKey);
+            if(pref!=null) {
+                if(pref.isEnabled()) getPreferenceScreen().onItemClick(null,null,pref.getOrder(),0);
+            }
+            mCurrentKey=null;
+        }
+
+    }
 
     private void setListPosition(final int pos){
         View rootView = getView();
@@ -300,7 +317,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         String nps = ps.getKey();
         mAuxScreenKeys.add(nps);
         for(int i=0;i<nprefs;i++){
-		initPreference(ps.getPreference(i), mAuxScreenKeys.get(mAuxScreenKeys.size()-1));
+            initPreference(ps.getPreference(i), mAuxScreenKeys.get(mAuxScreenKeys.size()-1));
         }
         mAuxScreenKeys.remove(nps);
     }
@@ -358,7 +375,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                     prefAttrsInfo = ((GrxBasePreference) pref).getPrefAttrsInfo();
                 }
                 break;
-         }
+        }
 
         updateAllCustomDependencies(pref.getKey() , ob);
 
@@ -386,7 +403,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                     }
                     break;
                 case "groupkey":
-                     changeGroupKey(prefAttrsInfo.getMyGroupKey());
+                    changeGroupKey(prefAttrsInfo.getMyGroupKey());
 
                     break;
                 case "onclick": //bbbbb
@@ -397,20 +414,20 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                             if(preference.isEnabled()) {
                                 String destRule = prefAttrsInfo.getMyOnClickRule().split(Pattern.quote("#"))[2];
                                 performOnClickRule(preference, destRule);
-                          }
+                            }
                         }
                     }
 
                     break;
 
                 case "broadcasts":
-                     if(prefAttrsInfo.getMyCommonBcExtra()!=null) {
-                         GrxPrefsUtils.sendCommonBroadCastExtraDelayed(getActivity(),prefAttrsInfo.getMyCommonBcExtra(),prefAttrsInfo.getMyCommonBcExtraValue(),false);
-                         if(mIsDemoMode) {
-                               Toast.makeText(getActivity(),"Common BC send with extra : " + prefAttrsInfo.getMyCommonBcExtra()+" = "+ prefAttrsInfo.getMyCommonBcExtraValue(),Toast.LENGTH_SHORT).show();
-                         }
-                     }
-                     sendPreferenceBroadcasts(prefAttrsInfo.getMyBroadCast1(),prefAttrsInfo.getMyBroadCast2());
+                    if(prefAttrsInfo.getMyCommonBcExtra()!=null) {
+                        GrxPrefsUtils.sendCommonBroadCastExtraDelayed(getActivity(),prefAttrsInfo.getMyCommonBcExtra(),prefAttrsInfo.getMyCommonBcExtraValue(),false);
+                        if(mIsDemoMode) {
+                            Toast.makeText(getActivity(),"Common BC send with extra : " + prefAttrsInfo.getMyCommonBcExtra()+" = "+ prefAttrsInfo.getMyCommonBcExtraValue(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    sendPreferenceBroadcasts(prefAttrsInfo.getMyBroadCast1(),prefAttrsInfo.getMyBroadCast2());
                     break;
 
                 case "scripts":
@@ -432,8 +449,8 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                             break;
                     }
                     break;
-                 default:
-                     break;
+                default:
+                    break;
 
             }
         }
@@ -531,7 +548,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                     vd=false;
                 }
             }
-        return vd;
+            return vd;
         }
         return vd;
     }
@@ -592,7 +609,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     public void sendPreferenceBroadcasts(String bc1, String bc2){
         if(bc1!=null && !bc1.isEmpty()) {
             GrxPrefsUtils.sendPreferenceBroadcaast(getActivity(), bc1, false);
-           if(mIsDemoMode && !Common.SyncUpMode) show_toast("broadcast1 = " + bc1);
+            if(mIsDemoMode && !Common.SyncUpMode) show_toast("broadcast1 = " + bc1);
         }
         if(bc2!=null && !bc2.isEmpty()) {
             GrxPrefsUtils.sendPreferenceBroadcaast(getActivity(), bc2, true);
@@ -602,7 +619,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
 
     /*************** Dialog Fragments Listeners and support  *******************/
 
-        public void ShowGrxDatePickerDialog(String key, String value){
+    public void ShowGrxDatePickerDialog(String key, String value){
         DlgFrGrxDatePicker dlg = DlgFrGrxDatePicker.newInstance(key,value);
         dlg.setOnGrxDateSetListener(this);
         dlg.show(getFragmentManager(),Common.TAG_DLGFRGRDATEPICKER);
@@ -613,11 +630,11 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         if(grxDatePicker!=null) grxDatePicker.setNewValue(value);
     }
 
-     public void showGrxTimePickerDialog(String key, int value){
-            DlgFrGrxTimePicker dlg = DlgFrGrxTimePicker.newInstance(key, value);
-            dlg.setOnGrxTimeSetListener(this);
-            dlg.show(getFragmentManager(),Common.TAG_DLGFRGRTIMEPICKER);
-        }
+    public void showGrxTimePickerDialog(String key, int value){
+        DlgFrGrxTimePicker dlg = DlgFrGrxTimePicker.newInstance(key, value);
+        dlg.setOnGrxTimeSetListener(this);
+        dlg.show(getFragmentManager(),Common.TAG_DLGFRGRTIMEPICKER);
+    }
     public void onGrxTimeSet(int value, String key){
         GrxTimePicker pref = (GrxTimePicker) findPreference(key);
         if(pref!=null) pref.setNewValue(value);
@@ -627,41 +644,41 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         return findPreference(key);
     }
 
-        /********** SYNC UP SUPPORT  **************************************************/
+    /********** SYNC UP SUPPORT  **************************************************/
 
-        public void addGroupKeyForSyncUp(String groupkey){
-            if(groupkey!=null && !groupkey.isEmpty()){
-                if(!Common.GroupKeysList.contains(groupkey)) {
-                    Common.GroupKeysList.add(groupkey);
-                 //   if(isAdded()) show_toast(groupkey);
-                }
+    public void addGroupKeyForSyncUp(String groupkey){
+        if(groupkey!=null && !groupkey.isEmpty()){
+            if(!Common.GroupKeysList.contains(groupkey)) {
+                Common.GroupKeysList.add(groupkey);
+                //   if(isAdded()) show_toast(groupkey);
+            }
+        }
+    }
+
+    public void addCommonBroadCastValuesForSyncUp(String extra, String extravalue){
+        if(extra==null) return;
+        if(Common.CommonBroadCastList==null) Common.CommonBroadCastList = new HashSet<>();
+        String entry = extra+";"+extravalue;
+        if(!Common.CommonBroadCastList.contains(entry)) Common.CommonBroadCastList.add(entry);
+    }
+
+    public void addBroadCastToSendForSyncUp(String bc1, String bc2){
+        if(bc1!=null && !bc1.isEmpty()){
+            if(!Common.BroadCastsList.contains(bc1)) {
+                Common.BroadCastsList.add(bc1);
+                //   if(isAdded()) show_toast(groupkey);
             }
         }
 
-        public void addCommonBroadCastValuesForSyncUp(String extra, String extravalue){
-            if(extra==null) return;
-            if(Common.CommonBroadCastList==null) Common.CommonBroadCastList = new HashSet<>();
-            String entry = extra+";"+extravalue;
-            if(!Common.CommonBroadCastList.contains(entry)) Common.CommonBroadCastList.add(entry);
-        }
-
-        public void addBroadCastToSendForSyncUp(String bc1, String bc2){
-            if(bc1!=null && !bc1.isEmpty()){
-                if(!Common.BroadCastsList.contains(bc1)) {
-                    Common.BroadCastsList.add(bc1);
-                    //   if(isAdded()) show_toast(groupkey);
-                }
-            }
-
-            if(bc2!=null && !bc2.isEmpty()){
-                if(!Common.BroadCastsList.contains(bc2)) {
-                    Common.BroadCastsList.add(bc2);
-                    //   if(isAdded()) show_toast(groupkey);
-                }
+        if(bc2!=null && !bc2.isEmpty()){
+            if(!Common.BroadCastsList.contains(bc2)) {
+                Common.BroadCastsList.add(bc2);
+                //   if(isAdded()) show_toast(groupkey);
             }
         }
+    }
 
-       /***************** CUSTOM DEPENDENCIES *****************************/
+    /***************** CUSTOM DEPENDENCIES *****************************/
 
     public interface CustomDependencyListener{
         void OnCustomDependencyChange(boolean state);
@@ -674,7 +691,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         CustomDependencyHelper customDependencyHelper = new CustomDependencyHelper(dependencyListener, rule, separator);
         String dependency_key = customDependencyHelper.get_custom_dependency_key();
         if(CustomDependencies.containsKey(dependency_key)){
-             dependencylisteners = CustomDependencies.get(dependency_key);
+            dependencylisteners = CustomDependencies.get(dependency_key);
         }else dependencylisteners = new ArrayList<CustomDependencyHelper>();
         dependencylisteners.add(customDependencyHelper);
         CustomDependencies.put(dependency_key,dependencylisteners);
@@ -709,65 +726,67 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     }
 
 
-      private String getStringValueForDependencyKey(int type, Object value){
-          switch (type){
-              case 0: return String.valueOf((int) value);
-              case 1:
-              case 2: String tmp = (String) value;
-                      if(tmp==null) tmp = "";
-                      return tmp;
-              case 3: return (boolean) value ? "true" : "false";
-          }
-          return null;
+    private String getStringValueForDependencyKey(int type, Object value){
+        switch (type){
+            case 0: return String.valueOf((int) value);
+            case 1:
+            case 2: String tmp = (String) value;
+                if(tmp==null) tmp = "";
+                return tmp;
+            case 3: return (boolean) value ? "true" : "false";
+        }
+        return null;
 
-      }
+    }
 
-     public void updateAllCustomDependencies(String key, Object ob){
-         if(key==null || key.isEmpty()) return;
-         List<CustomDependencyHelper> dependencyHelpers = CustomDependencies.get(key);
-         if(dependencyHelpers==null) return;
+    public void updateAllCustomDependencies(String key, Object ob){
+        if(key==null || key.isEmpty()) return;
+        List<CustomDependencyHelper> dependencyHelpers = CustomDependencies.get(key);
+        if(dependencyHelpers==null) return;
 
-         int type = dependencyHelpers.get(0).get_dependency_type();
-         String dependency_key_value = getStringValueForDependencyKey(type,ob);
-         int num_listeners = dependencyHelpers.size();
-         for(int i = 0; i< num_listeners;i++){
-             CustomDependencyHelper customDependencyHelper = dependencyHelpers.get(i);
-             customDependencyHelper.get_listener().OnCustomDependencyChange(customDependencyHelper.listener_should_be_enabled(dependency_key_value));
-         }
+        int type = dependencyHelpers.get(0).get_dependency_type();
+        String dependency_key_value = getStringValueForDependencyKey(type,ob);
+        int num_listeners = dependencyHelpers.size();
+        for(int i = 0; i< num_listeners;i++){
+            CustomDependencyHelper customDependencyHelper = dependencyHelpers.get(i);
+            customDependencyHelper.get_listener().OnCustomDependencyChange(customDependencyHelper.listener_should_be_enabled(dependency_key_value));
+        }
 
 
 
-     }
+    }
 
     /*************************************************************************/
 
-     public void onImagePickerResult(Intent data, int requestcode){
+    public void onImagePickerResult(Intent data, int requestcode){
 
-         String key = data.getStringExtra(Common.TAG_DEST_FRAGMENT_NAME_EXTRA_KEY);
-         if(key==null || key.isEmpty()) return;
+        String key = data.getStringExtra(Common.TAG_DEST_FRAGMENT_NAME_EXTRA_KEY);
+        if(key==null || key.isEmpty()) return;
 
-         GrxPickImage grxPickImage = (GrxPickImage) getPreferenceScreen().findPreference(key);
-         if(grxPickImage==null) return;
+        GrxPickImage grxPickImage = (GrxPickImage) getPreferenceScreen().findPreference(key);
+        if(grxPickImage==null) return;
 
-         switch (requestcode){
-             case Common.REQ_CODE_GALLERY_IMAGE_PICKER_JUST_URI:
-                    grxPickImage.setNewImage(data.getData().toString());
+        switch (requestcode){
+            case Common.REQ_CODE_GALLERY_IMAGE_PICKER_JUST_URI:
+                grxPickImage.setNewImage(data.getData().toString());
 
-                 break;
-             case Common.REQ_CODE_GALLERY_IMAGE_PICKER_CROP_CIRCULAR:
-                 String sFile = data.getStringExtra(GrxImagePicker.S_DIR_IMG);
-                 File file = new File(sFile);
-                 if(file!=null) {
-                         Uri uri = Uri.fromFile(file);
-                         grxPickImage.setNewImage(uri.toString());
-                     }
-                 break;
-         }
-     }
+                break;
+            case Common.REQ_CODE_GALLERY_IMAGE_PICKER_CROP_CIRCULAR:
+                String sFile = data.getStringExtra(GrxImagePicker.S_DIR_IMG);
+                File file = new File(sFile);
+                if(file!=null) {
+                    Uri uri = Uri.fromFile(file);
+                    grxPickImage.setNewImage(uri.toString());
+                    //       Uri uri = PublicFileProvider.getUriForFile(getActivity(),getString(R.string.grx_file_provider_authority),file);
+                    //     grxPickImage.setNewImage(uri.toString());
+                }
+                break;
+        }
+    }
 
 
     public void addPreferenceToRemoveList(Preference pref){
-         mPrefsToRemove.add(pref);
+        mPrefsToRemove.add(pref);
     }
 
 
@@ -787,7 +806,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
 
 
     public void addSupportForSettingsKey(String key){
-       if(key!=null && !key.isEmpty()) mSettingsKeys.add(key);
+        if(key!=null && !key.isEmpty()) mSettingsKeys.add(key);
     }
 
     private void refreshSettingsKeys(){
