@@ -53,4 +53,4 @@ If I have forgotten to someone it was not on purpose, please tell me.
 
 ## Images
 
-[![img1](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img1.PNG)] [![img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img2.PNG)] 
+[img1](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img1.PNG) [img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img2.PNG) 
