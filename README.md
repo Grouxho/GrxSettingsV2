@@ -25,3 +25,9 @@ This is an application for Mods Configuration and Rom Control.
     see <https://www.mozilla.org/en-US/MPL/2.0//> )
 	
 	Related to the libraries used in this application, you will respect its license. Inside the source code you will find the corresponding license to be observed.
+
+## Developers Guide and Demo Apk
+
+	Inside the folder demo_and_guide you will find both resources. You can download and use without messing your settings system the demo app. You should install this app in priv-app if you see  the Secure, Global and System section in the navigation panel. So, do not select that screen if you are not going to install the demo app in prv-app.
+
+	
