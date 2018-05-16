@@ -34,3 +34,13 @@ This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 ## Credits and Libraries
 
 * [Floating Action Buton, by makovkastar (MIT License)](https://github.com/makovkastar/FloatingActionButton)
+
+* [SublimeNavigationView, by vikramkakkar ((Apache License 2.0)](https://github.com/vikramkakkar/SublimeNavigationView)
+
+* [QuadFlask ColorPicker, by QuadFlask ((Apache License 2.0))](https://github.com/QuadFlask/colorpicker)
+
+* [Square ColorPicker by Sergey Margaritov (Apache License 2.0)](https://github.com/attenzione/android-ColorPickerPreference)
+
+* [RootTools from kernelAdiutor (GPL 3.0 License)](https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root)
+
+* [RootTools from kernelAdiutor (GPL 3.0 License)](https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root)
