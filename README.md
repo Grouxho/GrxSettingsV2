@@ -31,5 +31,6 @@ This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 * Related to the libraries used in this application, you will respect their license. Inside the source code you will find the corresponding license to be observed.
 
 
+## Credits and Libraries
 
-	
+* [Floating Action Buton, by makovkastar (MIT License)](https://github.com/makovkastar/FloatingActionButton)
