@@ -44,3 +44,11 @@ This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 * [RootTools from kernelAdiutor (GPL 3.0 License)](https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root)
 
 * [RootTools from kernelAdiutor (GPL 3.0 License)](https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root)
+
+If I have forgotten to someone it was not on purpose, please tell me.
+
+* Special thanks to Thomas Shimko & Therassad, from XDA for their help to add RTL support. 
+
+* Many thanks also to sac23, from XDA,  for trusting in this application from the beginning
+
+* And finally very very very very special thanks to my friends from EspDroids.com, the amazing Morogoku, gvm79, josete_1976, NeoVendetta, NecrosauroN,.... 
