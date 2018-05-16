@@ -43,8 +43,6 @@ This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 
 * [RootTools from kernelAdiutor (GPL 3.0 License)](https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root)
 
-* [RootTools from kernelAdiutor (GPL 3.0 License)](https://github.com/Grarak/KernelAdiutor/tree/master/app/src/main/java/com/grarak/kerneladiutor/utils/root)
-
 If I have forgotten to someone it was not on purpose, please tell me.
 
 * Very very very very special thanks to my friends from EspDroids.com (http://www.espdroids.com), the amazing Morogoku, gvm79, NeoVendetta, NecrosauroN, josete_1976 (we all hope he will update his awsome TW Launcher mod, yup..) ,.... 
