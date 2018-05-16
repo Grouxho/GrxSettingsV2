@@ -51,4 +51,6 @@ If I have forgotten to someone it was not on purpose, please tell me.
 
 * Many thanks also to sac23, from XDA,  for trusting in this application since the beginning
 
+## Images
 
+[![img1](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img1.PNG)]
