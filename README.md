@@ -57,4 +57,4 @@ If I have forgotten to someone it was not on purpose, please tell me.
 [![img3](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img3.PNG)] [![img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img4.PNG)]
 [![img5](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img5.PNG)] [![img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img6.PNG)]
 [![img7](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img7.PNG)] [![img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img8.PNG)]
-[![img9](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img9.PNG)]
+[![img9](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img9.PNG)] [![img10](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img10.PNG)]
