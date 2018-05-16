@@ -6,7 +6,7 @@ This is an application for Mods Configuration and Rom Control.
 
 * 30 types of preferences which can be referenced using their short name. Some of them have several behaviours depending on added xml attributes.
 * Backup of preferences values and restoration
-* Root support, needed for some features. 
+* Root support, needed if you use some features. 
 * RTL compatible 
 * Navigation panel through preferences screens, supporting groups of preferences screens.
 * Nested screen keeping the toolbar.
