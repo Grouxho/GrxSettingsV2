@@ -1,6 +1,6 @@
 # GrxSettings V2
 
-This is an application for Mods Configuration and Rom Control. 
+This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 
 ## Main Features
 
@@ -19,6 +19,10 @@ This is an application for Mods Configuration and Rom Control.
 * Support for rom info creation, through easily configurable sliding tabs.
 * User options: floating area with access to last seen screens, Theme selection, 3 color pickers styles, image selection for navigation panel header background, divider height selection in list views, show/hide and position of the floating action button, navigation panel position, force expanded groups of preferences screens, remember screen, exit confirmation….
 
+## Developers Guide and Demo Apk
+
+	Inside the folder demo_and_guide you will find both resources. You can download and use without messing your settings system the demo app. You should install this app in priv-app if you want to use the Secure, Global and System section in the navigation panel. So, do not select that screen if you are not going to install the demo app in prv-app.
+
 ## License
 
     All the software developed by me in GrxSettings is free software, licensed uder Mozilla Pulbic License V 2.0. 
@@ -26,8 +30,6 @@ This is an application for Mods Configuration and Rom Control.
 	
 	Related to the libraries used in this application, you will respect its license. Inside the source code you will find the corresponding license to be observed.
 
-## Developers Guide and Demo Apk
 
-	Inside the folder demo_and_guide you will find both resources. You can download and use without messing your settings system the demo app. You should install this app in priv-app if you see  the Secure, Global and System section in the navigation panel. So, do not select that screen if you are not going to install the demo app in prv-app.
 
 	
