@@ -47,7 +47,7 @@ This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 
 If I have forgotten to someone it was not on purpose, please tell me.
 
-* Very very very very special thanks to my friends from [EspDroids.com] (http://wwww.espdroids.com), the amazing Morogoku, gvm79, NeoVendetta, NecrosauroN, josete_1976 (we all hope he will update his awsome TW Launcher mod, yup..) ,.... 
+* Very very very very special thanks to my friends from EspDroids.com (http://wwww.espdroids.com), the amazing Morogoku, gvm79, NeoVendetta, NecrosauroN, josete_1976 (we all hope he will update his awsome TW Launcher mod, yup..) ,.... 
 
 * Thanks to Thomas Shimko & Therassad, from XDA for their help to add RTL support. 
 
