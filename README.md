@@ -26,9 +26,9 @@ This is an application for Mods Configuration and Rom Control, for LP+ 5.1
 ## License
 
 * All the software developed by me in GrxSettings is free software, licensed uder Mozilla Pulbic License V 2.0. 
-  see <https://www.mozilla.org/en-US/MPL/2.0//> )
+  see <https://www.mozilla.org/en-US/MPL/2.0//> 
 	
-* Related to the libraries used in this application, you will respect its license. Inside the source code you will find the corresponding license to be observed.
+* Related to the libraries used in this application, you will respect their license. Inside the source code you will find the corresponding license to be observed.
 
 
 
