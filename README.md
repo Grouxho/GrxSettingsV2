@@ -51,7 +51,7 @@ If I have forgotten to someone it was not on purpose, please tell me.
 
 * Many thanks also to sac23, from XDA,  for trusting in this application since the beginning
 
-## Images
+## Screen Shots
 
 [![img1](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img1.PNG)] [![img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img2.PNG)] 
 [![img3](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img3.PNG)] [![img2](https://github.com/Grouxho/GrxSettingsV2/blob/master/images/img4.PNG)]
