@@ -4,11 +4,13 @@
     xmlns:grx="http://schemas.android.com/apk/res-auto">
     <GrxPreferenceCategory android:title="GrxColorPicker" />
     <GrxColorPicker android:icon="@drawable/demo_icon_5"
-        grx:iconTint="?complementary_color3" android:title="Demo 1" android:key="cpicker_0" android:summary="Circular, Auto:color palette, defval"
-        android:defaultValue="0xFF33B5E5" grx:colorPickerStyle="circle" grx:saveSettings="false" grx:showAlphaSlider="true" grx:showAutoButton="true"  />
+        grx:iconTint="?complementary_color3" android:title="Demo 1" android:key="cpicker_0" android:summary="Circular, Auto:color palette, defval, save val on fly"
+        android:defaultValue="0xFF33B5E5" grx:colorPickerStyle="circle" grx:saveSettings="false" grx:showAlphaSlider="true" grx:showAutoButton="true"
+        grx:saveValueOnFly="true"/>
 
-    <GrxColorPicker android:title="Demo 2" android:key="cpicker_1" android:summary="Square, defcolor"
-        android:defaultValue="0x38ffff00"  grx:colorPickerStyle="square" grx:saveSettings="false" grx:showAlphaSlider="true" grx:showAutoButton="true" />
+    <GrxColorPicker android:title="Demo 2" android:key="cpicker_1" android:summary="Square, defcolor, save val on fly"
+        android:defaultValue="0x38ffff00"  grx:colorPickerStyle="square" grx:saveSettings="false" grx:showAlphaSlider="true"
+        grx:showAutoButton="true" grx:saveValueOnFly="true" />
 
 
     <GrxColorPicker android:title="Demo 3 " android:key="cpicker_2" android:summary="flower, no alpha,"

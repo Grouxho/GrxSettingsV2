@@ -85,6 +85,7 @@
 		<attr name="showAutoButton" format="boolean"/>
 		<attr name="showAlphaSlider" format="boolean"/>
 		<attr name="colorPickerStyle" format="string"/>
+		<attr name="saveValueOnFly" format="boolean"/>
 		<attr name="defaultColor" format="integer"/>
 		<attr name="sizeX" format="integer"/>
 		<attr name="sizeY" format="integer"/>

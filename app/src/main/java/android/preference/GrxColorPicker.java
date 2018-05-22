@@ -37,6 +37,8 @@ public class GrxColorPicker extends GrxBasePreference implements DlgFrGrxColorPi
     private boolean showAuto;
     private String pickerTitle;
 
+    private boolean saveValueOnFly=false;
+
 	public GrxColorPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         initAttributes(context, attrs);
@@ -54,6 +56,7 @@ public class GrxColorPicker extends GrxBasePreference implements DlgFrGrxColorPi
         showAlphaSlider=ta.getBoolean(R.styleable.grxPreferences_showAlphaSlider, context.getResources().getBoolean(R.bool.grxb_showAlphaSlider_default) );
         showAuto=ta.getBoolean(R.styleable.grxPreferences_showAutoButton, context.getResources().getBoolean(R.bool.grxb_showAutoButton_default) );
         pickerType=ta.getString(R.styleable.grxPreferences_colorPickerStyle);
+        saveValueOnFly=ta.getBoolean(R.styleable.grxPreferences_saveValueOnFly, false );
         ta.recycle();
         setDefaultValue(myPrefAttrsInfo.getMyIntDefValue());
         pickerTitle=getTitle().toString();
@@ -122,7 +125,7 @@ public class GrxColorPicker extends GrxBasePreference implements DlgFrGrxColorPi
             if (dlgFrGrxColorPicker==null){
 
                 dlgFrGrxColorPicker= DlgFrGrxColorPicker.newInstance(this, Common.TAG_PREFSSCREEN_FRAGMENT, myPrefAttrsInfo.getMyTitle(),myPrefAttrsInfo.getMyKey(),
-                        mIntValue,getPickerStyle(), showAlphaSlider, showAuto);
+                        mIntValue,getPickerStyle(), showAlphaSlider, showAuto,saveValueOnFly);
                 dlgFrGrxColorPicker.show(prefsScreen.getFragmentManager(),Common.TAG_DLGFRGRXCOLORPICKER);
             }
         }

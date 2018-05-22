@@ -73,6 +73,7 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
     private int pickerStyle;
     private int mCurrentColor;
     private int mOriginalColor;
+    private boolean mSaveOnFly=false;
 
     /**** QuadFlask Color Picker */
 
@@ -104,13 +105,13 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
         void onGrxColorSet(int color);
     }
 
-    public static DlgFrGrxColorPicker newInstance(OnGrxColorPickerListener callback, String helperfragment, String title, String key, int initialcolor, int style, boolean alphaslider, boolean auto){
+    public static DlgFrGrxColorPicker newInstance(OnGrxColorPickerListener callback, String helperfragment, String title, String key, int initialcolor, int style, boolean alphaslider, boolean auto, boolean saveonfly){
         DlgFrGrxColorPicker ret = new DlgFrGrxColorPicker();
-        ret.ini_picker(callback, helperfragment, title,key,initialcolor, style,alphaslider, auto);
+        ret.ini_picker(callback, helperfragment, title,key,initialcolor, style,alphaslider, auto, saveonfly);
         return ret;
     }
 
-    private void ini_picker(OnGrxColorPickerListener callback, String helperfragment,  String title, String key, int initialcolor, int style, boolean alphaslider, boolean auto){
+    private void ini_picker(OnGrxColorPickerListener callback, String helperfragment,  String title, String key, int initialcolor, int style, boolean alphaslider, boolean auto, boolean saveonfly){
 
         mCallBack=callback;
         mHelperFragmentName=helperfragment;
@@ -121,6 +122,7 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
         pickerStyle=style;
         showAlphaSlider =alphaslider;
         showAutoButton =auto;
+        mSaveOnFly=saveonfly;
     }
 
 
@@ -139,6 +141,7 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
         outState.putInt("pickerstyle", pickerStyle);
         outState.putBoolean("alpha", showAlphaSlider);
         outState.putBoolean("auto", showAutoButton);
+        outState.putBoolean("saveonfly", mSaveOnFly);
 
     }
 
@@ -167,6 +170,7 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
             pickerStyle=state.getInt("pickerstyle");
             showAlphaSlider =state.getBoolean("alpha");
             showAutoButton =state.getBoolean("auto");
+            mSaveOnFly=state.getBoolean("saveonfly");
 
         }
 
@@ -340,6 +344,9 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
             @Override
             public void onColorChanged(int selectedColor) {
                 mQFColorPreview.setImageDrawable(new CircleColorDrawable( selectedColor));
+                if(mSaveOnFly) {
+                    if(mCallBack!=null) mCallBack.onGrxColorSet(selectedColor);
+                }
             }
         });
 
@@ -458,6 +465,11 @@ public class DlgFrGrxColorPicker extends DialogFragment implements
     //    mSMColorPicker.setColor(mCurrentColor, callback);
         mSMNewColorView.setColor(mCurrentColor);
         if(updatetext) updateSMHexValue(mCurrentColor);
+        if(mSaveOnFly){
+            if(mCallBack!=null){
+                mCallBack.onGrxColorSet(mCurrentColor);
+            }
+        }
     }
 
     private void updateSMHexLengthFilter() {

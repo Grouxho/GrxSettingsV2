@@ -288,7 +288,8 @@ public class DlgFrGrxPerItemColor extends DialogFragment
             if(mIdItemClicked!=-1){
                 color = mItemsInfo.get(mIdItemClicked).getColor();
             }
-            dlgFrGrxColorPicker= DlgFrGrxColorPicker.newInstance(this, Common.TAG_DLGFRGRITEMSCOLORS, mTitle,mKey,color,Common.getColorPickerStyleIndex(Common.userColorPickerStyle)/*false*/,true,true);
+            dlgFrGrxColorPicker= DlgFrGrxColorPicker.newInstance(this, Common.TAG_DLGFRGRITEMSCOLORS, mTitle,mKey,color,Common.getColorPickerStyleIndex(Common.userColorPickerStyle)/*false*/,
+                    true,true, false); //
             dlgFrGrxColorPicker.show(getFragmentManager(),Common.TAG_DLGFRGRXCOLORPICKER);
         }
     }

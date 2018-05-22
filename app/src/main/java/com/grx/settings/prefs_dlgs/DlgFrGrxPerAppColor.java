@@ -441,7 +441,7 @@ public class DlgFrGrxPerAppColor extends DialogFragment implements
                 color = mAppList.get(position).color_app();
             }
             dlgFrGrxColorPicker= DlgFrGrxColorPicker.newInstance(this, Common.TAG_DLGFRGRMULTIPPCOLOR, mTitle,mKey,
-                    color,Common.getColorPickerStyleIndex(Common.userColorPickerStyle),mAlpha,mAuto);
+                    color,Common.getColorPickerStyleIndex(Common.userColorPickerStyle),mAlpha,mAuto,false); //
             dlgFrGrxColorPicker.show(getFragmentManager(),Common.TAG_DLGFRGRXCOLORPICKER);
         }
     }
