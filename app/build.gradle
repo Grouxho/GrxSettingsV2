@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 
 android {
-    compileSdkVersion 22
-	//buildToolsVersion "22.0.1"
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 26  // read a bit below if you need to generate the apk for api 22 to 25.
+	//buildToolsVersion "22.0.1" // no need now, uncomment in older android studio vers.
+    //buildToolsVersion '28.0.3'  // no need now
     defaultConfig {
         applicationId 'com.grx.settings'
         minSdkVersion 22
-        targetSdkVersion 26
+        targetSdkVersion 26 // Google Play Requires API 26 or Higher. If you still need API 22 to 25, uncomment in lintOptions Section the line checkReleaseBuilds false
         versionCode 2
         versionName "2.0"
     }
@@ -17,7 +17,12 @@ android {
         mavenCentral()
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_7  // 1.7 for old device compatibility
+
+        // Uncomment next 2 lines for full java 1.8 compatibility (lambda, etc..)
+        //sourceCompatibility JavaVersion.VERSION_1_8
+        //targetCompatibility JavaVersion.VERSION_1_8
+
     }
 
     buildTypes {
@@ -29,7 +34,7 @@ android {
 
     lintOptions {
         disable 'MissingTranslation'
-        //checkReleaseBuilds false
+        //checkReleaseBuilds false  // uncomment this line if you want to generate code for older devices with older gradles plugins / older android studio versions.
     }
     productFlavors {
     }
@@ -49,7 +54,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
 
-
+    // + notation just for older builds
     implementation 'com.android.support:recyclerview-v7:22+'
     implementation 'com.android.support:support-annotations:22+'
     implementation 'com.nineoldandroids:library:2.4.0'
