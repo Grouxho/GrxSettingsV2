@@ -8,7 +8,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 22
 	//buildToolsVersion "22.0.1" // no need now, uncomment in older android studio vers.
-    //buildToolsVersion '28.0.3'  // no need now
+    //buildToolsVersion '28.0.3'  // no need now, uncomment in older android studio vers depending on the build tools you need.
     defaultConfig {
         applicationId 'com.grx.settings'
         minSdkVersion 22

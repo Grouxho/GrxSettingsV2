@@ -29,6 +29,7 @@ import android.provider.Settings;
 import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -663,7 +664,12 @@ public class GrxPrefsUtils {
         int i = Settings.System.getInt(context.getContentResolver(),group_key,0);
         if (i<32) i++;
         else i=1;
-        Settings.System.putInt(context.getContentResolver(),group_key,i);
+        try {
+            Settings.System.putInt(context.getContentResolver(),group_key,i);
+        }catch (Exception e){
+            Log.d("GrxSettings", e.toString());
+        }
+
     }
 
 

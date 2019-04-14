@@ -96,7 +96,8 @@ public class GrxFloatingRecents extends FrameLayout {
         mLayoutParams = //new WindowManager.LayoutParams(200,100,0x830,0x40008,-0x3 );
                 new WindowManager.LayoutParams(
                         (int) ((float)width/2.2f), ViewGroup.LayoutParams.WRAP_CONTENT,
-                        WindowManager.LayoutParams.TYPE_PHONE,
+                      //  WindowManager.LayoutParams.TYPE_PHONE,
+                        WindowManager.LayoutParams.TYPE_APPLICATION, // FOR BETTER COMPATIBILITY WITH ALL TARGET SDKs
                         WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH|WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                         PixelFormat.TRANSPARENT);
 
