@@ -169,6 +169,8 @@
     <string name="grxs_draganddroptoshortout">Drag and drop the elements to short out the list</string>
     <string name="grxs_select_option">Select Option</string>
 
+    <string name="grxs_app_not_root">No root permission!!</string>
+
     <string-array name="grxa_fab_position">
         <item>Center</item>
         <item>Left</item>

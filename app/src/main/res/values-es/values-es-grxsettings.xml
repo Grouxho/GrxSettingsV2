@@ -197,6 +197,8 @@
     <string name="grxs_pulse_no_screenoff">No se pudo apagar la pantalla. Por favor, apágala manualmente para comprobar la configuración de led.</string>
     <string name="grxs_savesettings_exception">Error guardando el valor. Pon la app en priv-app</string>
     <string name="grxs_select_option">Selecciona una opción</string>
+    <string name="grxs_app_not_rooted">Sin permiso root!!</string>
+
     <string-array name="grxa_app_help">
         <item>Puedes resetear el valor de la mayoría de las preferencias mediante un doble click en ella.</item>
         <item>Dependiendo de la configuración y preferencias usadas por el dev, en algunos tipos de preferencia aparece un botón de ayuda que muestra cómo se usan funciones como eliminar elementos, ordenarlos, etc. Por favor, leee la ayouda..</item>
