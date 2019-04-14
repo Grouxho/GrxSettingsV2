@@ -1,14 +1,20 @@
 apply plugin: 'com.android.application'
 
+// this file is configured to support device with api level 22.  If you want to publish an app in google play based on this code you will need
+// to set targetSdkVersion and compiledSdkVersion to 26 or higher. In this case you can comment the  checkReleaseBuilds false line in lintOptions
+// For targetsdkversions lower than 26 uncomment that line if you need to create a signed apk.
+
 
 android {
-    compileSdkVersion 26  // read a bit below if you need to generate the apk for api 22 to 25.
+    compileSdkVersion 22
 	//buildToolsVersion "22.0.1" // no need now, uncomment in older android studio vers.
     //buildToolsVersion '28.0.3'  // no need now
     defaultConfig {
         applicationId 'com.grx.settings'
         minSdkVersion 22
-        targetSdkVersion 26 // Google Play Requires API 26 or Higher. If you still need API 22 to 25, uncomment in lintOptions Section the line checkReleaseBuilds false
+        targetSdkVersion 22 // Google Play Requires API 26 or Higher.
+                            // If you still need API 22 to 25, uncomment in lintOptions Section the line checkReleaseBuilds false
+                            // or you will not be able to generate a signed apk
         versionCode 2
         versionName "2.0"
     }
@@ -19,7 +25,7 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7  // 1.7 for old device compatibility
 
-        // Uncomment next 2 lines for full java 1.8 compatibility (lambda, etc..)
+        // Uncomment next 2 lines and comment previous one for full java 1.8 compatibility (lambda, etc..)
         //sourceCompatibility JavaVersion.VERSION_1_8
         //targetCompatibility JavaVersion.VERSION_1_8
 
@@ -34,7 +40,9 @@ android {
 
     lintOptions {
         disable 'MissingTranslation'
-        //checkReleaseBuilds false  // uncomment this line if you want to generate code for older devices with older gradles plugins / older android studio versions.
+        checkReleaseBuilds false  // For target sdk 22 to 25 uncomment this line if you want to generate code for older devices with older gradles plugins / older android studio versions.
+                                    // for target sdk 26 + comment this line
+
     }
     productFlavors {
     }
