@@ -1162,6 +1162,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                     GrxPrefsUtils.sendPreferenceBroadCastWithExtra(this, array[0], array[1],false);
                 }
                 else GrxPrefsUtils.sendPreferenceBroadcaast(this,broadcastaction,true);
+
             }
 
 

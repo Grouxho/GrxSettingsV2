@@ -429,6 +429,7 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                     }
                     sendPreferenceBroadcasts(prefAttrsInfo.getMyBroadCast1(),prefAttrsInfo.getMyBroadCast1Extra(),
                             prefAttrsInfo.getMyBroadCast2(), prefAttrsInfo.getMyBroadCast2Extra());
+
                     break;
 
                 case "scripts":

@@ -115,7 +115,9 @@ public class PrefAttrsInfo {
 
     private String mBroadCast1="";
     private String mBroadCast2="";
+
     private String mBroadCast1Extra=null;
+
     private String mBroadCast2Extra=null;
 
     private SCRIPT_TYPE mScriptType=SCRIPT_TYPE.NO_SCRIPT;

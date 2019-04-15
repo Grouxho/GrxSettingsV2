@@ -577,6 +577,7 @@ public class GrxBasePreference extends Preference implements
                 grxPreferenceScreen.addGroupKeyForSyncUp(myPrefAttrsInfo.getMyGroupKey());
                 grxPreferenceScreen.addBroadCastToSendForSyncUp(myPrefAttrsInfo.getMyBroadCast1(), myPrefAttrsInfo.getMyBroadCast1Extra(),
                             myPrefAttrsInfo.getMyBroadCast2(),myPrefAttrsInfo.getMyBroadCast2Extra());
+
             }
         }
     }

@@ -190,6 +190,7 @@ public class Common {
     public static boolean SyncUpMode=false;
     public static HashSet<String> GroupKeysList=null;
     public static HashSet<String> CommonBroadCastList=null;
+
     public static HashSet<String> BroadCastsList=null;
 
     public static boolean IsRebootPermissionGranted =false;

@@ -219,6 +219,7 @@ public class GrxSwitchPreference extends SwitchPreference implements GrxPreferen
                 grxPreferenceScreen.addGroupKeyForSyncUp(myPrefAttrsInfo.getMyGroupKey());
                 grxPreferenceScreen.addBroadCastToSendForSyncUp(myPrefAttrsInfo.getMyBroadCast1(), myPrefAttrsInfo.getMyBroadCast1Extra(),
                         myPrefAttrsInfo.getMyBroadCast2(), myPrefAttrsInfo.getMyBroadCast2Extra());
+
             }
         }
 

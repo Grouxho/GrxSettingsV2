@@ -187,6 +187,7 @@ public class GrxCheckBoxPreference extends CheckBoxPreference implements GrxPref
                 grxPreferenceScreen.addGroupKeyForSyncUp(myPrefAttrsInfo.getMyGroupKey());
                 grxPreferenceScreen.addBroadCastToSendForSyncUp(myPrefAttrsInfo.getMyBroadCast1(), myPrefAttrsInfo.getMyBroadCast1Extra(),
                         myPrefAttrsInfo.getMyBroadCast2(), myPrefAttrsInfo.getMyBroadCast2Extra());
+
             }
         }
 
