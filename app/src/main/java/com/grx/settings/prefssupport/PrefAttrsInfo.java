@@ -115,6 +115,8 @@ public class PrefAttrsInfo {
 
     private String mBroadCast1="";
     private String mBroadCast2="";
+    private String mBroadCast1Extra=null;
+    private String mBroadCast2Extra=null;
 
     private SCRIPT_TYPE mScriptType=SCRIPT_TYPE.NO_SCRIPT;
     private int mScriptArrayId =0;
@@ -233,6 +235,8 @@ public class PrefAttrsInfo {
 
         mBroadCast1=ta.getString(R.styleable.grxPreferences_broadCast1);
         mBroadCast2=ta.getString(R.styleable.grxPreferences_broadCast2);
+        mBroadCast1Extra=ta.getString(R.styleable.grxPreferences_broadCast1Extra);
+        mBroadCast2Extra=ta.getString(R.styleable.grxPreferences_broadCast2Extra);
 
         mScriptArrayId = ta.getResourceId(R.styleable.grxPreferences_script,0);
         if(mScriptArrayId!=0){
@@ -372,6 +376,10 @@ public class PrefAttrsInfo {
     public String getMyBroadCast1() {return mBroadCast1;}
 
     public String getMyBroadCast2() {return mBroadCast2;}
+
+    public String getMyBroadCast1Extra() { return mBroadCast1Extra;}
+
+    public String getMyBroadCast2Extra() { return mBroadCast2Extra;}
 
     public SCRIPT_TYPE getMyScriptType(){return mScriptType;}
 

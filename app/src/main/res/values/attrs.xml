@@ -92,6 +92,8 @@
 		<attr name="circularImage" format="boolean"/>
 		<attr name="broadCast1" format="string|reference"/>
 		<attr name="broadCast2" format="string|reference"/>
+        <attr name="broadCast1Extra" format="string|reference"/>
+        <attr name="broadCast2Extra" format="string|reference"/>
 		<attr name="script" format="string|reference"/>
 		<attr name="scriptArguments" format="string|reference"/>
         <attr name="scriptConfirm" format="boolean"/>

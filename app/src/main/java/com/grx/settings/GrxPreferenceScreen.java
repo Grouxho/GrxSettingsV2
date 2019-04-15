@@ -427,7 +427,8 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                             Toast.makeText(getActivity(),"Common BC send with extra : " + prefAttrsInfo.getMyCommonBcExtra()+" = "+ prefAttrsInfo.getMyCommonBcExtraValue(),Toast.LENGTH_SHORT).show();
                         }
                     }
-                    sendPreferenceBroadcasts(prefAttrsInfo.getMyBroadCast1(),prefAttrsInfo.getMyBroadCast2());
+                    sendPreferenceBroadcasts(prefAttrsInfo.getMyBroadCast1(),prefAttrsInfo.getMyBroadCast1Extra(),
+                            prefAttrsInfo.getMyBroadCast2(), prefAttrsInfo.getMyBroadCast2Extra());
                     break;
 
                 case "scripts":
@@ -610,13 +611,13 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     }
 
 
-    public void sendPreferenceBroadcasts(String bc1, String bc2){
+    public void sendPreferenceBroadcasts(String bc1, String bc1extra, String bc2, String bc2extra){
         if(bc1!=null && !bc1.isEmpty()) {
-            GrxPrefsUtils.sendPreferenceBroadcaast(getActivity(), bc1, false);
+            GrxPrefsUtils.sendPreferenceBroadCastWithExtra(getActivity(), bc1, bc1extra,false);
             if(mIsDemoMode && !Common.SyncUpMode) show_toast("broadcast1 = " + bc1);
         }
         if(bc2!=null && !bc2.isEmpty()) {
-            GrxPrefsUtils.sendPreferenceBroadcaast(getActivity(), bc2, true);
+            GrxPrefsUtils.sendPreferenceBroadCastWithExtra(getActivity(), bc2,bc2extra, true);
             if(mIsDemoMode && !Common.SyncUpMode) show_toast("broadcast2 = " + bc2);
         }
     }
@@ -666,17 +667,22 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         if(!Common.CommonBroadCastList.contains(entry)) Common.CommonBroadCastList.add(entry);
     }
 
-    public void addBroadCastToSendForSyncUp(String bc1, String bc2){
+    public void addBroadCastToSendForSyncUp(String bc1, String bc1extra, String bc2, String bc2extra){
+        String entry;
         if(bc1!=null && !bc1.isEmpty()){
-            if(!Common.BroadCastsList.contains(bc1)) {
-                Common.BroadCastsList.add(bc1);
+            entry=bc1;
+            if(bc1extra!=null && !bc1extra.isEmpty()) entry=entry+";"+bc1extra;
+            if(!Common.BroadCastsList.contains(entry)) {
+                Common.BroadCastsList.add(entry);
                 //   if(isAdded()) show_toast(groupkey);
             }
         }
 
         if(bc2!=null && !bc2.isEmpty()){
-            if(!Common.BroadCastsList.contains(bc2)) {
-                Common.BroadCastsList.add(bc2);
+            entry=bc2;
+            if(bc2extra!=null && !bc2extra.isEmpty()) entry=entry+";"+bc2extra;
+            if(!Common.BroadCastsList.contains(entry)) {
+                Common.BroadCastsList.add(entry);
                 //   if(isAdded()) show_toast(groupkey);
             }
         }

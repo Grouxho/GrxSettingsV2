@@ -1156,7 +1156,14 @@ public class GrxSettingsActivity extends AppCompatActivity implements
             }
         }
         for (String broadcastaction : Common.BroadCastsList) {
-            GrxPrefsUtils.sendPreferenceBroadcaast(this,broadcastaction,true);
+            if(broadcastaction!=null) {
+                if(broadcastaction.contains(";")){
+                    String[] array = broadcastaction.split(";");
+                    GrxPrefsUtils.sendPreferenceBroadCastWithExtra(this, array[0], array[1],false);
+                }
+                else GrxPrefsUtils.sendPreferenceBroadcaast(this,broadcastaction,true);
+            }
+
 
         }
         for(String extra : Common.CommonBroadCastList){

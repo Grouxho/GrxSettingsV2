@@ -672,6 +672,40 @@ public class GrxPrefsUtils {
 
     }
 
+    public static void sendPreferenceBroadCastWithExtra(final Context context, final String action, String extra,  boolean delayed){
+        final String extraval = extra;
+        if(!delayed){
+            Intent intent = new Intent();
+            try {
+                intent.setAction(action);
+                if(extraval!=null && !extraval.isEmpty()) intent.putExtra("extravalue", extraval);
+                context.sendBroadcast(intent);
+            }catch (Exception e){
+                e.printStackTrace();
+                Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Runnable BC = new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent();
+                    try{
+                        intent.setAction(action);
+                        if(extraval!=null && !extraval.isEmpty()) intent.putExtra("extravalue", extraval);
+                        context.sendBroadcast(intent);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+
+            Handler handler = new Handler();
+            handler.removeCallbacks(BC);
+            handler.postDelayed(BC,Long.valueOf(400));
+        }
+    }
+
 
     public static void sendPreferenceBroadcaast(final Context context, final String action, boolean delayed){
         if(!delayed){
