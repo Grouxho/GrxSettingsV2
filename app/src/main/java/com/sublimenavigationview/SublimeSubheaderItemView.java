@@ -70,7 +70,12 @@ public class SublimeSubheaderItemView extends SublimeBaseItemView {
 
         // Subheader Item styling
         TextViewStyleProfile subheaderItemStyleProfile = themer.getSubheaderStyleProfile();
-        setSubheaderItemTextColor(subheaderItemStyleProfile.getTextColor());
+        if(itemData.getCustomTitleColor()!=0) { // grx custom color support
+            mText.setTextColor(itemData.getCustomTitleColor());
+        }
+        else  {
+            setSubheaderItemTextColor(subheaderItemStyleProfile.getTextColor());
+        }
         if (subheaderItemStyleProfile.getTypeface() != null) {
             setSubheaderItemTypeface(subheaderItemStyleProfile.getTypeface(),
                     subheaderItemStyleProfile.getTypefaceStyle());
@@ -80,7 +85,14 @@ public class SublimeSubheaderItemView extends SublimeBaseItemView {
 
         // Subheader Hint styling
         TextViewStyleProfile subheaderHintStyleProfile = themer.getSubheaderHintStyleProfile();
-        setSubheaderHintTextColor(subheaderHintStyleProfile.getTextColor());
+        if(itemData.getCustomHintColor()!=0) { //grx custom color support
+            mHint.setTextColor(itemData.getCustomHintColor());
+
+        }
+        else  {
+            setSubheaderHintTextColor(subheaderHintStyleProfile.getTextColor());
+        }
+
         if (subheaderHintStyleProfile.getTypeface() != null) {
             setSubheaderHintTypeface(subheaderHintStyleProfile.getTypeface(),
                     subheaderHintStyleProfile.getTypefaceStyle());

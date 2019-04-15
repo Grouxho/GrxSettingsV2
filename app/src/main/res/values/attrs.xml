@@ -361,6 +361,10 @@
 
 			<attr name="badgeText" format="string" /> <!--grx -->
 
+			<attr name="customTitleColor" format="string|integer|color|reference" /> <!--grx -->
+
+			<attr name="customHintColor" format="string|integer|color|reference" /> <!--grx -->
+
 			<attr name="showIconSpace" format="boolean" />
 
 			<attr name="grxBPRule"/>

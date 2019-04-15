@@ -299,6 +299,9 @@ public class SublimeMenuInflater {
         private static final boolean defaultGroupCollapsed = false;
         private static final int defaultGroupHeadersAdded = 0;
 
+        private int mCustomTitleColor=0; //grx custom title color support
+        private int mCustomHintColor=0;  // grx custom hint color support
+
         public MenuState(final SublimeMenu menu) {
             this.menu = menu;
             resetGroup();
@@ -409,7 +412,12 @@ public class SublimeMenuInflater {
 
 			//grx 
 			itemBadgeText = a.getText(R.styleable.SublimeMenuGenericItem_badgeText);
-			
+
+            // grx custom title and hint color support
+            mCustomTitleColor= a.getColor(R.styleable.SublimeMenuGenericItem_customTitleColor, 0);
+            mCustomHintColor=a.getColor(R.styleable.SublimeMenuGenericItem_customHintColor, 0);
+
+
             //grxgrx build prop rule
             grxBPrule=null;
             grxBPrule = a.getString(R.styleable.SublimeMenuGenericItem_grxBPRule);
@@ -453,7 +461,10 @@ public class SublimeMenuInflater {
                     .setIcon(itemIconResId)
                     .setHint(itemHint)
                     .setShowsIconSpace(itemShowIconSpace)
-                    .setValueProvidedAsync(valueProvidedAsync);
+                    .setValueProvidedAsync(valueProvidedAsync)
+                    .setCustomTitleColor(mCustomTitleColor) // grx custom title color
+                    .setCustomHintColor(mCustomHintColor);   // grx custom hint color
+
         }
 
         public void addItem() {

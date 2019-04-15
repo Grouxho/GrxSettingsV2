@@ -580,4 +580,30 @@ public abstract class SublimeBaseMenuItem implements Parcelable {
 
         }
     }
+
+
+    //grx - custom title and hint color support
+
+    public SublimeBaseMenuItem setCustomTitleColor(int color){
+
+        mCustomTitleColor=color;
+        return this;
+    }
+
+    public int getCustomHintColor(){
+        return mCustomHintColor;
+    }
+
+    public SublimeBaseMenuItem setCustomHintColor(int color){
+
+        mCustomHintColor=color;
+        return this;
+    }
+
+    public int getCustomTitleColor(){
+        return mCustomTitleColor;
+    }
+
+
+    //
 }
