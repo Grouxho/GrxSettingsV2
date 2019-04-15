@@ -20,7 +20,7 @@
             android:id="@+id/demo_head_grupo_listados"
             android:title="Lists of Items"
             android:hint="Select and Sort Items"
-            app:customTitleColor="#ffff0000"
+            app:customTitleColor="#fffe0000"
             app:customHintColor="#ffaa0fff"/>
         <Separator/>
 
