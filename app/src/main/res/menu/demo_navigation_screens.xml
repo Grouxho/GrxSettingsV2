@@ -19,7 +19,9 @@
             android:icon="@drawable/demo_icon_lists"
             android:id="@+id/demo_head_grupo_listados"
             android:title="Lists of Items"
-            android:hint="Select and Sort Items"/>
+            android:hint="Select and Sort Items"
+            app:customTitleColor="#ffff0000"
+            app:customHintColor="#ffaa0fff"/>
         <Separator/>
 
         <Text android:id="@+id/demo_select_items" android:title="Select one or more items"   app:showIconSpace="true" />
