@@ -673,7 +673,7 @@ public class GrxPrefsUtils {
     }
 
     public static void sendPreferenceBroadCastWithExtra(final Context context, final String action, String extra,  boolean delayed){
-        
+
         final String extraval = extra;
         if(!delayed){
             Intent intent = new Intent();
