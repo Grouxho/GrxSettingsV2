@@ -337,7 +337,8 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                 String c = generateKeyForPreferenceScreen(pst.getKey());
                 pst.setKey(c);
                 mScreensTree.put(c,pant);
-                mScreenPositions.put(c,mScreensTree.size()-1);
+                //mScreenPositions.put(c,mScreensTree.size()-1);
+                mScreenPositions.put(c,0); // fix initial list positions in nested screens
                 initPreferenceScreen(pst);
                 break;
             case "GrxPreferenceCategory":
