@@ -169,7 +169,10 @@
     <string name="grxs_draganddroptoshortout">Drag and drop the elements to short out the list</string>
     <string name="grxs_select_option">Select Option</string>
 
-    <string name="grxs_app_not_root">No root permission!!</string>
+    <string name="grxs_app_not_rooted">No root permission!!</string>
+    <string name="grxs_reset_all_prefs">Reset app values</string>
+    <string name="grxs_tit_reset_all_prefs">Reset ALL!!</string>
+    <string name="grxs_msg_reset_all_prefs">Are you sure you want to reset ALL preferences and options to their default values ?</string>
 
     <string-array name="grxa_fab_position">
         <item>Center</item>

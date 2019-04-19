@@ -229,6 +229,23 @@ public class DlgFrGrxNavigationUserOptions extends DialogFragment{
     }
 
 
+    private Dialog dlg_resetAllPreferences(){
+        AlertDialog adb = new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.grxs_tit_reset_all_prefs)
+                .setMessage(R.string.grxs_msg_reset_all_prefs)
+                .setNegativeButton(R.string.grxs_cancel,null)
+                .setPositiveButton(R.string.grxs_ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(mCallback!=null){
+                            mCallback.onNavigationUserOptionSet(mTdialog,1);
+                        }
+                    }
+                }).create();
+        return adb;
+    }
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -240,6 +257,7 @@ public class DlgFrGrxNavigationUserOptions extends DialogFragment{
             case Common.INT_ID_APPDLG_SET_THEME: return dlg_selectTheme();
             case Common.INT_ID_APPDLG_SET_BG_PANEL_HEADER: return dlg_panelHeaderBg();
             case Common.INT_ID_APPDLG_SET_COLORPICKER_STYLE: return dlg_setColorPickerStyle();
+            case Common.INT_ID_APPDLG_RESET_ALL_PREFERENCES: return dlg_resetAllPreferences();
 
         }
         return null;

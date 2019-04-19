@@ -19,4 +19,11 @@
         android:orderInCategory="100"
         android:title="@string/grxs_buildprop_simulator"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/reset_all"
+        android:orderInCategory="100"
+        android:title="@string/grxs_reset_all_prefs"
+        app:showAsAction="never" />
+
 </menu>

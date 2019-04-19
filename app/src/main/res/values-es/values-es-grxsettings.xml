@@ -198,6 +198,10 @@
     <string name="grxs_savesettings_exception">Error guardando el valor. Pon la app en priv-app</string>
     <string name="grxs_select_option">Selecciona una opción</string>
     <string name="grxs_app_not_rooted">Sin permiso root!!</string>
+    <string name="grxs_reset_all_prefs">Resetear valores</string>
+    <string name="grxs_tit_reset_all_prefs">Resetear TODAS opciones!!</string>
+    <string name="grxs_msg_reset_all_prefs">Estás seguro que quieres resetear TODAS las preferencias y opciones a su valor por defecto?</string>
+
 
     <string-array name="grxa_app_help">
         <item>Puedes resetear el valor de la mayoría de las preferencias mediante un doble click en ella.</item>

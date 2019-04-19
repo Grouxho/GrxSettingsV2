@@ -99,6 +99,8 @@ public class Common {
     public static final String S_APPDLG_SET_COLORPICKER_STYLE = "dlg_colorpicker_style";
     public static final int INT_ID_APPDLG_SET_COLORPICKER_STYLE = 5;
 
+    public static final int INT_ID_APPDLG_RESET_ALL_PREFERENCES = 6;
+    public static final String S_APPDLG_RESET_ALL_PREFERENCES = "dlg_reset_allprefs";
 
 
 
