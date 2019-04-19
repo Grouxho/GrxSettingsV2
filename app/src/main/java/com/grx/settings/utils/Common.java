@@ -102,6 +102,9 @@ public class Common {
     public static final int INT_ID_APPDLG_RESET_ALL_PREFERENCES = 6;
     public static final String S_APPDLG_RESET_ALL_PREFERENCES = "dlg_reset_allprefs";
 
+    public static final int INT_ID_APPDLG_TOOLS = 7;
+    public static final String S_APPDLG_TOOLS = "dlg_tools";
+
 
 
     //App start modes

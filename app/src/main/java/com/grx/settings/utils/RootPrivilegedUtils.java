@@ -56,6 +56,10 @@ public class RootPrivilegedUtils {
         RootUtils.runCommand("reboot");
     }
 
+    public static void runRebootInRecoveryMode(){
+        RootUtils.runCommand("su");
+        RootUtils.runCommand("reboot recovery");
+    }
 
     public static boolean runShellCmd(boolean runAsRoot, String cmd) {
 

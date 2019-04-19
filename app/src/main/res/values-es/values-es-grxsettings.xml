@@ -201,6 +201,11 @@
     <string name="grxs_reset_all_prefs">Resetear valores</string>
     <string name="grxs_tit_reset_all_prefs">Resetear TODAS opciones!!</string>
     <string name="grxs_msg_reset_all_prefs">Estás seguro que quieres resetear TODAS las preferencias y opciones a su valor por defecto?</string>
+    <string name="grxs_recovery">Reiniciar en Recovery</string>
+    <string name="grxs_restartui">Reiniciar UI</string>
+    <string name="grxs_restartphone">Reiniciar Teléfono</string>
+    <string name="grxs_download_mode">Reiniciar en Download</string>
+    <string name="grxs_tools">Herramientas</string>
 
 
     <string-array name="grxa_app_help">
