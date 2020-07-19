@@ -80,7 +80,7 @@ public class GrxPerItemColor extends GrxBasePreference implements  DlgFrGrxPerIt
             if(dlg==null){
                 dlg = DlgFrGrxPerItemColor.newInstance(this, Common.TAG_PREFSSCREEN_FRAGMENT, myPrefAttrsInfo.getMyKey(), myPrefAttrsInfo.getMyTitle(),
                         mStringValue,myPrefAttrsInfo.getMyOptionsArrayId(), myPrefAttrsInfo.getMyValuesArrayId(), myPrefAttrsInfo.getMyIconsArrayId(), iconsValueTint, idDefaultColors,
-                        defaultColor, myPrefAttrsInfo.getMySeparator());
+                        defaultColor, myPrefAttrsInfo.getMySeparator(), myPrefAttrsInfo.getMyStringDefValue());
                 dlg.show(prefsScreen.getFragmentManager(),Common.TAG_DLGFRGRITEMSCOLORS);
             }
         }

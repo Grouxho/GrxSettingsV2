@@ -77,6 +77,7 @@ public class DlgFrGrxPerItemColor extends DialogFragment
     private Long timeout;
     private int clicks;
 
+	private String mDefaultValueString;
 
     private DlgFrGrxPerItemColor.GrxItemsColorsListener mCallBack;
 
@@ -125,7 +126,7 @@ public class DlgFrGrxPerItemColor extends DialogFragment
             DlgFrGrxPerItemColor.GrxItemsColorsListener callback, String HelperFragment,
             String key, String title, String value,
             int id_array_options, int id_array_values, int id_array_icons, int iconstintcolor, int id_array_colors,
-            int defcolor, String separtor
+            int defcolor, String separtor, String defaultvalue
     ){
 
 
@@ -142,6 +143,7 @@ public class DlgFrGrxPerItemColor extends DialogFragment
         bundle.putInt("colors_array_id", id_array_colors);
         bundle.putInt("def_color", defcolor);
         bundle.putString("separator", separtor);
+		bundle.putString("defvalue",defaultvalue);										  
         ret.setArguments(bundle);
         ret.saveCallback(callback);
         return ret;
@@ -188,7 +190,8 @@ public class DlgFrGrxPerItemColor extends DialogFragment
         mIdColorsArray = getArguments().getInt("colors_array_id");
         mDefColor = getArguments().getInt("def_color",0xffffffff);
         mSeparator=getArguments().getString("separator");
-
+        mDefaultValueString = getArguments().getString("defvalue");
+        if(mDefaultValueString==null) mDefaultValueString="";
         mItemsInfo = new ArrayList<GrxItemInfo>();
 
         mIdItemClicked=-1;
@@ -288,7 +291,8 @@ public class DlgFrGrxPerItemColor extends DialogFragment
             if(mIdItemClicked!=-1){
                 color = mItemsInfo.get(mIdItemClicked).getColor();
             }
-            dlgFrGrxColorPicker= DlgFrGrxColorPicker.newInstance(this, Common.TAG_DLGFRGRITEMSCOLORS, mTitle,mKey,color,Common.getColorPickerStyleIndex(Common.userColorPickerStyle)/*false*/,
+			String itemtitle = mItemsInfo.get(mIdItemClicked).getLabel();															 
+            dlgFrGrxColorPicker= DlgFrGrxColorPicker.newInstance(this, Common.TAG_DLGFRGRITEMSCOLORS, itemtitle,mKey,color,Common.getColorPickerStyleIndex(Common.userColorPickerStyle)/*false*/,
                     true,true, false); //
             dlgFrGrxColorPicker.show(getFragmentManager(),Common.TAG_DLGFRGRXCOLORPICKER);
         }
@@ -394,14 +398,30 @@ public class DlgFrGrxPerItemColor extends DialogFragment
             colors_array = getResources().getIntArray(mIdColorsArray);
         }
 
-        for(int i=0;i<vals_array.length;i++){
-            mItemsInfo.add(new GrxItemInfo(
-                    opt_array[i], vals_array[i],
-                    icons_array!=null ? icons_array.getDrawable(i) : null,
-                    colors_array!=null ? colors_array[i] : mDefColor,
-                    colors_array!=null ? colors_array[i] : mDefColor));
+
+        String[] stringsdefaultvalues = null;
+        if(mDefaultValueString!=null && !mDefaultValueString.isEmpty()){
+            stringsdefaultvalues=mDefaultValueString.split(Pattern.quote(mSeparator));
         }
 
+
+      for(int i=0;i<vals_array.length;i++){
+       int defcolor;
+       String[] itemdefvalue = null;
+       if(stringsdefaultvalues!=null && stringsdefaultvalues.length == vals_array.length) {
+            itemdefvalue = stringsdefaultvalues[i].split(Pattern.quote("/"));
+       }
+       if(itemdefvalue!=null && itemdefvalue.length==2){
+            defcolor=Integer.valueOf(itemdefvalue[1]); // we priorize the android:default
+       }else {
+           defcolor =colors_array!=null ? colors_array[i] : mDefColor;
+       }
+       mItemsInfo.add(new GrxItemInfo(
+                    opt_array[i], vals_array[i],
+                    icons_array!=null ? icons_array.getDrawable(i) : null,
+                    defcolor,
+                    defcolor));
+        }
         String[] selected =null;
         if(mValue!=null && !mValue.isEmpty()) {
             selected=mValue.split(Pattern.quote(mSeparator));
