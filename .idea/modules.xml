@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GrxSettingsV2.iml" filepath="$PROJECT_DIR$/GrxSettingsV2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GrxSettingsV2-master.iml" filepath="$PROJECT_DIR$/.idea/modules/GrxSettingsV2-master.iml" group="GrxSettingsV2-master" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GrxSettingsV2-master-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GrxSettingsV2-master-app.iml" group="GrxSettingsV2-master/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
