@@ -231,6 +231,14 @@ public class DlgFrGrxPerItemColor extends DialogFragment
         builder.setNegativeButton(R.string.grxs_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                /*** fix thanks to AbrahamGC to restore value when you press cancel
+                 * https://github.com/DeluxeTeam/DRC/commit/371d03a4f9e018e9d5d905bfacfe85be6536131a
+                 */
+                mValue=mOriValue;
+                checkCallback();
+                if (mCallBack == null) dismiss();
+                mCallBack.onItemsColorsSelected(mValue);
+                /***/													
                 dismiss();
             }
         });
