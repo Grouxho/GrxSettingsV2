@@ -17,6 +17,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.grx.settings.GrxPreferenceScreen;
 import com.grx.settings.R;
+import com.grx.settings.prefssupport.PrefAttrsInfo;
 import com.grx.settings.utils.Common;
 
 
@@ -82,6 +85,8 @@ public class GrxButtonPreference extends GrxBasePreference {
         }
 
         initIntPrefsCommonAttributes(getContext(),attrs,0,false);
+        setTypeOfPreference(PrefAttrsInfo.PREF_TYPE.BUTTON);
+        myPrefAttrsInfo.setMyTypeOfPref(PrefAttrsInfo.PREF_TYPE.BUTTON);
         mDisableDoubleClick=true;
 
     }
@@ -136,7 +141,12 @@ public class GrxButtonPreference extends GrxBasePreference {
             vButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    execButtonAction();
+                    String groupedkey = myPrefAttrsInfo.getMyGroupedValueKey();
+                    if(TextUtils.isEmpty(groupedkey)) execButtonAction();
+                    else {
+                        GrxPreferenceScreen grxPreferenceScreen = (GrxPreferenceScreen) getOnPreferenceChangeListener();
+                        if(grxPreferenceScreen!=null) grxPreferenceScreen.onGroupedValueButtonPressed(groupedkey);
+                    }
                 }
             });
         }
@@ -151,9 +161,16 @@ public class GrxButtonPreference extends GrxBasePreference {
 
     }
 
+
+
     @Override
     protected void onClick() {
-        execButtonAction();
+        String groupedkey = myPrefAttrsInfo.getMyGroupedValueKey();
+        if(TextUtils.isEmpty(groupedkey)) execButtonAction();
+        else {
+            GrxPreferenceScreen grxPreferenceScreen = (GrxPreferenceScreen) getOnPreferenceChangeListener();
+            if(grxPreferenceScreen!=null) grxPreferenceScreen.onGroupedValueButtonPressed(groupedkey);
+        }
     }
 
 

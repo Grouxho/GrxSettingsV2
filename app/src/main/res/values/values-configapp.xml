@@ -24,6 +24,11 @@
     <bool name="grxb_allow_theme_change">true</bool>
     <bool name="grxb_allow_user_colorpicker_selection">true</bool>
 
+	<!-- Grouped Values Default Options -->
+
+    <string name="grxs_groupedValuekey_valuesSeparator">|||</string>
+    <string name="grxs_groupedValueKey_keyvalueSeparator">~~</string>
+    <bool name="grxb_groupedValuekey_savekeysnames">true</bool>
     <!--           Logic                   -->
 
     <string name="grxs_appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string> <!-- do not change, please -->

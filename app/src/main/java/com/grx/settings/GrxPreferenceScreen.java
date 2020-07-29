@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
+
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +37,8 @@ import com.grx.settings.act.GrxImagePicker;
 import com.grx.settings.prefs_dlgs.DlgFrGrxDatePicker;
 import com.grx.settings.prefs_dlgs.DlgFrGrxTimePicker;
 import com.grx.settings.prefssupport.CustomDependencyHelper;
+
+import com.grx.settings.prefssupport.GroupedValueInfo;
 import com.grx.settings.prefssupport.PrefAttrsInfo;
 import com.grx.settings.utils.Common;
 import com.grx.settings.utils.GrxObserver;
@@ -66,7 +71,8 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         Preference.OnPreferenceClickListener,
         DlgFrGrxDatePicker.OnGrxDateSetListener,
         DlgFrGrxTimePicker.OnGrxTimeSetListener,
-        GrxObserver.OnObservedSettingsKeyChange
+        GrxObserver.OnObservedSettingsKeyChange,
+        SharedPreferences.OnSharedPreferenceChangeListener
 {
 
     String mCurrentScreen;
@@ -80,6 +86,10 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     private ArrayList<String> mAuxScreenKeys = new ArrayList<String>();
     public LinkedHashMap<String, Integer> mScreenPositions;
     HashSet<String> mGroupKeyList;
+
+    Map<String, GroupedValueInfo> mGroupedValuesInfo;
+    Map<String, String> mKeysInGroupedValues;
+
     boolean mSyncMode=false;
     int mAutoIndexForKey=0;
 
@@ -123,6 +133,9 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         mScreensTree = new HashMap<>();
         mScreenPositions = new LinkedHashMap<>();
         mGroupKeyList = new HashSet<>();
+
+        mGroupedValuesInfo = new HashMap<>();
+        mKeysInGroupedValues = new HashMap<>();
 
         mSettingsKeys = new ArrayList<>();
 
@@ -169,7 +182,11 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                 showScreen((PreferenceScreen) getPreferenceScreen().findPreference(mCurrentSubScreen));
             }
 
+
+
         }
+
+
 
         //update_all_custom_dependencies(); //gives fc here if the app is restarted by the system. F.example changin screen zoom on S7E
 
@@ -193,6 +210,9 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        if(Common.sp!=null && !Common.SyncUpMode) {
+            Common.sp.registerOnSharedPreferenceChangeListener(this);
+        }
         refreshSettingsKeys();
 /*            if(mGrxSettingsActivity !=null && Common.SyncUpMode){
                 mGrxSettingsActivity.onPreferenceScreenSinchronized(mNumPrefs);
@@ -202,7 +222,20 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
     @Override
     public  void onStop(){
         super.onStop();
+        if(Common.sp!=null && !Common.SyncUpMode) {
+            Common.sp.unregisterOnSharedPreferenceChangeListener(this);
+        }
 
+   /*     if(Common.SyncUpMode) {
+            if(mGroupedValuesInfo!=null && mGroupedValuesInfo.size()>0) {
+                for ( String key : mGroupedValuesInfo.keySet() ) {
+                    if(key!=null && Common.GroupedValuesForRestoration !=null ){
+                        Common.GroupedValuesForRestoration.put(key,mGroupedValuesInfo.get(key));
+                    }
+                }
+            }
+       }
+*/
     }
 
 
@@ -289,6 +322,13 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         super.onActivityCreated(savedInstanceState);
 
         if(Common.SyncUpMode) {
+            if(mGroupedValuesInfo!=null && mGroupedValuesInfo.size()>0) {
+                for ( String key : mGroupedValuesInfo.keySet() ) {
+                    if(key!=null && Common.GroupedValuesForRestoration !=null ){
+                        Common.GroupedValuesForRestoration.put(key,mGroupedValuesInfo.get(key));
+                    }
+                }
+            }
             mGrxSettingsActivity.onPreferenceScreenSinchronized(mNumPrefs);
             return;
         }
@@ -356,8 +396,14 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
 
 
     @Override
-    public boolean onPreferenceChange(Preference pref,Object ob){
+    public boolean onPreferenceChange(Preference pref,Object newvalue){
         PrefAttrsInfo prefAttrsInfo=null;
+
+     //   Log.d("grxgrx", " on preferencechange " + pref.getClass().getSimpleName() );
+
+        String prefKey = pref.getKey();
+        if(TextUtils.isEmpty(prefKey)) return true;
+        if(mKeysInGroupedValues.containsKey(prefKey)) return true;
 
         switch (pref.getClass().getSimpleName()) {
             case "GrxSwitchPreference":
@@ -375,11 +421,25 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
             default:
                 if (pref instanceof GrxBasePreference) {
                     prefAttrsInfo = ((GrxBasePreference) pref).getPrefAttrsInfo();
+                    String key = prefAttrsInfo.getMyKey();
+                    String values = prefAttrsInfo.getMyStringDefValue();
+                    int valuei = prefAttrsInfo.getMyIntDefValue();
+                    PrefAttrsInfo.SETTINGS_PREF_TYPE  type  = prefAttrsInfo.getMySystemPrefType();
+
+                    if(prefAttrsInfo.getMyTypeOfPref() == PrefAttrsInfo.PREF_TYPE.INT) {
+                        valuei = Settings.System.getInt(getActivity().getContentResolver(),key,prefAttrsInfo.getMyIntDefValue());
+
+                    }else {
+                        values = Settings.System.getString(getActivity().getContentResolver(),key);
+                        if(values==null) values=prefAttrsInfo.getMyStringDefValue();
+                    }
+
+
                 }
                 break;
         }
 
-        updateAllCustomDependencies(pref.getKey() , ob);
+        updateAllCustomDependencies(pref.getKey() , newvalue);
 
         if(prefAttrsInfo==null) return true;
 
@@ -406,9 +466,9 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
                     break;
                 case "groupkey":
                     changeGroupKey(prefAttrsInfo.getMyGroupKey());
-
+																													  
                     break;
-                case "onclick": //bbbbb
+                case "onclick":
                     String keytoclick = prefAttrsInfo.getmKeyToClick();
                     if(keytoclick!=null)  {
                         Preference preference =  getPreferenceScreen().findPreference(keytoclick);
@@ -923,5 +983,39 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
         }
     }
 
+
+     /************** grouped value support ***********/
+
+    public void addGroupedValueMember(String prefkey, Object defval, PrefAttrsInfo.PREF_TYPE preftype, String groupedValuekey,
+                                      String alias, String systemtype, String broadcastaction){
+        if(TextUtils.isEmpty(prefkey) || TextUtils.isEmpty(groupedValuekey)) return;
+        mKeysInGroupedValues.put(prefkey,groupedValuekey);
+        if(!mGroupedValuesInfo.containsKey(groupedValuekey)) {
+            mGroupedValuesInfo.put(groupedValuekey,new GroupedValueInfo(groupedValuekey, getActivity()));
+        }
+        GroupedValueInfo groupedKeyInfo = mGroupedValuesInfo.get(groupedValuekey);
+        groupedKeyInfo.addPreferenceConfiguration(prefkey, defval, preftype,alias,systemtype,broadcastaction);
+    }
+
+
+    public void onGroupedValueButtonPressed(String groupedKey){
+        GroupedValueInfo groupedValueInfo = mGroupedValuesInfo.get(groupedKey);
+        if(groupedValueInfo!=null){
+            groupedValueInfo.onGroupedValueButtonPressed();
+        }
+    }
+    // grouped key
+
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String prefKey){
+        // shared prefs changes are reported later than onchange pref. On the other way we could not persist in Settings db the value
+        // so , i will use shared for this feature.
+        if(Common.SyncUpMode) return;
+
+        String groupedKey = mKeysInGroupedValues.get(prefKey);
+        if(TextUtils.isEmpty(groupedKey)) return;
+        mGroupedValuesInfo.get(groupedKey).updatePreferenceValue(prefKey);
+    }
 
 }

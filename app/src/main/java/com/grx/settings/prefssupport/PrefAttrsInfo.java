@@ -27,7 +27,7 @@ public class PrefAttrsInfo {
 
 
     public enum PREF_TYPE {
-        STRING, INT, BOOL, NEUTRAL, UNKNOWN;
+        STRING, INT, BOOL, BUTTON, NEUTRAL, UNKNOWN;
         public static PREF_TYPE indexOf(int index) {
             switch (index) {
                 case 0:
@@ -37,8 +37,10 @@ public class PrefAttrsInfo {
                 case 2:
                     return BOOL;
                 case 3:
-                    return NEUTRAL;
+                    return BUTTON;
                 case 4:
+                    return NEUTRAL;
+                case 5:
                     return UNKNOWN;
             }
             return UNKNOWN;
@@ -92,9 +94,16 @@ public class PrefAttrsInfo {
 
     private boolean mMyBooleanDefaultValue;
 
+    public PrefAttrsInfo.PREF_TYPE mMyTypeOfPref = null;
 
     private String mMyGroupKey;
+
     private boolean mSaveInSettingsAllowed;
+
+    private String mMyGroupedValueKey;
+    private String mMyGroupedValueSystemType;
+    private String mMyGroupedValueBroadCast;
+    private String mMyGroupedValueMyAlias;
 
     private String mMyDependencyRule;
     private String mMyDependencySeparator;
@@ -160,6 +169,7 @@ public class PrefAttrsInfo {
     public PrefAttrsInfo(Context context, AttributeSet attrs, CharSequence title, CharSequence summary, String key) { //checkbox, switches, preferencecategory
 
         mMyBooleanDefaultValue = attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res/android", "defaultValue",false);
+
         ini_parameters(context, attrs, title, summary, key);
 
     }
@@ -168,6 +178,7 @@ public class PrefAttrsInfo {
     public PrefAttrsInfo(Context context, AttributeSet attrs, CharSequence title, CharSequence summary, String key, int defvalue) { //int
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.grxPreferences);
         mMyIntDefaultValue=ta.getInt(R.styleable.grxPreferences_android_defaultValue,defvalue);
+        mMyTypeOfPref = PREF_TYPE.INT;
         ta.recycle();
         ini_parameters(context, attrs, title, summary, key);
 
@@ -219,9 +230,22 @@ public class PrefAttrsInfo {
 
         mMyGroupKey = ta.getString(R.styleable.grxPreferences_groupKey);
 
+
         if(context.getResources().getBoolean(R.bool.grxb_global_enable_settingsdb)) {
             mSaveInSettingsAllowed=ta.getBoolean(R.styleable.grxPreferences_saveSettings, context.getResources().getBoolean(R.bool.grxb_saveSettings_default) );
         }else mSaveInSettingsAllowed=false;
+
+        /*** grouped values */
+
+        mMyGroupedValueKey = ta.getString(R.styleable.grxPreferences_groupedValueKey);
+        mMyGroupedValueSystemType = ta.getString(R.styleable.grxPreferences_groupedValueSystemType);
+        mMyGroupedValueBroadCast = ta.getString(R.styleable.grxPreferences_groupedValueBroadCast);
+        mMyGroupedValueMyAlias = ta.getString(R.styleable.grxPreferences_groupedValueMyAlias);
+
+        if(mMyGroupedValueKey!=null) mSaveInSettingsAllowed=false;
+
+        /****/
+
 
         mMySystemPrefType=SETTINGS_PREF_TYPE.indexOf(ta.getInt(R.styleable.grxPreferences_systemType, 0));
 
@@ -296,6 +320,8 @@ public class PrefAttrsInfo {
         if(mMyBPRule!=null && !mMyBPRule.isEmpty()) {
             mIsBPEnabled = BPRulesUtils.isBPEnabled(mMyBPRule);
         }
+
+
 
 
     }
@@ -416,4 +442,19 @@ public class PrefAttrsInfo {
     public String getMyCommonBcExtra(){return mCommonBroadCastExtra;}
 
     public String getMyCommonBcExtraValue(){return mCommonBroadCastExtraValue;}
+
+    public PrefAttrsInfo.PREF_TYPE getMyTypeOfPref(){ return mMyTypeOfPref;}
+
+    public String getMyGroupedValueKey(){ return mMyGroupedValueKey; }
+
+    public String getMyGroupedValueSystemType(){return mMyGroupedValueSystemType;}
+
+    public String getMyGroupedValueBroadCast() {return mMyGroupedValueBroadCast;}
+
+    public String getMyGroupedValueMyAlias() { return mMyGroupedValueMyAlias;}
+
+    public void setMyTypeOfPref(PrefAttrsInfo.PREF_TYPE type) {
+        mMyTypeOfPref=type;
+    }
+
 }

@@ -33,7 +33,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.PowerManager;
+							   
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -56,7 +56,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
+								
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -70,6 +70,7 @@ import java.util.HashSet;
 
 import com.grx.settings.app_fragments.DlgFrRestore;
 import com.grx.settings.app_fragments.GrxHelpFragment;
+import com.grx.settings.prefssupport.GroupedValueInfo;
 import com.grx.settings.utils.Common;
 
 import com.grx.settings.utils.GrxPrefsUtils;
@@ -92,7 +93,7 @@ import com.grx.settings.app_fragments.DlgFrGrxNavigationUserOptions;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
+							   
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -335,7 +336,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         }*/
 
 
-	setNavigationBarBgColor();
+      setNavigationBarBgColor();
 
     }
 
@@ -347,6 +348,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         getWindow().setNavigationBarColor(color);
 
     }
+
 
     private void setInitialRecentsScreens(){
 
@@ -1177,6 +1179,18 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                 GrxPrefsUtils.changePreferenceGroupKeyValue(this,groupkey);
             }
         }
+
+
+
+        if(Common.GroupedValuesForRestoration !=null && Common.GroupedValuesForRestoration.size()>0) {
+            for ( String key : Common.GroupedValuesForRestoration.keySet() ) {
+                GroupedValueInfo groupedValueInfo = Common.GroupedValuesForRestoration.get(key);
+                if(groupedValueInfo!=null) {
+                    groupedValueInfo.recalculateGroupedValueForSync();
+                }
+            }
+        }
+
         for (String broadcastaction : Common.BroadCastsList) {
             if(broadcastaction!=null) {
                 if(broadcastaction.contains(";")){
@@ -1197,6 +1211,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         Common.GroupKeysList.clear();
         Common.BroadCastsList.clear();
         Common.CommonBroadCastList.clear();;
+        Common.GroupedValuesForRestoration.clear();
 
         runOnUiThread(new Runnable() {
             public void run() {
@@ -1237,6 +1252,7 @@ public class GrxSettingsActivity extends AppCompatActivity implements
                 if(Common.GroupKeysList!=null) Common.GroupKeysList.clear();
                 if(Common.BroadCastsList!=null) Common.BroadCastsList.clear();
                 if(Common.CommonBroadCastList!=null) Common.CommonBroadCastList.clear();
+                if(Common.GroupedValuesForRestoration !=null) Common.GroupedValuesForRestoration.clear();
                 mNumSyncPrefs=0;
                 mNumSyncScreens=0;
                 Common.SyncUpMode = true;
@@ -2019,6 +2035,8 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         Common.GroupKeysList=new HashSet<>();
         Common.BroadCastsList=new HashSet<>();
         Common.CommonBroadCastList=new HashSet<>();
+        Common.GroupedValuesForRestoration =new HashMap<>();
+
     }
 
     private void setDrawerLayoutPosition(){

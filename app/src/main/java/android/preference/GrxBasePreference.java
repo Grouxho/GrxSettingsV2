@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -558,16 +559,39 @@ public class GrxBasePreference extends Preference implements
     @Override
     public void setOnPreferenceChangeListener(Preference.OnPreferenceChangeListener onPreferenceChangeListener){
         GrxPreferenceScreen grxPreferenceScreen = (GrxPreferenceScreen) onPreferenceChangeListener;
+
+        String mydeprule = myPrefAttrsInfo.getMyDependencyRule();
+
+        String myGroupedKey = myPrefAttrsInfo.getMyGroupedValueKey();
+        if(!TextUtils.isEmpty(myGroupedKey) && !TextUtils.isEmpty( getKey() )){
+            Object defval = null;
+            PrefAttrsInfo.PREF_TYPE pref_type = myPrefAttrsInfo.getMyTypeOfPref();
+            if(pref_type == PrefAttrsInfo.PREF_TYPE.INT) {
+                defval = myPrefAttrsInfo.getMyIntDefValue();
+            }else defval = myPrefAttrsInfo.getMyStringDefValue();
+            grxPreferenceScreen.addGroupedValueMember(
+                    getKey(), // my key
+                    defval,  // object
+                    pref_type,
+                    myGroupedKey,
+                    myPrefAttrsInfo.getMyGroupedValueMyAlias(),
+                    myPrefAttrsInfo.getMyGroupedValueSystemType(),
+                    myPrefAttrsInfo.getMyGroupedValueBroadCast()
+            );
+        }
+
+
         if(!Common.SyncUpMode){
             if(!myPrefAttrsInfo.isBuildPropEnabled()){
                 grxPreferenceScreen.addPreferenceToRemoveList(this);
             }
             else{
                 super.setOnPreferenceChangeListener(onPreferenceChangeListener);
-                String mydeprule = myPrefAttrsInfo.getMyDependencyRule();
+
                 if(mydeprule!=null){
                     grxPreferenceScreen.addCustomDependency(this,mydeprule,null);
                 }
+
                 if(myPrefAttrsInfo.getMySystemPrefType()!= PrefAttrsInfo.SETTINGS_PREF_TYPE.SHARED)
                     grxPreferenceScreen.addSupportForSettingsKey(getKey());
             }
@@ -576,7 +600,7 @@ public class GrxBasePreference extends Preference implements
                 grxPreferenceScreen.addCommonBroadCastValuesForSyncUp(myPrefAttrsInfo.getMyCommonBcExtra(),myPrefAttrsInfo.getMyCommonBcExtraValue());
                 grxPreferenceScreen.addGroupKeyForSyncUp(myPrefAttrsInfo.getMyGroupKey());
                 grxPreferenceScreen.addBroadCastToSendForSyncUp(myPrefAttrsInfo.getMyBroadCast1(), myPrefAttrsInfo.getMyBroadCast1Extra(),
-                            myPrefAttrsInfo.getMyBroadCast2(),myPrefAttrsInfo.getMyBroadCast2Extra());
+                        myPrefAttrsInfo.getMyBroadCast2(),myPrefAttrsInfo.getMyBroadCast2Extra());
 
             }
         }
@@ -591,5 +615,16 @@ public class GrxBasePreference extends Preference implements
 
     public PrefAttrsInfo getPrefAttrsInfo() { return myPrefAttrsInfo;}
 
+
+    /***  Grouped Key support ****/
+
+    public PrefAttrsInfo.PREF_TYPE getTypeOfPreference(){
+        return mTypeOfPreference;
+    }
+
+    public String getMyGroupedValueKeyName(){
+        if(myPrefAttrsInfo!=null) return myPrefAttrsInfo.getMyGroupedValueKey();
+        else return null;
+    }
 
 }

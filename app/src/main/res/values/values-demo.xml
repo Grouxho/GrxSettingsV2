@@ -215,4 +215,24 @@
         <item>rm -r /sdcard/backups/wifibackup</item>
     </string-array>
 
+    <string name="grx_circular_battery">Circular Battery options</string>
+    <string name="bold_text">Use bold text</string>
+    <string name="battery_size">Battery Size</string>
+    <string name="batt_stroke">Stroke Size</string>
+    <string name="batt_alpha_animation">Charging Alpha Animation Duration</string>
+    <string name="batt_animation_time">Charging Animation Step Duration</string>
+    <string name="batt_colors">Battery Icon Colors</string>
+    <string name="batt_framecolor_dark_bgs">Frame Color in Dark Bgs</string>
+    <string name="batt_dark_bgs">Battery Color in Dark Bgs</string>
+    <string name="batt_text_dark_bgs">Text Color in Dark Bgs</string>
+    <string name="batt_framecolor_light_bgs">Frame Color in Light Bgs</string>
+    <string name="batt_light_bgs">Battery Color in Light Bgs</string>
+    <string name="batt_text_light_bgs">Text Color in Light Bgs</string>
+    <string name="enable_grxbat">Enable Circular Battery</string>
+    <string name="battery_marginstart">Margin Start</string>
+    <string name="battery_marginend">Margin End</string>
+    <string name="battery_home">Circular Battery - Home Screen</string>
+    <string name="battery_ls">Circular Battery - Lock Screen</string>
+    <string name="battery_panel">Circular Battery - Panel</string>
+    <string name="demo_grouped_title">Grouped Values Example</string>
 </resources>

@@ -113,7 +113,8 @@
     <Text android:icon="@drawable/demo_settings" android:id="@+id/demo_system_settings"
         android:title="System, Global, Secure prefs"  android:hint="if FC -> put app in priv-app" />
 
-
+    <Text android:icon="@drawable/demo_icon_lists" android:id="@+id/demo_grouped_values"
+        android:title="@string/demo_grouped_title"   />
 
 
 

@@ -19,10 +19,9 @@ import android.view.ContextThemeWrapper;
 import android.widget.LinearLayout;
 
 import com.grx.settings.R;
+import com.grx.settings.prefssupport.GroupedValueInfo;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -195,6 +194,8 @@ public class Common {
     public static boolean SyncUpMode=false;
     public static HashSet<String> GroupKeysList=null;
     public static HashSet<String> CommonBroadCastList=null;
+
+    public static Map<String, GroupedValueInfo> GroupedValuesForRestoration = null;
 
     public static HashSet<String> BroadCastsList=null;
 

@@ -54,6 +54,11 @@
 		<attr name="iconsValueTint"/>
 		<attr name="iconTint" format="integer|color|reference"/>
 		<attr name="groupKey" format="string"/>
+		
+		<attr name="groupedValueKey" format="string"/> <!-- grouped value key where my value will be inserted / grouped key i am part of -->
+		<attr name="groupedValueSystemType" format="string"/> <!-- grouped value will be saved to system, secure, global or nothing -->
+		<attr name="groupedValueBroadCast" format="string"/> <!-- Broadcast to send when any mameber value changed -->
+		<attr name="groupedValueMyAlias" format="string"/> <!-- my key name inside the grouped value. If not defined use same android:key -->																																	   
 		<attr name="sendBc1" format="boolean" />
 		<attr name="sendBc2" format="boolean" />
 		<attr name="saveSettings" format="boolean" />
