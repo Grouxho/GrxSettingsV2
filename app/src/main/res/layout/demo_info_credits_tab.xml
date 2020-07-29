@@ -82,12 +82,15 @@
                     android:layout_gravity="center" app:cardBackgroundColor="?colorAccent" android:foregroundGravity="center" app:cardCornerRadius="8dp"
                     app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="true" android:layout_marginStart="12dp" android:layout_marginEnd="12dp">
-                    <com.grx.settings.views.TextViewWithLink
-                        android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
 
-                        grxAnimateText="true" android:text="Thanks to Thomas Shimko and Thereassad for their help in adding RTL support. Also thanks to josete1976 for providing me with his ideas. Thanks to the guys from espdroids.com and to all those sharing code and libraries in Github."
-                        android:textSize="16dp" android:gravity="center"  android:textColor="?contrast_text_color"/>
-                </android.support.v7.widget.CardView>
+           </android.support.v7.widget.CardView>
+
+                <com.grx.settings.views.TextViewWithLink
+                    android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                    grxAnimateText="true" android:text="Thanks to Thomas Shimko and Thereassad for their help in adding RTL support. Also thanks to josete1976 for providing me with his ideas. Thanks to the guys from espdroids.com and to all those sharing code and libraries in Github."
+                    android:textSize="16dp" android:gravity="center"  android:textColor="?contrast_text_color"/>
+
 
 
                 <LinearLayout

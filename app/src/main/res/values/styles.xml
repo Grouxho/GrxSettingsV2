@@ -92,7 +92,7 @@
         <item name="colorPrimary">#527da3</item>
         <item name="colorPrimaryDark">#426482</item>
         <item name="colorAccent">#2678b6</item>
-        <item name="contrast_text_color">#contrast_text_color</item>
+        <item name="contrast_text_color">#ff333333</item>
         <item name="svn_nav_header_bg">#598fba</item>
         <item name="pref_category_text_color">?colorAccent</item>
         <item name="sublimetheme">@style/SublimeTheme_white_bluegrey</item>
