@@ -41,6 +41,7 @@
 	<attr name="complementary_color4" format="string|integer|color|reference"/>
 	<attr name="complementary_color5" format="string|integer|color|reference"/>
 	<attr name="iconsValueTint" format="string|integer|color|reference"/>
+	<attr name="navbarcolor" format="string|integer|color|reference"/>															   
 
 
 	<!-- preferences   -->

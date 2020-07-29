@@ -335,11 +335,18 @@ public class GrxSettingsActivity extends AppCompatActivity implements
         }*/
 
 
+	setNavigationBarBgColor();
 
     }
 
+    private void setNavigationBarBgColor(){
 
+        TypedArray a = this.getTheme().obtainStyledAttributes( new int[] {R.attr.navbarcolor});
+        int color = a.getColor(0,0);
+        a.recycle();
+        getWindow().setNavigationBarColor(color);
 
+    }
 
     private void setInitialRecentsScreens(){
 
