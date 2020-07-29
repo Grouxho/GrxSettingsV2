@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:grx="http://schemas.android.com/apk/res-auto">
-    <GrxInfoText android:summary=""
-        />
+    <GrxInfoText android:summary=""         />
     <GrxPreferenceCategory android:title="@string/battery_home"
         grx:textColor="?contrast_text_color" grx:backgroundColor="?colorAccent" />
 
@@ -55,8 +54,11 @@
             grx:groupedValueKey="grxcirbathome" grx:groupedValueMyAlias="btlb"/>
     </GrxPreferenceCategory>
 
+    <GrxButtonPreference grx:groupedValueKey="grxcirbathome" android:title="@string/grxs_apply" android:key="button_1"  android:summary="Press To apply changes in home circ. bat"
+        grx:button_Style="big"/>
 
 
+    <GrxInfoText android:summary=""         />
     <GrxPreferenceCategory android:title="@string/battery_ls"
         grx:textColor="?contrast_text_color" grx:backgroundColor="?colorAccent"/>
 
@@ -110,7 +112,7 @@
     </GrxPreferenceCategory>
 
 
-
+    <GrxInfoText android:summary=""         />
 
 
 
@@ -168,6 +170,6 @@
     </GrxPreferenceCategory>
 
 
-
+    <GrxInfoText android:summary=""         />
 
 </PreferenceScreen>
