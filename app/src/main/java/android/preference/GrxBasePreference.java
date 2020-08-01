@@ -106,6 +106,7 @@ public class GrxBasePreference extends Preference implements
     public void initStringPrefsCommonAttributes(Context context, AttributeSet attrs, boolean isMultiValue, boolean iniArrays ){
         setTypeOfPreference(PrefAttrsInfo.PREF_TYPE.STRING);
         myPrefAttrsInfo = new PrefAttrsInfo(context, attrs, getTitle(), getSummary(),getKey(), isMultiValue);
+        myPrefAttrsInfo.setMyTypeOfPref(PrefAttrsInfo.PREF_TYPE.STRING);
         if(iniArrays) myPrefAttrsInfo.initArraysIds(context,attrs);
     }
 
