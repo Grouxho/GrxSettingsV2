@@ -402,8 +402,9 @@ public class GrxPreferenceScreen extends PreferenceFragment implements
      //   Log.d("grxgrx", " on preferencechange " + pref.getClass().getSimpleName() );
 
         String prefKey = pref.getKey();
-        if(TextUtils.isEmpty(prefKey)) return true;
-        if(mKeysInGroupedValues.containsKey(prefKey)) return true;
+        if(!TextUtils.isEmpty(prefKey)) {
+            if(mKeysInGroupedValues.containsKey(prefKey)) return true;
+        }
 
         switch (pref.getClass().getSimpleName()) {
             case "GrxSwitchPreference":
